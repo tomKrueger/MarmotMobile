@@ -1,7 +1,14 @@
-﻿body
+ul
 {
-    margin-left: 4px;
-    margin-right: 4px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+body
+{
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .ui-footer
@@ -17,4 +24,74 @@
 #map_canvas
 {
     text-align:center;
+}
+
+/**
+* Carousel with image and text, custom skinned scrollbar
+**/
+#carousel-image-and-text {
+    width: 940px;
+    height: 127px;
+    margin: 0 auto;	
+}	
+#carousel-image-and-text .arrow-holder {
+    height: 125px;
+}		
+#carousel-image-and-text .touchcarousel-item {
+    margin-right: 1px;	
+    width: 125px;
+    height: 125px;		
+}
+#carousel-image-and-text .item-block {
+    width: 125px;
+    height: 125px;
+    display: block;
+}
+#carousel-image-and-text .item-block img,
+#carousel-image-and-text .item-block h4, 
+#carousel-image-and-text .item-block p {
+    float: left;
+    position: relative;
+    display: block;
+    margin: 0;			
+}
+#carousel-image-and-text .item-block img {
+    width: 125px;
+    height: 125px;		
+    border: 0;
+    padding: 0;		
+}
+#carousel-image-and-text .item-block {			
+    text-decoration: none;
+    color: inherit;			
+}					
+#carousel-image-and-text .item-block h4 {
+    font: bold 13px/20px Helvetica, Arial, sans-serif;
+    color: #000;
+    width: 125px;
+    height: auto;		
+    padding: 2px 0 0 6px;
+    -webkit-transition: color 0.2s ease-out; 
+    -moz-transition: color 0.2s ease-out;
+    transition: color 0.2s ease-out;  	
+}
+#carousel-image-and-text .item-block:hover h4 {	
+    color: #1873c9;		
+}
+#carousel-image-and-text .item-block p {			
+    font: normal 13px/20px Helvetica, Arial, sans-serif;
+    color: #555;		
+    width: 125px;
+    padding: 0 0 0 6px;
+}
+#carousel-image-and-text .scrollbar-holder {
+    background: #CED7DB;
+    bottom: 0;
+    height: 1px;
+    left: 0;
+    right: 0;
+}
+#carousel-image-and-text .scrollbar {
+    background-color: #45a8ce !important;
+    bottom: 0;
 }
