@@ -9,6 +9,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // PhoneGap is ready
 function onDeviceReady() {
     
+    app.logger.traceStart("onDeviceReady");
     
     $("#carousel-image-and-text").touchCarousel({					
         pagingNav: false,
@@ -24,11 +25,7 @@ function onDeviceReady() {
         dragUsingMouse:true
     });
     
-    getLocation();
-    
-    //showAlert("message", "title");
-    
-    ko.applyBindings(new app.HomeViewModel());
+    app.logger.traceEnd("onDeviceReady");
 }
 
 function getLocation() {

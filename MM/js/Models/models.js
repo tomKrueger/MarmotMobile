@@ -1,10 +1,21 @@
 app.Models = app.Models || {};
 
-app.Models.Community = (function() {
+app.Models.Community = function() {
 	'use strict';
 
-    var self = this;
-    
+    var name = ko.observable(),
+        imageUrl = ko.observable();   
     
        
-}); /* End Model */
+}; /* End Model */
+
+
+app.Models.Offer = function() {
+	'use strict';
+
+    var name = ko.observable(),
+        imageUrl = ko.observable(),
+        distance = ko.observable();   
+    
+       
+}; /* End Model */

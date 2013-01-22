@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Chunkfive;
+	src: url('fonts/Chunkfive.otf');
+}
+
 ul
 {
     margin: 0;
@@ -94,4 +99,64 @@ body
 #carousel-image-and-text .scrollbar {
     background-color: #45a8ce !important;
     bottom: 0;
+}
+
+/* http://designshack.net/tutorials/introduction-to-css3-part-2-borders */
+.mm-section0 {
+   margin-top:10px;
+   box-shadow: 30px 30px 40px rgba(0,0,0,.1); 
+}
+.mm-section1 {
+    background-image: -webkit-linear-gradient(300deg, white, black, white); /* webkit browsers (Chrome & Safari) */
+    background-image: -moz-linear-gradient(300deg, white, black, white); /* Mozilla browsers (Firefox) */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', gradientType='1'); /* Internet Explorer */
+    background-image: -o-linear-gradient(300deg,rgb(255,255,255),rgb(0,0,0) 50%,rgb(255,255,255) 100%); /* Opera */
+}
+
+.mm-section1 > div { background: #fff; }
+
+.mm-section {
+    position: relative;    
+}
+.mm-section .icon {
+    width: 30px;
+    height: 30px;
+    
+    position: absolute;
+    top: 2px;
+    right: 2px;    
+}
+
+#socialSection {
+    background-color: black;
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.ui-content {
+    padding: 3px;
+}
+
+.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button {
+    font-family: Chunkfive;
+}
+
+#offersSection .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li
+{
+    padding: 1px;
+}
+
+#offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit {
+
+    
+    padding-left: 65px;    
+}
+
+
+#offersSection .ui-li-icon {
+    left: 13px;
+    max-width: 45px;
+    max-height: 37px;
+    
+    top: 0px;
 }

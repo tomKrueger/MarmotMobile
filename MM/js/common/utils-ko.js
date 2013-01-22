@@ -1,18 +1,3 @@
-'use strict';
-
-//
-// Show native alert box when running on device otherwise fall back to 
-// default browser alerts.
-//
-function showAlert(message, title) {
-    if (navigator.notification) {
-        navigator.notification.alert(message, null, title, 'OK');
-    } else {
-        alert(title ? (title + ": " + message) : message);
-    }
-}
-
-
 //
 // Global knockoutJs
 //
