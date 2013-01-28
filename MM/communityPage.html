@@ -1,0 +1,58 @@
+
+<div data-role="page" id="communityPage" data-add-back-btn="true">
+    <div data-role="header">
+        <a href="" data-transition="slide" data-icon="back"></a> 
+        <h1>Delafield</h1>
+        <a href="" data-transition="slide" data-icon="grid" data-iconpos="notext"></a> 
+    </div>
+    <div data-role="content">
+        <div id="carousel-image-and-text" class="touchcarousel black-and-white">           
+            <ul class="touchcarousel-container" data-bind="template: { name: 'carouselItemTemplate', foreach: communities }">
+            </ul>
+            
+            <script type="text/html" id="carouselItemTemplate">
+                <li class="touchcarousel-item">
+                    <a class="item-block" href="communityPage.html">
+                        <img data-bind="attr: {src: imageUrl}" />
+                        <h4 data-bind="text: name"></h4>
+                    </a>
+                </li>
+            </script>
+        </div>
+        
+        <div id="homeMiddle" class="ui-grid-a">
+            <div class="ui-block-a">
+                <div id="mapSection" class="mm-section">
+                    <img class="icon" src="" />
+                    <a href="mapPage.html">
+                        <img src="http://maps.googleapis.com/maps/api/staticmap?center=Delafield,WI&zoom=13&size=150x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284&sensor=false" />    
+                    </a>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div id="socialSection" class="mm-section">
+                    <img class="icon" src="" />
+                </div>                        
+            </div>
+        </div>
+        <div id="offersSection">
+            
+            <ul data-role="listview" data-bind="template: { name: 'offerItemTemplate', foreach: offers }">
+            </ul>
+            
+            <script type="text/html" id="offerItemTemplate">
+                <li>
+                    <a href="offerPage.html">
+                        <img data-bind="attr: {src: imageUrl}" class="ui-li-icon"/>
+                        <span data-bind="text: name"></span>
+                        <p>Offer Expires In 5 Days</p>
+                        <span data-bind="text: distance" class="ui-li-count"></span>
+                    </a>
+                </li>
+            </script>
+        </div>
+        
+    </div>
+    <div data-role="footer" data-position="fixed"  data-id="oneFooter">
+    </div>
+</div>

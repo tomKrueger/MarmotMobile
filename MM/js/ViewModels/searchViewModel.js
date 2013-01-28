@@ -1,14 +1,10 @@
+'use strict';
 
 var app = app || {};
 
-//(function() {
-	'use strict';
-
-	app.SearchViewModel = function() {
-		           
-        return {
-            
-        };
+app.SearchViewModel = function() {
+	           
+    return {
+        
     };
-    
-//}());
+};

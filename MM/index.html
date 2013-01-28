@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>Hello, World</title>
+        <title>Marmot Mobile</title>
         <link href="jquery-mobile/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="styles/touchcarousel/touchcarousel.css" />
         <link rel="stylesheet" type="text/css" href="styles/touchcarousel/black-and-white-skin.css" />
@@ -22,7 +22,7 @@
         <div data-role="page" id="homePage" data-theme="b">
             <div data-role="header">
                 <a href="searchPage.html" data-icon="search" data-iconpos="notext"></a>
-                <h1>marmot</h1>
+                <h1>marmot2</h1>
                 <a href="" data-transition="slide" data-icon="grid" data-iconpos="notext"></a>                
             </div>
             <div data-role="content">
@@ -35,7 +35,7 @@
                     
                     <script type="text/html" id="carouselItemTemplate">
                         <li class="touchcarousel-item">
-                            <a class="item-block" href="#">
+                            <a class="item-block" href="communityPage.html">
                                 <img data-bind="attr: {src: imageUrl}" />
                                 <h4 data-bind="text: name"></h4>
                             </a>
@@ -47,7 +47,9 @@
                     <div class="ui-block-a">
                         <div id="mapSection" class="mm-section">
                             <img class="icon" src="" />
-                            <img src="http://maps.googleapis.com/maps/api/staticmap?center=Delafield,WI&zoom=13&size=150x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284&sensor=false" />    
+                            <a href="mapPage.html">
+                                <img src="http://maps.googleapis.com/maps/api/staticmap?center=Delafield,WI&zoom=13&size=150x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284&sensor=false" />    
+                            </a>
                         </div>                        
                     </div>
                     <div class="ui-block-b">
