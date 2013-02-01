@@ -16,6 +16,20 @@ body
     margin-right: 2px;
 }
 
+.ui-header .ui-title {
+min-height: 1.1em;
+text-align: center;
+font-size: 30px;
+display: block;
+margin: .1em 10% .1em;
+padding: 0;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+outline: 0!important;
+font-weight:normal;
+}
+
 .ui-footer
 {
     text-align: center;    
