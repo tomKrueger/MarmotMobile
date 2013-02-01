@@ -24,16 +24,17 @@ body
 min-height: 1.1em;
 text-align: center;
 font-size: 30px;
-display: block;
 margin: .1em 10% .1em;
 white-space: nowrap;
 outline: 0!important;
 font-weight:normal;
--webkit-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
-width: 100%;
-float: left;
 background: #ffffff;
+}
+
+.ui-header 
+{
+    -webkit-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
+box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
 }
 
 .ui-footer
