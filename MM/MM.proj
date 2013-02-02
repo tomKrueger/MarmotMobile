@@ -88,8 +88,11 @@
     <Content Include="js\ViewModels\homeViewModel.js" />
     <Content Include="js\ViewModels\viewModels.js" />
     <Content Include="searchPage.html" />
+    <Content Include="styles\CustomIcons\custom-back.png" />
+    <Content Include="styles\CustomIcons\map-icon.png" />
     <Content Include="styles\fonts\Chunkfive.otf" />
     <Content Include="styles\fonts\Oswald-Light.otf" />
+    <Content Include="styles\CustomIcons\social-icon.png" />
     <Content Include="styles\touchcarousel\black-and-white-skin.css" />
     <Content Include="styles\main.css" />
     <Content Include="cordova.ios.js">
