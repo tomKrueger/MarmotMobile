@@ -3,6 +3,11 @@
 	src: url('fonts/Chunkfive.otf');
 }
 
+@font-face {
+    font-family:Oswald-Light;
+    src: url('fonts/Oswald-Light.otf');
+}
+
 ul
 {
     margin: 0;
@@ -17,25 +22,28 @@ body
 }
 
 .ui-page
-{background: #83eae7;
+{
+    background: #83eae7;
 }
 
-.ui-header .ui-title {
-min-height: 1.1em;
-text-align: center;
-font-size: 30px;
-margin: .1em 10% .1em;
-white-space: nowrap;
-outline: 0!important;
-font-weight:normal;
-background: #ffffff;
+.ui-header .ui-title 
+{
+    min-height: 1.1em;
+    text-align: center;
+    font-size: 30px;
+    margin: .1em 10% .1em;
+    white-space: nowrap;
+    outline: 0!important;
+    font-weight:normal;
+    background: #ffffff;
 }
 
 .ui-header 
 {
     -webkit-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
 }
+       
 
 .ui-footer
 {
@@ -159,7 +167,7 @@ box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
 }
 
 .ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button {
-    font-family: Arial, Helvetica, DroidSans;
+    font-family: Oswald-Light, Arial, Helvetica;
 }
 
 #offersSection .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li
