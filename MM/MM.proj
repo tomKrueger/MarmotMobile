@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="communityPage.html" />
+    <Content Include="socialPage.html" />
     <Content Include="jquery-mobile\themes\images\ajax-loader.gif" />
     <Content Include="jquery-mobile\themes\images\icons-18-black.png" />
     <Content Include="jquery-mobile\themes\images\icons-18-white.png" />
