@@ -144,7 +144,8 @@ body
 .mm-section1 > div { background: #fff; }
 
 .mm-section {
-    position: relative;    
+    position: relative; 
+    box-shadow: 0 0 5px #888;
 }
 .mm-section .icon {
     width: 30px;
