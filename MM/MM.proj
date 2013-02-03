@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="communityPage.html" />
+    <Content Include="signin.html" />
+    <Content Include="js\signin.js" />
     <Content Include="socialPage.html" />
     <Content Include="jquery-mobile\themes\images\ajax-loader.gif" />
     <Content Include="jquery-mobile\themes\images\icons-18-black.png" />
@@ -95,6 +97,7 @@
     <Content Include="styles\fonts\Oswald-Light.otf" />
     <Content Include="styles\CustomIcons\social-icon.png" />
     <Content Include="styles\preload_gif\ajax-loader.gif" />
+    <Content Include="styles\signin.css" />
     <Content Include="styles\touchcarousel\black-and-white-skin.css" />
     <Content Include="styles\main.css" />
     <Content Include="cordova.ios.js">
