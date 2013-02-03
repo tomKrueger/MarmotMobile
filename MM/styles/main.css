@@ -48,6 +48,8 @@ body
 {
     text-align: center; 
     font-weight: normal;
+    height: 30px;
+    font-size: 20px;
 }
 
 .err
