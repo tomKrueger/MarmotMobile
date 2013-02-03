@@ -23,7 +23,7 @@ body
 
 .ui-page
 {
-    background: #83eae7;
+    background-image:url('images/10.jpg');
 }
 
 .ui-header .ui-title 
@@ -46,7 +46,8 @@ body
 
 .ui-footer
 {
-    text-align: center;    
+    text-align: center; 
+    font-weight: normal;
 }
 
 .err
