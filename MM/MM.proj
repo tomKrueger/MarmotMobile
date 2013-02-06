@@ -36,6 +36,7 @@
     <Folder Include="jquery-mobile\themes\images" />
     <Folder Include="js\common" />
     <Folder Include="styles\fonts" />
+    <Folder Include="styles\images" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\iOS\icon.png" />
@@ -99,7 +100,6 @@
     <Content Include="styles\fonts\Chunkfive.otf" />
     <Content Include="styles\fonts\Oswald-Light.otf" />
     <Content Include="styles\CustomIcons\social-icon.png" />
-    <Content Include="styles\images\10.jpg" />
     <Content Include="styles\preload_gif\ajax-loader.gif" />
     <Content Include="styles\signin.css" />
     <Content Include="styles\touchcarousel\black-and-white-skin.css" />

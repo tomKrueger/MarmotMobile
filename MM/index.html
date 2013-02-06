@@ -37,7 +37,7 @@
                     
                     <script type="text/html" id="carouselItemTemplate">
                         <li class="touchcarousel-item">
-                            <a class="item-block" href="communityPage.html">
+                            <a class="item-block" href="communityPage.html" data-transition="pop">
                                 <img data-bind="attr: {src: imageUrl}" />
                                 <h4 data-bind="text: name"></h4>
                             </a>
@@ -48,7 +48,7 @@
                 <div id="homeMiddle" class="ui-grid-a">
                     <div class="ui-block-a">
                         <div id="mapSection" class="mm-section">
-                            <a href="mapPage.html">
+                            <a href="mapPage.html" data-transition="flip">
                                 <img class="icon" src="styles/CustomIcons/map-icon.png" />
                                 <img data-bind="attr: {src: mapUrl}" />    
                             </a>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="ui-block-b">
                         <div id="socialSection" class="mm-section">
-                            <a href="socialPage.html">
+                            <a href="socialPage.html" data-transition="flip">
                                 <img class="icon" src="styles/CustomIcons/social-icon.png" />
                             </a>
                         </div>                        
@@ -80,7 +80,7 @@
                 </div>
                 <div data-role="footer" data-position="fixed" data-id="oneFooter">
                 <span class="footerText">Create A Postcard</span>
-                    <a href='signin.html' class='ui-btn-right' data-icon='edit' />
+                    <a href='signin.html' class='ui-btn-right' data-icon='edit' data-iconpos='right' data-transition="slideup" />
             </div>
                 
             </div>
