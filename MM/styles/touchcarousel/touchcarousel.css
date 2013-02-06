@@ -59,7 +59,8 @@
 	/* use margin-right for spacing between items */
 	margin: 0 0 0 0;
 	padding: 0;	
-	float: left;		
+	float: left;
+    z-index: -1;
 }
 
 /* Last carousel item  */
@@ -143,7 +144,7 @@
 	cursor:pointer;		
 	position:relative;
 	display:block;	
-	text-indent: -9999px;	
+	text-indent: 227px;	
 }
 .touchcarousel .tc-paging-item.current { }
 .touchcarousel .tc-paging-item:hover { }

@@ -67,7 +67,7 @@ body
 **/
 #carousel-image-and-text {
     width: 940px;
-    height: 127px;
+    height: 150px;
     margin: 0 auto;	
 }	
 #carousel-image-and-text .arrow-holder {
@@ -76,7 +76,8 @@ body
 #carousel-image-and-text .touchcarousel-item {
     margin-right: 1px;	
     width: 125px;
-    height: 125px;		
+    height: 125px;	
+    z-index: -1;
 }
 #carousel-image-and-text .item-block {
     width: 125px;
