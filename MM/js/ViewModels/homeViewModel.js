@@ -5,7 +5,8 @@ var app = app || {};
 
 app.HomeViewModel = function() {
     var nearByCommunities = ko.observableArray(),
-        nearByOffers = ko.observableArray();
+        nearByOffers = ko.observableArray(),
+        mapUrl = ko.observable();
     
     // Behaviours.
     var load = function(zipCode) {
@@ -23,9 +24,7 @@ app.HomeViewModel = function() {
                     
                     nearByCommunities.push(model); 
                     
-                });
-                                       
-                          
+                });           
             });
         
         app.Services.Offer.getNearByOffers(
@@ -45,11 +44,18 @@ app.HomeViewModel = function() {
                 
                 $("#offersSection ul").listview("refresh");
             });
+        
+        app.Services.Map.getStaticMapUrlByZipcode(
+            zipCode,
+            function(url) {
+                mapUrl(url);
+            });
     };       
     
     return {
         communities: nearByCommunities,
         offers: nearByOffers,
+        mapUrl: mapUrl,
         load: load  
     };    
 };
