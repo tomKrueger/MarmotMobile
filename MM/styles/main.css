@@ -8,6 +8,11 @@
     src: url('fonts/Oswald-Light.otf');
 }
 
+@font-face {
+    font-family:Oswald-Bold;
+    src: url('fonts/Oswald-Bold.ttf');
+}
+
 ul
 {
     margin: 0;
@@ -89,7 +94,7 @@ white-space: nowrap;
 .offerName
     {
         font-size: 18px;
-        font-family:Oswald-Light;
+        font-family:Oswald-Bold;
         padding-top: 5px;
     }
 
