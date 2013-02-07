@@ -48,7 +48,11 @@ body
 
 .ui-icon-mybutton
 {
-    background-image: url('CustomIcons/back-icon.png') !important;
+    background-image: url('CustomIcons/search.png') !important;
+    margin: 0px;
+    padding-bottom: 60px;
+    padding-right: 60px;
+    float: left;
 }
     
 
@@ -69,18 +73,37 @@ body
         width: 40%;
 }
 
+/* offer-section*/
 
 .ui-li-desc 
 {
 font-size: 12px;
 font-weight: normal;
 display: block;
-margin: .3em 0 .6em;
+margin: -.6em 0 .6em;
 text-overflow: ellipsis;
 overflow: hidden;
 white-space: nowrap;
 }
 
+.offerName
+    {
+        font-size: 18px;
+        font-family:Oswald-Light;
+        padding-top: 5px;
+    }
+
+.offerDesc
+{
+    font-size: 15px;
+    font-family: Oswald-Light;
+}
+
+.offerExp
+{
+    font-size: 10px;
+    font-family: Oswald-Light;
+}
 .ui-footer
 {
     text-align: center; 
