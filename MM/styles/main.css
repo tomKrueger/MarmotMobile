@@ -38,13 +38,19 @@ body
     background: #ffffff;
 }
 
-
-
-.my-button
+.ui-icon
 {
-    background-image: url('styles/CustomIcons/back-icon.png') !important;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0px;
+    z-index: 2;
+}
+
+.ui-icon-mybutton
+{
+    background-image: url('CustomIcons/back-icon.png') !important;
+}
     
-    }
 
     
 .ui-header 
@@ -59,12 +65,13 @@ body
     }
     
 .ui-grid-a .ui-block-b
-    {
+{
         width: 40%;
 }
 
 
-.ui-li-desc {
+.ui-li-desc 
+{
 font-size: 12px;
 font-weight: normal;
 display: block;
