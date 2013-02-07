@@ -39,6 +39,14 @@ body
 }
 
 
+
+.my-button
+{
+    background-image: url('styles/CustomIcons/back-icon.png') !important;
+    
+    }
+
+    
 .ui-header 
 {
     -webkit-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
@@ -53,6 +61,17 @@ body
 .ui-grid-a .ui-block-b
     {
         width: 40%;
+}
+
+
+.ui-li-desc {
+font-size: 12px;
+font-weight: normal;
+display: block;
+margin: .3em 0 .6em;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
 }
 
 .ui-footer
