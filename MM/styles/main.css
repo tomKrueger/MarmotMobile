@@ -13,6 +13,11 @@
     src: url('fonts/Oswald-Bold.ttf');
 }
 
+@font-face {
+    font-family:Oswald-Regular;
+    src: url('fonts/Oswald-Regular.ttf');
+}
+
 ul
 {
     margin: 0;
@@ -43,23 +48,42 @@ body
     background: #ffffff;
 }
 
-.ui-icon
-{
-    background: transparent;
-    box-shadow: none;
-    border-radius: 0px;
-    z-index: 2;
-}
+.ui-btn-inner {
+        color: #222;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+           text-shadow: none !important;
+        }
 
-.ui-icon-mybutton
+       
+.ui-btn-inner .ui-icon {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            }
+
+
+
+.ui-icon-mysearch
 {
     background-image: url('CustomIcons/search.png') !important;
+    background-repeat: no-repeat;
     margin: 0px;
     padding-bottom: 60px;
     padding-right: 60px;
     float: left;
 }
-    
+  
+.ui-icon-mymenu
+{
+    background-image: url('CustomIcons/menu.png') !important;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding-bottom: 60px;
+    padding-right: 60px;
+    float: left;
+}
 
     
 .ui-header 
@@ -85,7 +109,7 @@ body
 font-size: 12px;
 font-weight: normal;
 display: block;
-margin: -.6em 0 .6em;
+margin: -.5em 0 .3;
 text-overflow: ellipsis;
 overflow: hidden;
 white-space: nowrap;
@@ -101,7 +125,7 @@ white-space: nowrap;
 .offerDesc
 {
     font-size: 15px;
-    font-family: Oswald-Light;
+    font-family: Oswald-Regular;
 }
 
 .offerExp
@@ -109,6 +133,14 @@ white-space: nowrap;
     font-size: 10px;
     font-family: Oswald-Light;
 }
+
+.ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon {
+position: absolute;
+top: 50%;
+margin-top: -9px;
+background-color: #7ea5ad;
+}
+
 .ui-footer
 {
     text-align: center; 
@@ -250,11 +282,16 @@ white-space: nowrap;
     padding-left: 65px;    
 }
 
+#offersSection .ui-li-count{
+    font-family: Oswald-Light;
+    font-weight: normal;
+}
 
 #offersSection .ui-li-icon {
     left: 13px;
-    max-width: 45px;
-    max-height: 37px;
-    
+    max-width: 50px;
+    max-height: 50px;
     top: 0px;
+    padding-right: 2px
+        
 }

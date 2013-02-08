@@ -103,6 +103,7 @@
     <Content Include="styles\fonts\Oswald-Bold.ttf" />
     <Content Include="styles\fonts\Oswald-Light.otf" />
     <Content Include="styles\CustomIcons\social-icon.png" />
+    <Content Include="styles\fonts\Oswald-Regular.ttf" />
     <Content Include="styles\preload_gif\ajax-loader.gif" />
     <Content Include="styles\signin.css" />
     <Content Include="styles\touchcarousel\black-and-white-skin.css" />
