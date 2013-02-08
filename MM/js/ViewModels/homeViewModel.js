@@ -6,8 +6,11 @@ app.HomeViewModel = function() {
         mapUrl = ko.observable();
     
     // Behaviours.
-    var load = function(zipCode) {
-        
+    var load = function() {
+           
+        // TODO: Remove this refresh as the geoManager will do it.
+        // It is only here until we figure out how to get touchCarousel to be wired up without any items.
+        // It likely could get put into the refresh but that is tightly coupling to the UI so don't really want to do that.
         refresh();
         
         $("#carousel-image-and-text").touchCarousel({					
@@ -23,6 +26,9 @@ app.HomeViewModel = function() {
             directionNavAutoHide:false,   // Direction (arrow) navigation auto hide on hover. 
             dragUsingMouse:true
         });
+        
+        app.geoManager.subscribeRefresh(refresh);  
+        app.geoManager.refresh();
     };
     
     var refresh = function(position) {

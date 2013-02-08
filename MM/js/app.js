@@ -11,6 +11,10 @@ function onDeviceReady() {
     
     app.logger.traceStart("onDeviceReady");
     
+    app.geoManager = new utils.GeoManager();
+    
+    pgReady.resolve();
+    
     app.logger.traceEnd("onDeviceReady");
 }
 
