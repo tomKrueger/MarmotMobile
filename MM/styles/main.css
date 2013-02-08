@@ -114,7 +114,7 @@ body
 font-size: 12px;
 font-weight: normal;
 display: block;
-margin: -.5em 0 .3;
+margin: 0 0 0;
 text-overflow: ellipsis;
 overflow: hidden;
 white-space: nowrap;
@@ -124,19 +124,22 @@ white-space: nowrap;
     {
         font-size: 18px;
         font-family:Oswald-Bold;
-        padding-top: 5px;
+        color: #67696d;
+        padding-top: 0;
     }
 
 .offerDesc
 {
     font-size: 15px;
     font-family: Oswald-Regular;
+    color: #c9c9ca;
 }
 
 .offerExp
 {
     font-size: 10px;
     font-family: Oswald-Light;
+    color: #667584;
 }
 
 .ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon {
