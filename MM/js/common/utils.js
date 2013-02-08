@@ -1,4 +1,5 @@
 var app = app || {};
+var utils = utils || {};
 
 //
 // Show native alert box when running on device otherwise fall back to 
@@ -28,12 +29,60 @@ function equalHeight(group) {
 }
 
 //
+// Observer Pattern Object
+//
+// Example Usage:
+//    var fn = function(data) {};
+//
+//    var o = new utils.Observer;
+//    o.subscribe(fn);
+//    o.fire('here is my data');
+//    o.unsubscribe(fn);
+//
+(function () {
+    'use strict';
+    
+    utils.Observer = function() {
+        this.fns = [];
+    }
+    
+    utils.Observer.prototype = {
+        subscribe : function(fn) {
+            this.fns.push(fn);
+        },
+    
+        unsubscribe : function(fn) {
+            this.fns = this.fns.filter(
+                function(el) {
+                    if ( el !== fn ) {
+                        return el;
+                    }
+                }
+            );
+        },
+    
+        fire : function(o, thisObj) {
+            var scope = thisObj || window;
+            this.fns.forEach(
+                function(el) {
+                    el.call(scope, o);
+                }
+            );
+        }
+    };
+}());    
+    
+
+//
 // Logger is a wrapper around console object. To allow for turning logging on and off based on the log level.
 //
-// Services are implemented using the Module Revealing Pattern.
-// They are essentially static and don't get instantiated using 'new'.
+// Logger is implemented using the Module Revealing Pattern.
+// It is essentially static and doesn't get instantiated using 'new'.
 // Example Usage:
-//    var nearbyCommunities = app.Services.Community.getNearByCommunities(zipCode);
+//    app.logger.setLogLevel(app.logger.logLevelType.Trace);
+//
+//    app.logger.traceStart("pageInit-homePage");
+//    app.logger.traceEnd("pageInit-homePage");
 //
 (function () {
     'use strict';
@@ -120,4 +169,69 @@ function equalHeight(group) {
 
     }());
 }());
-    
+
+//
+// GeoManager is a wrapper around geo location utils  is a wrapper around console object. To allow for turning logging on and off based on the log level.
+//
+// Example Usage:
+//    var geoManager = new utils.GeoManager();
+//    var fn = function(position) { alert (position.coords.latitude); }
+//    geoManager.subscribeRefresh(fn);
+//    geoManager.refresh();
+//
+//    -- After refresh has completed getCurrentPosition will have the value.
+//    -- it is better to rely on subscribeRefresh.
+//    alert(geoManager.getCurrentPosition());
+//    geoManager.unsubscribeRefresh(fn);
+//
+(function () {
+    'use strict';
+
+    utils.GeoManager = function () {
+        
+        var _currentPosition;
+        var _currentPositionObserver = new utils.Observer;
+        
+        var startAutoRefresh = function () {            
+        };
+        
+        var stopAutoRefresh = function () {            
+        };
+        
+        var refresh = function () {
+            navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);         
+        };
+
+        var subscribe = function(fn) {
+            _currentPositionObserver.subscribe(fn);    
+        };
+        
+        var unsubscribe = function(fn) {
+            _currentPositionObserver.unsubscribe(fn);    
+        };
+        
+        var getCurrentPosition = function () {
+            return _currentPosition;
+        };
+        
+        function onGeolocationSuccess(position) {
+            _currentPosition = position;
+            _currentPositionObserver.fire(_currentPosition);
+            
+        };
+        
+        function onGeolocationError(error) {
+            app.logger.error(error.message);
+        };
+        
+        return {
+            getCurrentPosition: getCurrentPosition,
+            startAutoRefresh: startAutoRefresh,
+            stopAutoRefresh: stopAutoRefresh,
+            refresh: refresh,
+            subscribeRefresh: subscribe,
+            unsubscribeRefresh: unsubscribe
+        };
+
+    };
+}());    

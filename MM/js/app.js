@@ -11,19 +11,9 @@ function onDeviceReady() {
     
     app.logger.traceStart("onDeviceReady");
     
-    $("#carousel-image-and-text").touchCarousel({					
-        pagingNav: false,
-        scrollbarAutoHide: true,
-        snapToItems: false,
-        itemsPerMove: 2,				
-        scrollToLast: true,
-        loopItems: false,
-        scrollbar: false,
-        useWebkit3d: true,
-        directionNav:true,            // Direction (arrow) navigation (true or false).
-        directionNavAutoHide:false,   // Direction (arrow) navigation auto hide on hover. 
-        dragUsingMouse:true
-    });
+    app.geoManager = new utils.GeoManager();
+    
+    pgReady.resolve();
     
     app.logger.traceEnd("onDeviceReady");
 }

@@ -73,7 +73,7 @@ app.Services = app.Services || {};
 
         var getStaticMapUrlByZipcode = function(zipCode, successCallback) {
             
-            var url = "http://maps.googleapis.com/maps/api/staticmap?center=Delafield,WI&zoom=13&size=150x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284&sensor=false";            
+            var url = "http://maps.googleapis.com/maps/api/staticmap?center=Delafield,WI&zoom=13&size=200x200&maptype=roadmap&markers=color:blue%7Clabel:1%7C43.059911,-88.403900&markers=color:green%7Clabel:3%7C43.069911,-88.407900&markers=color:red%7Ccolor:red%7Clabel:2%7C43.057911,-88.400900&sensor=false";            
             
             successCallback(url);
         };
