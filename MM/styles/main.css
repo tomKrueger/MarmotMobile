@@ -92,6 +92,11 @@ body
     box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
 }
     
+.nearBy
+{
+    font-family: Oswald-Bold;
+}
+    
 .ui-grid-a .ui-block-a
 {
         width: 60%;
