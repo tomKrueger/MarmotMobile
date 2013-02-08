@@ -42,4 +42,6 @@ app.mobileInit = function () {
         }
         app.logger.traceEnd("pageInit-searchPage");
     });
+    
+    app.logger.traceEnd("app.mobileInit");
 };
