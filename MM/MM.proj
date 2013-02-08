@@ -95,8 +95,10 @@
     <Content Include="js\ViewModels\homeViewModel.js" />
     <Content Include="js\ViewModels\viewModels.js" />
     <Content Include="searchPage.html" />
-    <Content Include="styles\CustomIcons\custom-back.png" />
+    <Content Include="styles\CustomIcons\back-icon.png" />
     <Content Include="styles\CustomIcons\map-icon.png" />
+    <Content Include="styles\CustomIcons\menu.png" />
+    <Content Include="styles\CustomIcons\search.png" />
     <Content Include="styles\fonts\Chunkfive.otf" />
     <Content Include="styles\fonts\Oswald-Light.otf" />
     <Content Include="styles\CustomIcons\social-icon.png" />

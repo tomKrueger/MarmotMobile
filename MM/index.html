@@ -23,7 +23,7 @@
         
         <div data-role="page" id="homePage" data-theme="b">
             <div data-role="header" data-position="fixed">
-                <a href="searchPage.html" data-icon="search" data-iconpos="notext"></a>
+                <a href="searchPage.html" data-icon="mybutton" data-iconpos="notext" data-corners="false"></a>
                 <h1>Marmot</h1>
                 <a href="" data-transition="slide" data-icon="grid" data-iconpos="notext"></a>                
             </div>
@@ -71,8 +71,9 @@
                         <li>
                             <a href="offerPage.html">
                                 <img data-bind="attr: {src: imageUrl}" class="ui-li-icon"/>
-                                <span data-bind="text: name"></span>
-                                <p>Offer Expires In 5 Days</p>
+                                <p class="offerName">Caribou<p>
+                                <span class="offerDesc"data-bind="text: name"></span>
+                                <p class="offerExp">Offer Expires In 5 Days</p>
                                 <span data-bind="text: distance" class="ui-li-count"></span>
                             </a>
                         </li>
