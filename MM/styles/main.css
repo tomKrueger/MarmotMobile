@@ -97,12 +97,12 @@ body
     font-family: Oswald-Bold;
 }
     
-.ui-grid-a .ui-block-a
+#homeMiddle.ui-grid-a .ui-block-a
 {
         width: 60%;
     }
     
-.ui-grid-a .ui-block-b
+#homeMiddle.ui-grid-a .ui-block-b
 {
         width: 40%;
 }
