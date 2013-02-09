@@ -68,6 +68,10 @@ function equalHeight(group) {
                     el.call(scope, o);
                 }
             );
+        },
+        
+        subscriberCount : function() {
+            return this.fns.length;
         }
     };
 }());    
@@ -191,11 +195,15 @@ function equalHeight(group) {
         
         var _currentPosition;
         var _currentPositionObserver = new utils.Observer;
+        var _timeout;
         
-        var startAutoRefresh = function () {            
+        var startAutoRefresh = function (interval) {
+            stopAutoRefresh();
+            _timeout = setInterval(refresh, interval);
         };
         
-        var stopAutoRefresh = function () {            
+        var stopAutoRefresh = function () {
+            clearInterval(_timeout);
         };
         
         var refresh = function () {
@@ -207,7 +215,14 @@ function equalHeight(group) {
         };
         
         var unsubscribe = function(fn) {
-            _currentPositionObserver.unsubscribe(fn);    
+            _currentPositionObserver.unsubscribe(fn);
+            
+            // Stop refreshing if there are not any subscribers.
+            // NOTE: Commented out because it may not be the right choice to stopAutoRefresh.  Waiting
+            // to comment back in until there is a need.
+            //if (_currentPositionObserver.subscriberCount === 0) {
+            //    stopAutoRefresh();
+            //}
         };
         
         var getCurrentPosition = function () {
