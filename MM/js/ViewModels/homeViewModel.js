@@ -7,26 +7,6 @@ app.HomeViewModel = function() {
     
     // Behaviours.
     var load = function() {
-           
-        // TODO: Remove this refresh as the geoManager will do it.
-        // It is only here until we figure out how to get touchCarousel to be wired up without any items.
-        // It likely could get put into the refresh but that is tightly coupling to the UI so don't really want to do that.
-        refresh();
-        
-        $("#carousel-image-and-text").touchCarousel({					
-            pagingNav: false,
-            scrollbarAutoHide: true,
-            snapToItems: false,
-            itemsPerMove: 2,				
-            scrollToLast: true,
-            loopItems: false,
-            scrollbar: false,
-            useWebkit3d: true,
-            directionNav:true,            // Direction (arrow) navigation (true or false).
-            directionNavAutoHide:false,   // Direction (arrow) navigation auto hide on hover. 
-            dragUsingMouse:true
-        });
-        
         app.geoManager.subscribeRefresh(refresh);  
         app.geoManager.refresh();
     };
@@ -46,9 +26,11 @@ app.HomeViewModel = function() {
                     model.name = communityDto.name;
                     model.imageUrl = communityDto.imageUrl;
                     
-                    nearByCommunities.push(model); 
+                    nearByCommunities.push(model);
                     
-                });           
+                });
+                
+                loadCarousel();
             });
         
         app.Services.Offer.getNearByOffers(
@@ -77,6 +59,25 @@ app.HomeViewModel = function() {
         
         app.logger.traceEnd("HomeViewModel-refresh()");
     };       
+    
+    function loadCarousel()
+    {
+        if (nearByCommunities().length === 0) return;
+        
+        $("#carousel-image-and-text").touchCarousel({					
+            pagingNav: false,
+            scrollbarAutoHide: true,
+            snapToItems: false,
+            itemsPerMove: 2,				
+            scrollToLast: true,
+            loopItems: false,
+            scrollbar: false,
+            useWebkit3d: true,
+            directionNav:true,            // Direction (arrow) navigation (true or false).
+            directionNavAutoHide:false,   // Direction (arrow) navigation auto hide on hover. 
+            dragUsingMouse:true
+        });
+    };
     
     return {
         communities: nearByCommunities,
