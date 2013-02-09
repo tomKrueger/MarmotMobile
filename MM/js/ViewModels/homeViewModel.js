@@ -7,8 +7,9 @@ app.HomeViewModel = function() {
     
     // Behaviours.
     var load = function() {
-        app.geoManager.subscribeRefresh(refresh);  
+        app.geoManager.subscribeRefresh(refresh);
         app.geoManager.refresh();
+        app.geoManager.startAutoRefresh(2 * 60 * 1000);
     };
     
     var refresh = function(position) {
