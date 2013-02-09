@@ -14,6 +14,8 @@ app.Services = app.Services || {};
 
     app.Services.Community = (function () {
         
+        var _tempSwitchFlag = true;
+        
         //
         // Retrieves community.
         //
@@ -25,7 +27,9 @@ app.Services = app.Services || {};
 
             var communities;
             
-            if (position.coords.latitude > 88) {            
+            //_tempSwitchFlag = !swi_tempSwitchFlagtchFlag;
+            //if (_tempSwitchFlag) {
+            if (position.coords.latitude > 88) {
                 communities = [
                     { name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
                     { name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" },
