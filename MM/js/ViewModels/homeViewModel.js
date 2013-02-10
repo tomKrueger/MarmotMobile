@@ -101,13 +101,17 @@ app.HomeViewModel = function() {
     };
     
     function fixHeights() {
-        // Delay fixing heights for 500ms to give the screen time to load.
+        
+        // Fire center right away just for when screen is loaded and orientation is changed.
+        centerImage($("#mapId"));
+        
+        // Delay fixing heights for 1000ms to give the screen time to load for the first.
         // Using the time deplay is likely not the best way to handle this.  
         // We should try to find the proper event that fires.
         setTimeout(function() {
                 centerImage($("#mapId"))
             }
-            , 500);
+            , 1000);
     }
     
     function onOrientationChanged() {
