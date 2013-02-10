@@ -81,6 +81,7 @@ function equalHeight(group) {
     utils.Observer.prototype = {
         subscribe : function(fn) {
             this.fns.push(fn);
+            app.logger.info("subscriber count: " + this.fns.length);
         },
     
         unsubscribe : function(fn) {

@@ -1,15 +1,15 @@
 'use strict';
 
-app.HomeViewModel = function() {
-    var nearByCommunities = ko.observableArray(),
+app.CommunityViewModel = function() {
+    var name = ko.observable(),
+        nearByLocations = ko.observableArray(),
         nearByOffers = ko.observableArray(),
         mapUrl = ko.observable();
     
     // Behaviours.
     var load = function() {
+        refresh();
         app.geoManager.subscribeRefresh(refresh);
-        app.geoManager.refresh();
-        app.geoManager.startAutoRefresh(2 * 60 * 1000); // TODO: This is not the right spot for this.
         
         $(window).bind('orientationchange', onOrientationChanged);
     };
@@ -22,27 +22,28 @@ app.HomeViewModel = function() {
     
     var refresh = function(position) {
         
-        app.logger.traceStart("HomeViewModel-refresh()");
+        app.logger.traceStart("CommunityViewModel-refresh()");
         
-        app.Services.Community.getNearByCommunities(
+        /*
+        app.Services.Location.getNearByLocations(
             position,
-            function(communitiesDto) {
-                nearByCommunities.removeAll();
+            function(locationsDto) {
+                nearByLocations.removeAll();
         
-                communitiesDto.forEach(function(communityDto) {
+                locationsDto.forEach(function(locationDto) {
                    
-                    var model = new app.Models.Community();
-                    model.name = communityDto.name;
-                    model.imageUrl = communityDto.imageUrl;
+                    var model = new app.Models.Location();
+                    model.name = locationDto.name;
+                    model.imageUrl = locationDto.imageUrl;
                     
-                    nearByCommunities.push(model);
+                    nearByLocations.push(model);
                     
                 });
                 
                 loadCarousel();
             });
-        
-        app.Services.Offer.getNearByOffers(
+        */
+        /*app.Services.Offer.getNearByOffers(
             position,
             function(offersDto) {
                 nearByOffers.removeAll();
@@ -59,6 +60,7 @@ app.HomeViewModel = function() {
                 
                 $("#offersSection ul").listview("refresh");
             });
+        */
         
         app.Services.Map.getStaticMapUrlByZipcode(
             position,
@@ -68,22 +70,22 @@ app.HomeViewModel = function() {
                 fixHeights();
             });
         
-        app.logger.traceEnd("HomeViewModel-refresh()");
+        app.logger.traceEnd("CommunityViewModel-refresh()");
     };       
     
     var onPageBeforeShow = function () {
-        app.logger.traceStart("HomeViewModel-onPageBeforeShow()");
-        app.logger.traceEnd("HomeViewModel-onPageBeforeShow()");
+        app.logger.traceStart("CommunityViewModel-onPageBeforeShow()");
+        app.logger.traceEnd("CommunityViewModel-onPageBeforeShow()");
     };
     
     var onPageShow = function () {
-        app.logger.traceStart("HomeViewModel-onPageShow()");
-        app.logger.traceEnd("HomeViewModel-onPageShow()");
+        app.logger.traceStart("CommunityViewModel-onPageShow()");
+        app.logger.traceEnd("CommunityViewModel-onPageShow()");
     };
     
     function loadCarousel()
     {
-        if (nearByCommunities().length === 0) return;
+        if (nearByLocations().length === 0) return;
         
         $("#carousel-image-and-text").touchCarousel({					
             pagingNav: false,
@@ -103,15 +105,15 @@ app.HomeViewModel = function() {
     function fixHeights() {
         
         // Fire center right away just for when screen is loaded and orientation is changed.
-        centerImage($("#mapId"));
+        centerImage($("#communityPage .staticMap"));
         
-        // Delay fixing heights for 1000ms to give the screen time to load for the first.
+        // Delay fixing heights to give the screen time to load for the first.
         // Using the time deplay is likely not the best way to handle this.  
         // We should try to find the proper event that fires.
         setTimeout(function() {
-                centerImage($("#mapId"))
+                centerImage($("#communityPage .staticMap"))
             }
-            , 1000);
+            , 500);
     }
     
     function onOrientationChanged() {
@@ -126,7 +128,7 @@ app.HomeViewModel = function() {
     };
     
     return {
-        communities: nearByCommunities,
+        locations: nearByLocations,
         offers: nearByOffers,
         mapUrl: mapUrl,
         load: load,

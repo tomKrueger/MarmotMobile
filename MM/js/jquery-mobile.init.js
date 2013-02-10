@@ -20,6 +20,14 @@ app.mobileInit = function () {
     app.logger.traceStart("*************************************");
     app.logger.traceStart("app.mobileInit");
     
+    // Hook up all pages to ensure that dispose gets called on 
+    // them all.  Every view model should expose a dispose function
+    // to clean up memory and all event subscriptions that were registered in the view model.
+    $('.ui-page').live('pageremove', function (event, ui) {
+        var vm = getViewModel(this.id);
+        vm.dispose();
+    });
+    
     $('#homePage').live('pageinit', function (event, ui) {
         app.logger.traceStart("pageInit-homePage");
         
@@ -65,6 +73,17 @@ app.mobileInit = function () {
         //var vm = ko.dataFor(this);
     });
     
+    $('#communityPage').live('pageinit', function (event, ui) {
+        app.logger.traceStart("pageInit-communityPage");
+        var viewElem = document.getElementById('communityPage');
+        if (viewElem) {
+            var vm = new app.CommunityViewModel();
+            ko.applyBindings(vm, viewElem);
+            vm.load();
+        }
+        app.logger.traceEnd("pageInit-communityPage");
+    });
+    
     $('#searchPage').live('pageinit', function (event, ui) {
         app.logger.traceStart("pageInit-searchPage");
         var viewElem = document.getElementById('searchPage');
@@ -76,6 +95,14 @@ app.mobileInit = function () {
         }
         app.logger.traceEnd("pageInit-searchPage");
     });
+    
+    function getViewModel(id)
+    {
+        debugger;
+        var viewElem = document.getElementById(id);
+        var vm = ko.dataFor(viewElem);
+        return vm;        
+    }
     
     app.logger.traceEnd("app.mobileInit");
 };
