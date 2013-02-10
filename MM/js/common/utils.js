@@ -14,6 +14,38 @@ function showAlert(message, title) {
 }
 
 //
+// Centers an image inside of a container.  The main use is 
+// when the image is bigger than the container size.
+//
+// Currently this function looks to it's parents to find a parent container that 
+// has a width, to find the width.  This is done because not all container elements have 
+// width so we keep looking until one is found.  This may not work in all cases though.
+// 
+//    img.center { display: block; margin-left: auto; margin-right: auto; }
+//
+// Example Usage:
+//    centerImage($("#mapId"));
+
+function centerImage(jqImg) {
+
+    app.logger.traceStart("centerImage()");
+    
+    // Find width of parent container.
+    var width = 0;
+    var elm = jqImg;
+    while(width === 0) {
+        
+        elm = elm.parent()
+        width = elm.width();
+    }    
+    
+    jqImg.css({
+        position: "relative",
+        left: (width - jqImg.width()) / 2
+    });
+}
+
+//
 // Make columns in the group the same height.
 // http://www.cssnewbie.com/equal-height-columns-with-jquery/
 //

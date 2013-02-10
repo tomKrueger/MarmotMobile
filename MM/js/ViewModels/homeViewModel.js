@@ -9,7 +9,15 @@ app.HomeViewModel = function() {
     var load = function() {
         app.geoManager.subscribeRefresh(refresh);
         app.geoManager.refresh();
-        app.geoManager.startAutoRefresh(2 * 60 * 1000);
+        app.geoManager.startAutoRefresh(2 * 60 * 1000); // TODO: This is not the right spot for this.
+        
+        $(window).bind('orientationchange', onOrientationChanged);
+    };
+    
+    var dispose = function() {
+      
+        app.geoManager.unsubscribeRefresh(refresh);
+        $(window).unbind('orientationchange', onOrientationChanged);
     };
     
     var refresh = function(position) {
@@ -56,6 +64,8 @@ app.HomeViewModel = function() {
             position,
             function(url) {
                 mapUrl(url);
+                
+                fixHeights();
             });
         
         app.logger.traceEnd("HomeViewModel-refresh()");
@@ -78,6 +88,21 @@ app.HomeViewModel = function() {
             directionNavAutoHide:false,   // Direction (arrow) navigation auto hide on hover. 
             dragUsingMouse:true
         });
+    };
+    
+    function fixHeights() {
+        centerImage($("#mapId"));
+    }
+    
+    function onOrientationChanged() {
+        
+        fixHeights();
+        
+        //if($.event.special.orientationchange.orientation() === 'portrait') {
+        //    // Do portrait specific stuff. 
+        //} else {
+        //    // Do landscape specific stuff.
+        //}
     };
     
     return {
