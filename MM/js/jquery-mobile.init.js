@@ -1,6 +1,7 @@
 var app = app || {};
 var jqmReady = $.Deferred(),
-    pgReady = $.Deferred();
+    pgReady = $.Deferred(),
+    homeLoaded = $.Deferred();
 
 'use strict';
 
@@ -20,7 +21,6 @@ app.mobileInit = function () {
     app.logger.traceStart("app.mobileInit");
     
     $('#homePage').live('pageinit', function (event, ui) {
-        
         app.logger.traceStart("pageInit-homePage");
         
         // Wait until both jqueryMobile and the Page is ready to be loaded.
@@ -34,11 +34,35 @@ app.mobileInit = function () {
                 ko.applyBindings(vm, viewElem);
                 vm.load();
                 
-                //equalHeight($("#homeMiddle"));
+                homeLoaded.resolve();
             }
         });
         
         app.logger.traceEnd("pageInit-homePage");
+    });
+    
+    $('#homePage').live('pagebeforeshow', function (event, ui) {
+        
+        $.when(homeLoaded).then(function () {
+            var viewElem = document.getElementById('homePage');
+            var vm = ko.dataFor(viewElem);
+            vm.pagebeforeshow();
+        });
+    });
+    
+    $('#homePage').live('pageshow', function (event, ui) {
+        
+        $.when(homeLoaded).then(function () {
+            var viewElem = document.getElementById('homePage');
+            var vm = ko.dataFor(viewElem);
+            vm.pageshow();
+        });
+    
+    });
+    
+    $('#homePage').live('pageremove', function (event, ui) {
+        alert('in page remove');
+        //var vm = ko.dataFor(this);
     });
     
     $('#searchPage').live('pageinit', function (event, ui) {

@@ -71,6 +71,16 @@ app.HomeViewModel = function() {
         app.logger.traceEnd("HomeViewModel-refresh()");
     };       
     
+    var onPageBeforeShow = function () {
+        app.logger.traceStart("HomeViewModel-onPageBeforeShow()");
+        app.logger.traceEnd("HomeViewModel-onPageBeforeShow()");
+    };
+    
+    var onPageShow = function () {
+        app.logger.traceStart("HomeViewModel-onPageShow()");
+        app.logger.traceEnd("HomeViewModel-onPageShow()");
+    };
+    
     function loadCarousel()
     {
         if (nearByCommunities().length === 0) return;
@@ -91,7 +101,13 @@ app.HomeViewModel = function() {
     };
     
     function fixHeights() {
-        centerImage($("#mapId"));
+        // Delay fixing heights for 500ms to give the screen time to load.
+        // Using the time deplay is likely not the best way to handle this.  
+        // We should try to find the proper event that fires.
+        setTimeout(function() {
+                centerImage($("#mapId"))
+            }
+            , 500);
     }
     
     function onOrientationChanged() {
@@ -109,6 +125,8 @@ app.HomeViewModel = function() {
         communities: nearByCommunities,
         offers: nearByOffers,
         mapUrl: mapUrl,
-        load: load  
+        load: load,
+        pagebeforeshow: onPageBeforeShow,
+        pageshow: onPageShow
     };    
 };
