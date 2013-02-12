@@ -68,11 +68,6 @@ app.mobileInit = function () {
     
     });
     
-    $('#homePage').live('pageremove', function (event, ui) {
-        alert('in page remove');
-        //var vm = ko.dataFor(this);
-    });
-    
     $('#communityPage').live('pageinit', function (event, ui) {
         app.logger.traceStart("pageInit-communityPage");
         var viewElem = document.getElementById('communityPage');
@@ -82,6 +77,15 @@ app.mobileInit = function () {
             vm.load();
         }
         app.logger.traceEnd("pageInit-communityPage");
+    });
+    
+    $('#communityPage').live('pagebeforeshow', function (event, data) {
+        var vm = getViewModel(this.id);
+        
+        var url = $(this).attr("data-url");
+        console.log(url);
+        console.log("name: " + getQueryStringParmByName(url, "name"));        
+        
     });
     
     $('#searchPage').live('pageinit', function (event, ui) {
@@ -98,7 +102,6 @@ app.mobileInit = function () {
     
     function getViewModel(id)
     {
-        debugger;
         var viewElem = document.getElementById(id);
         var vm = ko.dataFor(viewElem);
         return vm;        
