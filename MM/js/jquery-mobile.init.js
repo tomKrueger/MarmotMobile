@@ -20,6 +20,24 @@ app.mobileInit = function () {
     app.logger.traceStart("*************************************");
     app.logger.traceStart("app.mobileInit");
     
+    $('.ui-page').live('pagebeforeshow', function (event, ui) {
+        var self = this;
+        $.when(homeLoaded).then(function () {
+            var vm = getViewModel(self.id);
+            if(vm.pagebeforeshow)
+                vm.pagebeforeshow();
+        });
+    });
+    
+    $('.ui-page').live('pageshow', function (event, ui) {
+        var self = this;
+        $.when(homeLoaded).then(function () {
+            var vm = getViewModel(self.id);
+            if (vm.pageshow)
+                vm.pageshow();
+        });
+    });
+    
     // Hook up all pages to ensure that dispose gets called on 
     // them all.  Every view model should expose a dispose function
     // to clean up memory and all event subscriptions that were registered in the view model.
@@ -47,25 +65,6 @@ app.mobileInit = function () {
         });
         
         app.logger.traceEnd("pageInit-homePage");
-    });
-    
-    $('#homePage').live('pagebeforeshow', function (event, ui) {
-        
-        $.when(homeLoaded).then(function () {
-            var viewElem = document.getElementById('homePage');
-            var vm = ko.dataFor(viewElem);
-            vm.pagebeforeshow();
-        });
-    });
-    
-    $('#homePage').live('pageshow', function (event, ui) {
-        
-        $.when(homeLoaded).then(function () {
-            var viewElem = document.getElementById('homePage');
-            var vm = ko.dataFor(viewElem);
-            vm.pageshow();
-        });
-    
     });
     
     $('#communityPage').live('pageinit', function (event, data) {
