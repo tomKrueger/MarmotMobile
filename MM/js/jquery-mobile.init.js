@@ -68,24 +68,20 @@ app.mobileInit = function () {
     
     });
     
-    $('#communityPage').live('pageinit', function (event, ui) {
+    $('#communityPage').live('pageinit', function (event, data) {
         app.logger.traceStart("pageInit-communityPage");
         var viewElem = document.getElementById('communityPage');
-        if (viewElem) {
+        if (viewElem) {           
+            var queryString = parseQueryString($(this));
+            
             var vm = new app.CommunityViewModel();
+            vm.id(queryString.id);
+            vm.name(queryString.name);
+            
             ko.applyBindings(vm, viewElem);
             vm.load();
         }
         app.logger.traceEnd("pageInit-communityPage");
-    });
-    
-    $('#communityPage').live('pagebeforeshow', function (event, data) {
-        var vm = getViewModel(this.id);
-        
-        var url = $(this).attr("data-url");
-        console.log(url);
-        console.log("name: " + getQueryStringParmByName(url, "name"));        
-        
     });
     
     $('#searchPage').live('pageinit', function (event, ui) {
@@ -100,11 +96,16 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-searchPage");
     });
     
-    function getViewModel(id)
-    {
+    function getViewModel(id) {
         var viewElem = document.getElementById(id);
         var vm = ko.dataFor(viewElem);
         return vm;        
+    }
+    
+    function parseQueryString(jqPage) {
+        var url = jqPage.attr("data-url");            
+        var qsParms = getQueryStringParms(url); 
+        return qsParms;        
     }
     
     app.logger.traceEnd("app.mobileInit");
