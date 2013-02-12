@@ -1,7 +1,8 @@
 'use strict';
 
 app.CommunityViewModel = function() {
-    var name = ko.observable(),
+    var id = ko.observable(),
+        name = ko.observable(),
         nearByLocations = ko.observableArray(),
         nearByOffers = ko.observableArray(),
         mapUrl = ko.observable();
@@ -25,16 +26,16 @@ app.CommunityViewModel = function() {
         app.logger.traceStart("CommunityViewModel-refresh()");
         
         /*
-        app.Services.Location.getNearByLocations(
-            position,
+        app.Services.Community.getLocations(
+            id(),
             function(locationsDto) {
                 nearByLocations.removeAll();
         
                 locationsDto.forEach(function(locationDto) {
                    
                     var model = new app.Models.Location();
-                    model.name = locationDto.name;
-                    model.imageUrl = locationDto.imageUrl;
+                    model.name(locationDto.name);
+                    model.imageUrl(locationDto.imageUrl);
                     
                     nearByLocations.push(model);
                     
@@ -43,17 +44,17 @@ app.CommunityViewModel = function() {
                 loadCarousel();
             });
         */
-        /*app.Services.Offer.getNearByOffers(
-            position,
+        /*app.Services.Community.getOffers(
+            id(),
             function(offersDto) {
                 nearByOffers.removeAll();
         
                 offersDto.forEach(function(offerDto) {
                                     
                     var model = new app.Models.Offer();
-                    model.name = offerDto.name;
-                    model.imageUrl = offerDto.imageUrl;
-                    model.distance = offerDto.dist;
+                    model.name(offerDto.name);
+                    model.imageUrl(offerDto.imageUrl);
+                    model.distance(offerDto.dist);
                     
                     nearByOffers.push(model);  
                 });
@@ -130,6 +131,8 @@ app.CommunityViewModel = function() {
     return {
         locations: nearByLocations,
         offers: nearByOffers,
+        id: id,
+        name: name,
         mapUrl: mapUrl,
         load: load,
         pagebeforeshow: onPageBeforeShow,
