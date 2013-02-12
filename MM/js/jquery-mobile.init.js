@@ -92,7 +92,18 @@ app.mobileInit = function () {
             ko.applyBindings(vm, viewElem);
             vm.load();
         }
-        app.logger.traceEnd("pageInit-communityPage");
+        app.logger.traceEnd("pageInit-mapPage");
+    });
+    
+    $('#offerPage').live('pageinit', function (event, data) {
+        app.logger.traceStart("pageInit-offerPage");
+        var viewElem = document.getElementById(this.id);
+        if (viewElem) {            
+            var vm = new app.OfferViewModel();            
+            ko.applyBindings(vm, viewElem);
+            vm.load();
+        }
+        app.logger.traceEnd("pageInit-offerPage");
     });
     
     $('#searchPage').live('pageinit', function (event, ui) {
