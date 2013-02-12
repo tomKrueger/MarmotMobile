@@ -2,10 +2,15 @@ app.Models = app.Models || {};
 
 app.Models.Community = function() {
 	'use strict';
-
-    var name = ko.observable(),
-        imageUrl = ko.observable();   
+    var self = this;
     
+    self.id = ko.observable(1111);
+    self.name = ko.observable();
+    self.imageUrl = ko.observable();
+    
+    //self.pageUrl = ko.computed(function() {
+    //    return "community.html" + createQueryString(self.id(), self.name());
+    //});  
        
 }; /* End Model */
 

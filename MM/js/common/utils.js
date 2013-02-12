@@ -60,6 +60,30 @@ function equalHeight(group) {
 	group.height(tallest);
 }
 
+function createQueryString(values) {
+    
+    if( typeof values != 'Array' ) {
+      values = [values];
+    }
+    
+    return '?' + values.join('&');
+}
+
+function getQueryStringParmByName(url, paramName) { 
+	var strGET = url.substr(url.indexOf('?') + 1, url.length - url.indexOf('?')); 
+	var arrGET = strGET.split("&"); 
+	
+    var paramValue = '';
+	for(i = 0; i < arrGET.length; i++){ 
+	    var aux = arrGET[i].split("="); 
+	    if (aux[0] == paramName){
+	        paramValue = aux[1];
+	    }
+	}
+    
+	return paramValue;
+}
+
 //
 // Observer Pattern Object
 //

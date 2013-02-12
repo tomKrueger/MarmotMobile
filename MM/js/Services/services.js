@@ -31,10 +31,10 @@ app.Services = app.Services || {};
             //if (_tempSwitchFlag) {
             if (position.coords.latitude < 88) {
                 communities = [
-                    { name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
-                    { name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" },
-                    { name: "Something else2", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" },
-                    { name: "Something else3", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" }
+                    { id: 1, name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
+                    { id: 2, name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" },
+                    { id: 3, name: "Something else2", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" },
+                    { id: 4, name: "Something else3", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" }
                 ];
             } else {
             

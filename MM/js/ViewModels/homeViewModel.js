@@ -32,8 +32,9 @@ app.HomeViewModel = function() {
                 communitiesDto.forEach(function(communityDto) {
                    
                     var model = new app.Models.Community();
-                    model.name = communityDto.name;
-                    model.imageUrl = communityDto.imageUrl;
+                    model.id(communityDto.id);
+                    model.name(communityDto.name);
+                    model.imageUrl(communityDto.imageUrl);
                     
                     nearByCommunities.push(model);
                     
@@ -125,6 +126,10 @@ app.HomeViewModel = function() {
         //}
     };
     
+    var onCommunityClick = function(community) {
+        $.mobile.changePage("communityPage.html", { data: { id: community.id(), name: community.name() } });
+    };
+    
     return {
         communities: nearByCommunities,
         offers: nearByOffers,
@@ -132,6 +137,7 @@ app.HomeViewModel = function() {
         load: load,
         pagebeforeshow: onPageBeforeShow,
         pageshow: onPageShow,
-        dispose: dispose
+        dispose: dispose,
+        onCommunityClick: onCommunityClick
     };    
 };
