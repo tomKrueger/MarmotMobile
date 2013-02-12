@@ -24,7 +24,7 @@ app.mobileInit = function () {
         var self = this;
         $.when(homeLoaded).then(function () {
             var vm = getViewModel(self.id);
-            if(vm.pagebeforeshow)
+            if(vm && vm.pagebeforeshow)
                 vm.pagebeforeshow();
         });
     });
@@ -33,7 +33,7 @@ app.mobileInit = function () {
         var self = this;
         $.when(homeLoaded).then(function () {
             var vm = getViewModel(self.id);
-            if (vm.pageshow)
+            if (vm && vm.pageshow)
                 vm.pageshow();
         });
     });
@@ -43,7 +43,8 @@ app.mobileInit = function () {
     // to clean up memory and all event subscriptions that were registered in the view model.
     $('.ui-page').live('pageremove', function (event, ui) {
         var vm = getViewModel(this.id);
-        vm.dispose();
+        if (vm)
+            vm.dispose();
     });
     
     $('#homePage').live('pageinit', function (event, ui) {
