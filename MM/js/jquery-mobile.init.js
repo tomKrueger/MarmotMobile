@@ -70,7 +70,7 @@ app.mobileInit = function () {
     
     $('#communityPage').live('pageinit', function (event, data) {
         app.logger.traceStart("pageInit-communityPage");
-        var viewElem = document.getElementById('communityPage');
+        var viewElem = document.getElementById(this.id);
         if (viewElem) {           
             var queryString = parseQueryString($(this));
             
@@ -84,14 +84,24 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-communityPage");
     });
     
+    $('#mapPage').live('pageinit', function (event, data) {
+        app.logger.traceStart("pageInit-mapPage");
+        var viewElem = document.getElementById(this.id);
+        if (viewElem) {            
+            var vm = new app.MapViewModel();            
+            ko.applyBindings(vm, viewElem);
+            vm.load();
+        }
+        app.logger.traceEnd("pageInit-communityPage");
+    });
+    
     $('#searchPage').live('pageinit', function (event, ui) {
         app.logger.traceStart("pageInit-searchPage");
-        var viewElem = document.getElementById('searchPage');
-        //alert(viewElem);
+        var viewElem = document.getElementById(this.id);
         if (viewElem) {
             var vm = new app.SearchViewModel();
-          //  ko.applyBindings(vm, viewElem);
-          //  vm.load();
+            ko.applyBindings(vm, viewElem);
+            vm.load();
         }
         app.logger.traceEnd("pageInit-searchPage");
     });
