@@ -172,45 +172,45 @@ background-color: #7ea5ad;
 /**
 * Carousel with image and text, custom skinned scrollbar
 **/
-#carousel-image-and-text {
+.touchcarousel {
     width: 940px;
     height: 130px;
     margin: 0 auto;	
 }	
-#carousel-image-and-text .arrow-holder {
+.touchcarousel .arrow-holder {
     height: 125px;
 }		
-#carousel-image-and-text .touchcarousel-item {
+.touchcarousel .touchcarousel-item {
     margin-right: 1px;	
     width: 125px;
     height: 125px;	
     z-index: -1;
 }
-#carousel-image-and-text .item-block {
+.touchcarousel .item-block {
     width: 125px;
     height: 125px;
     display: block;
 }
-#carousel-image-and-text .item-block img,
-#carousel-image-and-text .item-block h4, 
-#carousel-image-and-text .item-block p {
+.touchcarousel .item-block img,
+.touchcarousel .item-block h4, 
+.touchcarousel .item-block p {
     float: left;
     position: relative;
     display: block;
     margin: 0;			
 }
-#carousel-image-and-text .item-block img {
+.touchcarousel .item-block img {
     width: 125px;
     height: 125px;		
     border: 0;
     padding: 0;
     z-index: 1;
 }
-#carousel-image-and-text .item-block {			
+.touchcarousel .item-block {			
     text-decoration: none;
     color: inherit;			
 }					
-#carousel-image-and-text .item-block h4 {
+.touchcarousel .item-block h4 {
     font: "Oswald-Light", sans-serif;
     font-size: 16px;
     height: 20px;
@@ -228,10 +228,10 @@ background-color: #7ea5ad;
     
 }
 
-#carousel-image-and-text .item-block:hover h4 {	
+.touchcarousel .item-block:hover h4 {	
     color: #1873c9;		
 }
-#carousel-image-and-text .item-block p {			
+.touchcarousel .item-block p {			
     font: normal 13px/20px Helvetica, Arial, sans-serif;
     color: #555;		
     width: 125px;
@@ -244,7 +244,7 @@ background-color: #7ea5ad;
     left: 0;
     right: 0;
 }
-#carousel-image-and-text .scrollbar {
+.touchcarousel .scrollbar {
     background-color: #45a8ce !important;
     bottom: 0;
 }

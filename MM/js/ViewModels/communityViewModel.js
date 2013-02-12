@@ -3,7 +3,7 @@
 app.CommunityViewModel = function() {
     var id = ko.observable(),
         name = ko.observable(),
-        nearByLocations = ko.observableArray(),
+        locations = ko.observableArray(),
         nearByOffers = ko.observableArray(),
         mapUrl = ko.observable();
     
@@ -25,25 +25,25 @@ app.CommunityViewModel = function() {
         
         app.logger.traceStart("CommunityViewModel-refresh()");
         
-        /*
-        app.Services.Community.getLocations(
+        app.Services.Location.getByCommunityId(
             id(),
             function(locationsDto) {
-                nearByLocations.removeAll();
+                locations.removeAll();
         
                 locationsDto.forEach(function(locationDto) {
                    
                     var model = new app.Models.Location();
+                    model.id(locationDto.id);
                     model.name(locationDto.name);
                     model.imageUrl(locationDto.imageUrl);
                     
-                    nearByLocations.push(model);
+                    locations.push(model);
                     
                 });
                 
                 loadCarousel();
             });
-        */
+        
         /*app.Services.Community.getOffers(
             id(),
             function(offersDto) {
@@ -86,9 +86,9 @@ app.CommunityViewModel = function() {
     
     function loadCarousel()
     {
-        if (nearByLocations().length === 0) return;
+        if (locations().length === 0) return;
         
-        $("#carousel-image-and-text").touchCarousel({					
+        $("#locationsCarousel").touchCarousel({					
             pagingNav: false,
             scrollbarAutoHide: true,
             snapToItems: false,
@@ -129,7 +129,7 @@ app.CommunityViewModel = function() {
     };
     
     return {
-        locations: nearByLocations,
+        locations: locations,
         offers: nearByOffers,
         id: id,
         name: name,

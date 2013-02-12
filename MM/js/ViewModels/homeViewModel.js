@@ -86,7 +86,7 @@ app.HomeViewModel = function() {
     {
         if (nearByCommunities().length === 0) return;
         
-        $("#carousel-image-and-text").touchCarousel({					
+        $("#communitiesCarousel").touchCarousel({					
             pagingNav: false,
             scrollbarAutoHide: true,
             snapToItems: false,

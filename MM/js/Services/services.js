@@ -54,6 +54,34 @@ app.Services = app.Services || {};
 
     }());
     
+    app.Services.Location = (function () {
+    
+        //
+        // Retrieves location.
+        //
+        var get = function (locationId) {
+            return { name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" };
+        };
+        
+        //
+        // Retrieves locations in a community.
+        //
+        var getByCommunityId = function (communityId, successCallback) {
+            
+            var locations = [
+                { name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" }
+            ];
+            
+            successCallback(locations);
+        };
+        
+        return {
+            get: get,
+            getByCommunityId: getByCommunityId
+        };
+        
+    }());
+    
     app.Services.Offer = (function () {
         
         //
