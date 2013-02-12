@@ -117,6 +117,17 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-searchPage");
     });
     
+    $('#socialPage').live('pageinit', function (event, data) {
+        app.logger.traceStart("pageInit-socialPage");
+        var viewElem = document.getElementById(this.id);
+        if (viewElem) {            
+            var vm = new app.SocialViewModel();            
+            ko.applyBindings(vm, viewElem);
+            vm.load();
+        }
+        app.logger.traceEnd("pageInit-socialPage");
+    });
+    
     function getViewModel(id) {
         var viewElem = document.getElementById(id);
         var vm = ko.dataFor(viewElem);
