@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="communityPage.html" />
+    <Content Include="js\ViewModels\communityViewModel.js" />
     <Content Include="signin.html" />
     <Content Include="js\signin.js" />
     <Content Include="socialPage.html" />

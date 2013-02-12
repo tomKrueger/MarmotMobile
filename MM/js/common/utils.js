@@ -14,6 +14,38 @@ function showAlert(message, title) {
 }
 
 //
+// Centers an image inside of a container.  The main use is 
+// when the image is bigger than the container size.
+//
+// Currently this function looks to it's parents to find a parent container that 
+// has a width, to find the width.  This is done because not all container elements have 
+// width so we keep looking until one is found.  This may not work in all cases though.
+// 
+//    img.center { display: block; margin-left: auto; margin-right: auto; }
+//
+// Example Usage:
+//    centerImage($("#mapId"));
+
+function centerImage(jqImg) {
+
+    app.logger.traceStart("centerImage()");
+    
+    // Find width of parent container.
+    var width = 0;
+    var elm = jqImg;
+    while(width === 0) {
+        
+        elm = elm.parent()
+        width = elm.width();
+    }    
+    
+    jqImg.css({
+        position: "relative",
+        left: (width - jqImg.width()) / 2
+    });
+}
+
+//
 // Make columns in the group the same height.
 // http://www.cssnewbie.com/equal-height-columns-with-jquery/
 //
@@ -49,6 +81,7 @@ function equalHeight(group) {
     utils.Observer.prototype = {
         subscribe : function(fn) {
             this.fns.push(fn);
+            app.logger.info("subscriber count: " + this.fns.length);
         },
     
         unsubscribe : function(fn) {
@@ -68,6 +101,10 @@ function equalHeight(group) {
                     el.call(scope, o);
                 }
             );
+        },
+        
+        subscriberCount : function() {
+            return this.fns.length;
         }
     };
 }());    
@@ -191,11 +228,15 @@ function equalHeight(group) {
         
         var _currentPosition;
         var _currentPositionObserver = new utils.Observer;
+        var _timeout;
         
-        var startAutoRefresh = function () {            
+        var startAutoRefresh = function (interval) {
+            stopAutoRefresh();
+            _timeout = setInterval(refresh, interval);
         };
         
-        var stopAutoRefresh = function () {            
+        var stopAutoRefresh = function () {
+            clearInterval(_timeout);
         };
         
         var refresh = function () {
@@ -207,7 +248,14 @@ function equalHeight(group) {
         };
         
         var unsubscribe = function(fn) {
-            _currentPositionObserver.unsubscribe(fn);    
+            _currentPositionObserver.unsubscribe(fn);
+            
+            // Stop refreshing if there are not any subscribers.
+            // NOTE: Commented out because it may not be the right choice to stopAutoRefresh.  Waiting
+            // to comment back in until there is a need.
+            //if (_currentPositionObserver.subscriberCount === 0) {
+            //    stopAutoRefresh();
+            //}
         };
         
         var getCurrentPosition = function () {
