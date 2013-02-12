@@ -27,9 +27,11 @@ app.Models.Location = function() {
 app.Models.Offer = function() {
 	'use strict';
 
-    var name = ko.observable(),
-        imageUrl = ko.observable(),
-        distance = ko.observable();   
+    var self = this;
+    
+    self.name = ko.observable();
+    self.imageUrl = ko.observable();
+    self.distance = ko.observable();   
     
        
 }; /* End Model */

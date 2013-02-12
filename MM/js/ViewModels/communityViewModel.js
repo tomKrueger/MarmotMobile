@@ -44,7 +44,7 @@ app.CommunityViewModel = function() {
                 loadCarousel();
             });
         
-        /*app.Services.Community.getOffers(
+        app.Services.Offer.getByCommunityId (
             id(),
             function(offersDto) {
                 nearByOffers.removeAll();
@@ -59,9 +59,9 @@ app.CommunityViewModel = function() {
                     nearByOffers.push(model);  
                 });
                 
-                $("#offersSection ul").listview("refresh");
+                $("#communityPage #offersSection ul").listview("refresh");
             });
-        */
+        
         
         app.Services.Map.getStaticMapUrlByZipcode(
             position,

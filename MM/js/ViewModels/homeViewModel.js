@@ -51,14 +51,14 @@ app.HomeViewModel = function() {
                 offersDto.forEach(function(offerDto) {
                                     
                     var model = new app.Models.Offer();
-                    model.name = offerDto.name;
-                    model.imageUrl = offerDto.imageUrl;
-                    model.distance = offerDto.dist;
+                    model.name(offerDto.name);
+                    model.imageUrl(offerDto.imageUrl);
+                    model.distance(offerDto.dist);
                     
                     nearByOffers.push(model);  
                 });
                 
-                $("#offersSection ul").listview("refresh");
+                $("#homePage #offersSection ul").listview("refresh");
             });
         
         app.Services.Map.getStaticMapUrlByZipcode(
