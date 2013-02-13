@@ -191,8 +191,7 @@ background-color: #7ea5ad;
     height: 125px;
     display: block;
 }
-.touchcarousel .item-block img,
-.touchcarousel .item-block h4, 
+.touchcarousel .item-block img, 
 .touchcarousel .item-block p {
     float: left;
     position: relative;
@@ -211,7 +210,7 @@ background-color: #7ea5ad;
     color: inherit;			
 }					
 .touchcarousel .item-block h4 {
-    font: "Oswald-Light", sans-serif;
+    font-family: Oswald-Light, sans-serif;
     font-size: 16px;
     height: 20px;
     position: absolute;		
