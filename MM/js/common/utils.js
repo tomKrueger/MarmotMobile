@@ -60,6 +60,52 @@ function equalHeight(group) {
 	group.height(tallest);
 }
 
+function createQueryString(values) {
+    
+    if( typeof values != 'Array' ) {
+      values = [values];
+    }
+    
+    return '?' + values.join('&');
+}
+
+function getQueryStringParmByName(url, paramName) { 
+	var strGET = url.substr(url.indexOf('?') + 1, url.length - url.indexOf('?')); 
+	var arrGET = strGET.split("&"); 
+	
+    var paramValue = '';
+	for(i = 0; i < arrGET.length; i++){ 
+	    var aux = arrGET[i].split("="); 
+	    if (aux[0] == paramName){
+	        paramValue = decodeURIComponent(aux[1]);
+	    }
+	}
+    
+	return paramValue;
+}
+
+function getQueryStringParms(url) { 
+	var strGET = url.substr(url.indexOf('?') + 1, url.length - url.indexOf('?')); 
+	var parameters = strGET.split("&"); 
+	var data = { };
+    
+    for (var i = 0, j = parameters.length; i < j; i++) {
+        var parameter = parameters[i].split("=");
+        var parameterName = decodeURIComponent(parameter[0]);
+        var parameterValue = typeof parameter[1] === "undefined" ? parameter[1] : decodeURIComponent(parameter[1]);
+        var dataType = typeof data[parameterName];
+        if (dataType === "undefined") {
+            data[parameterName] = parameterValue;
+        } else if (dataType === "array") {
+            data[parameterName].push(parameterValue);
+        } else {
+            data[parameterName] = [data[parameterName]];
+            data[parameterName].push(parameterValue);
+        }
+    }
+    return data;
+}
+
 //
 // Observer Pattern Object
 //

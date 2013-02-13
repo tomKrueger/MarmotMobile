@@ -1,9 +1,8 @@
 'use strict';
 
-var app = app || {};
-
-app.SearchViewModel = function() {
-	           
+app.MapViewModel = function() {
+    var temp = ko.observable();
+    
     // Behaviours.
     var load = function() {
         

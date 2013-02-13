@@ -31,10 +31,10 @@ app.Services = app.Services || {};
             //if (_tempSwitchFlag) {
             if (position.coords.latitude < 88) {
                 communities = [
-                    { name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
-                    { name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" },
-                    { name: "Something else2", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" },
-                    { name: "Something else3", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" }
+                    { id: 1, name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
+                    { id: 2, name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" },
+                    { id: 3, name: "Something else2", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" },
+                    { id: 4, name: "Something else3", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" }
                 ];
             } else {
             
@@ -52,6 +52,35 @@ app.Services = app.Services || {};
             getNearByCommunities: getNearByCommunities
         };
 
+    }());
+    
+    app.Services.Location = (function () {
+    
+        //
+        // Retrieves location.
+        //
+        var get = function (locationId) {
+            return { name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" };
+        };
+        
+        //
+        // Retrieves locations in a community.
+        //
+        var getByCommunityId = function (communityId, successCallback) {
+            
+            var locations = [
+                { id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
+                { id: 3, name: "Main Place", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" },
+            ];
+            
+            successCallback(locations);
+        };
+        
+        return {
+            get: get,
+            getByCommunityId: getByCommunityId
+        };
+        
     }());
     
     app.Services.Offer = (function () {
@@ -75,10 +104,21 @@ app.Services = app.Services || {};
 
             successCallback(offers);
         };
+        
+        var getByCommunityId = function (communityId, successCallback) {
+
+            var offers = [
+                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png" },
+                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png" }                
+            ];
+
+            successCallback(offers);
+        };
 
         return {
             get: get,
-            getNearByOffers: getNearByOffers
+            getNearByOffers: getNearByOffers,
+            getByCommunityId: getByCommunityId
         };
 
     }());

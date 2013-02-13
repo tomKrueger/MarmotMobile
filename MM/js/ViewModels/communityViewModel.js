@@ -1,8 +1,9 @@
 'use strict';
 
 app.CommunityViewModel = function() {
-    var name = ko.observable(),
-        nearByLocations = ko.observableArray(),
+    var id = ko.observable(),
+        name = ko.observable(),
+        locations = ko.observableArray(),
         nearByOffers = ko.observableArray(),
         mapUrl = ko.observable();
     
@@ -24,43 +25,43 @@ app.CommunityViewModel = function() {
         
         app.logger.traceStart("CommunityViewModel-refresh()");
         
-        /*
-        app.Services.Location.getNearByLocations(
-            position,
+        app.Services.Location.getByCommunityId(
+            id(),
             function(locationsDto) {
-                nearByLocations.removeAll();
+                locations.removeAll();
         
                 locationsDto.forEach(function(locationDto) {
                    
                     var model = new app.Models.Location();
-                    model.name = locationDto.name;
-                    model.imageUrl = locationDto.imageUrl;
+                    model.id(locationDto.id);
+                    model.name(locationDto.name);
+                    model.imageUrl(locationDto.imageUrl);
                     
-                    nearByLocations.push(model);
+                    locations.push(model);
                     
                 });
                 
                 loadCarousel();
             });
-        */
-        /*app.Services.Offer.getNearByOffers(
-            position,
+        
+        app.Services.Offer.getByCommunityId (
+            id(),
             function(offersDto) {
                 nearByOffers.removeAll();
         
                 offersDto.forEach(function(offerDto) {
                                     
                     var model = new app.Models.Offer();
-                    model.name = offerDto.name;
-                    model.imageUrl = offerDto.imageUrl;
-                    model.distance = offerDto.dist;
+                    model.name(offerDto.name);
+                    model.imageUrl(offerDto.imageUrl);
+                    model.distance(offerDto.dist);
                     
                     nearByOffers.push(model);  
                 });
                 
-                $("#offersSection ul").listview("refresh");
+                $("#communityPage #offersSection ul").listview("refresh");
             });
-        */
+        
         
         app.Services.Map.getStaticMapUrlByZipcode(
             position,
@@ -85,9 +86,9 @@ app.CommunityViewModel = function() {
     
     function loadCarousel()
     {
-        if (nearByLocations().length === 0) return;
+        if (locations().length === 0) return;
         
-        $("#carousel-image-and-text").touchCarousel({					
+        $("#locationsCarousel").touchCarousel({					
             pagingNav: false,
             scrollbarAutoHide: true,
             snapToItems: false,
@@ -128,8 +129,10 @@ app.CommunityViewModel = function() {
     };
     
     return {
-        locations: nearByLocations,
+        locations: locations,
         offers: nearByOffers,
+        id: id,
+        name: name,
         mapUrl: mapUrl,
         load: load,
         pagebeforeshow: onPageBeforeShow,

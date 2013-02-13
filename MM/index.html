@@ -29,15 +29,15 @@
             </div>
             <div data-role="content">
                 
-                <span class="nearBy">Near by: Delafield</span>                
+                <span class="nearBy">Near by: Delafield</span>
                 
-                <div id="carousel-image-and-text" class="touchcarousel black-and-white">           
+                <div id="communitiesCarousel" class="touchcarousel black-and-white">           
                     <ul class="touchcarousel-container" data-bind="template: { name: 'carouselItemTemplate', foreach: communities }">
                     </ul>
                     
                     <script type="text/html" id="carouselItemTemplate">
                         <li class="touchcarousel-item">
-                            <a class="item-block" href="communityPage.html" data-transition="pop">
+                            <a class="item-block" data-bind="click: $parent.onCommunityClick" data-transition="pop">
                                 <img data-bind="attr: {src: imageUrl}" />
                                 <h4 data-bind="text: name"></h4>
                             </a>
@@ -137,7 +137,10 @@
         <script src="js/ViewModels/ViewModels.js" type="text/javascript"></script>
         <script src="js/ViewModels/homeViewModel.js" type="text/javascript"></script>
         <script src="js/ViewModels/communityViewModel.js" type="text/javascript"></script>
+        <script src="js/ViewModels/mapViewModel.js" type="text/javascript"></script>
+        <script src="js/ViewModels/offerViewModel.js" type="text/javascript"></script>
         <script src="js/ViewModels/searchViewModel.js" type="text/javascript"></script>
+        <script src="js/ViewModels/socialViewModel.js" type="text/javascript"></script>
         <script src="js/app.js"></script>        
     </body>
     </html>

@@ -32,8 +32,9 @@ app.HomeViewModel = function() {
                 communitiesDto.forEach(function(communityDto) {
                    
                     var model = new app.Models.Community();
-                    model.name = communityDto.name;
-                    model.imageUrl = communityDto.imageUrl;
+                    model.id(communityDto.id);
+                    model.name(communityDto.name);
+                    model.imageUrl(communityDto.imageUrl);
                     
                     nearByCommunities.push(model);
                     
@@ -50,14 +51,14 @@ app.HomeViewModel = function() {
                 offersDto.forEach(function(offerDto) {
                                     
                     var model = new app.Models.Offer();
-                    model.name = offerDto.name;
-                    model.imageUrl = offerDto.imageUrl;
-                    model.distance = offerDto.dist;
+                    model.name(offerDto.name);
+                    model.imageUrl(offerDto.imageUrl);
+                    model.distance(offerDto.dist);
                     
                     nearByOffers.push(model);  
                 });
                 
-                $("#offersSection ul").listview("refresh");
+                $("#homePage #offersSection ul").listview("refresh");
             });
         
         app.Services.Map.getStaticMapUrlByZipcode(
@@ -85,7 +86,7 @@ app.HomeViewModel = function() {
     {
         if (nearByCommunities().length === 0) return;
         
-        $("#carousel-image-and-text").touchCarousel({					
+        $("#communitiesCarousel").touchCarousel({					
             pagingNav: false,
             scrollbarAutoHide: true,
             snapToItems: false,
@@ -125,6 +126,10 @@ app.HomeViewModel = function() {
         //}
     };
     
+    var onCommunityClick = function(community) {
+        $.mobile.changePage("communityPage.html", { data: { id: community.id(), name: community.name() } });
+    };
+    
     return {
         communities: nearByCommunities,
         offers: nearByOffers,
@@ -132,6 +137,7 @@ app.HomeViewModel = function() {
         load: load,
         pagebeforeshow: onPageBeforeShow,
         pageshow: onPageShow,
-        dispose: dispose
+        dispose: dispose,
+        onCommunityClick: onCommunityClick
     };    
 };

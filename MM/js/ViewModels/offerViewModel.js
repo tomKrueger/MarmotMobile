@@ -1,12 +1,10 @@
 'use strict';
 
-var app = app || {};
-
-app.SearchViewModel = function() {
-	           
+app.OfferViewModel = function() {
+    var temp = ko.observable();
+    
     // Behaviours.
     var load = function() {
-        
         $(window).bind('orientationchange', onOrientationChanged);
     };
     
