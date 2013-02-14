@@ -35,6 +35,8 @@
     <Folder Include="jquery-mobile\themes" />
     <Folder Include="jquery-mobile\themes\images" />
     <Folder Include="js\common" />
+    <Folder Include="js\Tests" />
+    <Folder Include="js\Tests\common" />
     <Folder Include="styles\fonts" />
     <Folder Include="styles\images" />
   </ItemGroup>
@@ -62,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="communityPage.html" />
+    <Content Include="js\Tests\common\utils.tests.js" />
+    <Content Include="js\Tests\tests.js" />
     <Content Include="js\ViewModels\locationViewModel.js" />
     <Content Include="locationPage.html" />
     <Content Include="js\ViewModels\communityViewModel.js" />
@@ -126,6 +130,7 @@
     <Content Include="styles\touchcarousel\grabbing.png" />
     <Content Include="styles\touchcarousel\sprite.png" />
     <Content Include="styles\touchcarousel\touchcarousel.css" />
+    <Content Include="tests.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>
