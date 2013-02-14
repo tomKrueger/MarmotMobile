@@ -51,6 +51,7 @@ app.HomeViewModel = function() {
                 offersDto.forEach(function(offerDto) {
                                     
                     var model = new app.Models.Offer();
+                    model.id(offerDto.id);
                     model.name(offerDto.name);
                     model.imageUrl(offerDto.imageUrl);
                     model.distance(offerDto.dist);
@@ -130,6 +131,10 @@ app.HomeViewModel = function() {
         $.mobile.changePage("communityPage.html", { data: { id: community.id(), name: community.name() } });
     };
     
+    var onOfferClick = function(offer) {
+        $.mobile.changePage("offerPage.html", { data: { id: offer.id(), name: offer.name() } });
+    };
+    
     return {
         communities: nearByCommunities,
         offers: nearByOffers,
@@ -138,6 +143,7 @@ app.HomeViewModel = function() {
         pagebeforeshow: onPageBeforeShow,
         pageshow: onPageShow,
         dispose: dispose,
-        onCommunityClick: onCommunityClick
+        onCommunityClick: onCommunityClick,
+        onOfferClick: onOfferClick
     };    
 };

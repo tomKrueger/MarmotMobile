@@ -69,7 +69,7 @@
                     
                     <script type="text/html" id="offerItemTemplate">
                         <li>
-                            <a href="offerPage.html">
+                            <a data-bind="click: $parent.onOfferClick">
                                 <img data-bind="attr: {src: imageUrl}" class="ui-li-icon"/>
                                 <p class="offerName">Caribou<p>
                                 <span class="offerDesc"data-bind="text: name"></span>

@@ -99,7 +99,13 @@ app.mobileInit = function () {
         app.logger.traceStart("pageInit-offerPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {            
-            var vm = new app.OfferViewModel();            
+            var queryString = parseQueryString($(this));
+            console.log(queryString);
+            
+            var vm = new app.OfferViewModel();
+            vm.id(queryString.id);
+            vm.name(queryString.name);
+            
             ko.applyBindings(vm, viewElem);
             vm.load();
         }

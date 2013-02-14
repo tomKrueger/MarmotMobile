@@ -1,7 +1,8 @@
 'use strict';
 
 app.OfferViewModel = function() {
-    var temp = ko.observable();
+    var id = ko.observable(),
+        name = ko.observable();
     
     // Behaviours.
     var load = function() {
@@ -18,6 +19,9 @@ app.OfferViewModel = function() {
     
     return {
         load: load,
-        dispose: dispose
+        dispose: dispose,
+        id: id,
+        name: name
+        
     };    
 };
