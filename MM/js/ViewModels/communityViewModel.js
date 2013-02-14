@@ -128,6 +128,14 @@ app.CommunityViewModel = function() {
         //}
     };
     
+    var onLocationClick = function(location) {
+        $.mobile.changePage("locationPage.html", { data: { id: location.id(), name: location.name() } });
+    };
+    
+    var onOfferClick = function(offer) {
+        $.mobile.changePage("offerPage.html", { data: { id: offer.id(), name: offer.name() } });
+    };
+    
     return {
         locations: locations,
         offers: nearByOffers,
@@ -137,6 +145,8 @@ app.CommunityViewModel = function() {
         load: load,
         pagebeforeshow: onPageBeforeShow,
         pageshow: onPageShow,
-        dispose: dispose
+        dispose: dispose,
+        onLocationClick: onLocationClick,
+        onOfferClick: onOfferClick
     };    
 };

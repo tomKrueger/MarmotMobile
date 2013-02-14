@@ -84,6 +84,23 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-communityPage");
     });
     
+    $('#locationPage').live('pageinit', function (event, data) {
+        app.logger.traceStart("pageInit-locationPage");
+        var viewElem = document.getElementById(this.id);
+        if (viewElem) {           
+            var queryString = parseQueryString($(this));
+            
+            console.log('pageinit');
+            var vm = new app.LocationViewModel();
+            vm.id(queryString.id);
+            vm.name(queryString.name);
+            
+            ko.applyBindings(vm, viewElem);
+            vm.load();
+        }
+        app.logger.traceEnd("pageInit-locationPage");
+    });
+    
     $('#mapPage').live('pageinit', function (event, data) {
         app.logger.traceStart("pageInit-mapPage");
         var viewElem = document.getElementById(this.id);
@@ -100,7 +117,6 @@ app.mobileInit = function () {
         var viewElem = document.getElementById(this.id);
         if (viewElem) {            
             var queryString = parseQueryString($(this));
-            console.log(queryString);
             
             var vm = new app.OfferViewModel();
             vm.id(queryString.id);
