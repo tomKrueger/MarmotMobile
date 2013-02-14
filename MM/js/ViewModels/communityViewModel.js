@@ -52,6 +52,7 @@ app.CommunityViewModel = function() {
                 offersDto.forEach(function(offerDto) {
                                     
                     var model = new app.Models.Offer();
+                    model.id(offerDto.id);
                     model.name(offerDto.name);
                     model.imageUrl(offerDto.imageUrl);
                     model.distance(offerDto.dist);
