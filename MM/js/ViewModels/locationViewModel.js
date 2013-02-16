@@ -3,11 +3,13 @@
 app.LocationViewModel = function() {
     var id = ko.observable(),
         name = ko.observable(),
+        imageUrl = ko.observable(),
         offers = ko.observableArray();
     
     // Behaviours.
     var load = function() {
         
+        imageUrl('https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png');
         refresh();
         
         $(window).bind('orientationchange', onOrientationChanged);
@@ -57,6 +59,7 @@ app.LocationViewModel = function() {
         dispose: dispose,
         id: id,
         name: name,
+        imageUrl: imageUrl,
         offers: offers,
         onOfferClick: onOfferClick        
     };    

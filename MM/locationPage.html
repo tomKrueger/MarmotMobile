@@ -3,7 +3,28 @@
         <h1 data-bind="text: name"></h1>
     </div>
     <div data-role="content">
-                
+
+        <div id="locationTop" class="blurredBackgroundContainer" style="height: 200px;width:100%;background-image: url('https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png');">
+        </div>
+        
+        <div class="blurredBackgroundContent" style="height:165px; margin:5px">                
+            <img data-bind="attr: {src: imageUrl}" style="width: 50px; height:50px;" /><br />
+            <span>Follow</span><br />
+            
+            <div class="locationNavBarContainer">
+                <div data-role="navbar" class="locationNavBar" style="">
+                	<ul>
+                		<li><a href="a.html"><p>31</p><span>Followers</span></a></li>
+                		<li><a href="b.html"><p>3</p><span>Offers</span></a></li>
+                        <li><a href="b.html"><p>156</p><span>Photos</span></a></li>
+                        <li><a href="b.html"><p>12</p><span>Events</span></a></li>
+                	</ul>
+                </div><!-- /navbar -->
+            </div>
+        </div>
+        
+        
+        
         <div class="offersSection">
             
             <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }">
