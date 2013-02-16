@@ -303,6 +303,8 @@ div.blurredBackgroundContent
     border: 1px solid #666666;
 }
 
+
+
 .mm-section .icon 
 {
     width: 40px;
@@ -313,6 +315,31 @@ div.blurredBackgroundContent
     right: 2px;  
     z-index: 20;
 }
+
+.mm-section .icon-number-map
+{
+    font-family: Oswald-Light;
+    position: absolute;
+    top:6px;
+    right: 18px;
+    z-index: 30;
+    font-weight: normal;
+    text-shadow: none;
+    
+}
+
+.mm-section .icon-number-social
+{
+    font-family: Oswald-Light;
+    position: absolute;
+    top: 6px;
+    right: 14px;
+    z-index: 30;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+
 
 #socialSection 
 {
