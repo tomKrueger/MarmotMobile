@@ -1,19 +1,23 @@
-@font-face {
+@font-face 
+{
 	font-family: Chunkfive;
 	src: url('fonts/Chunkfive.otf');
 }
 
-@font-face {
+@font-face 
+{
     font-family:Oswald-Light;
     src: url('fonts/Oswald-Light.otf');
 }
 
-@font-face {
+@font-face 
+{
     font-family:Oswald-Bold;
     src: url('fonts/Oswald-Bold.ttf');
 }
 
-@font-face {
+@font-face 
+{
     font-family:Oswald-Regular;
     src: url('fonts/Oswald-Regular.ttf');
 }
@@ -50,22 +54,21 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
     background: #ffffff;
 }
 
-.ui-btn-inner {
-        color: #222;
-        background: none !important;
-        border: none !important;
-        box-shadow: none !important;
-           text-shadow: none !important;
-        }
-
+.ui-btn-inner 
+{
+    color: #222;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
        
-.ui-btn-inner .ui-icon {
-            background-color: transparent;
-            border: none;
-            box-shadow: none;
-            }
-
-
+.ui-btn-inner .ui-icon 
+{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
 
 .ui-icon-mysearch
 {
@@ -86,49 +89,51 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
     padding-right: 60px;
     float: left;
 }
-
     
 .ui-header 
 {
     -webkit-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
     box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
 }
-    
+
+/* **** Home Page *** */    
 .nearBy
 {
     font-family: Oswald-Bold;
 }
     
-#homeMiddle.ui-grid-a .ui-block-a
+#homeMiddle.ui-grid-a .ui-block-a,
+#communityMiddleSection.ui-grid-a .ui-block-a
 {
-        width: 60%;
-    }
+    width: 60%;
+}
     
-#homeMiddle.ui-grid-a .ui-block-b
+#homeMiddle.ui-grid-a .ui-block-b,
+#communityMiddleSection.ui-grid-a .ui-block-b
 {
-        width: 40%;
+    width: 40%;
 }
 
 /* offer-section*/
 
-.ui-li-desc 
+.ui-li-desc
 {
-font-size: 12px;
-font-weight: normal;
-display: block;
-margin: 0 0 0;
-text-overflow: ellipsis;
-overflow: hidden;
-white-space: nowrap;
+    font-size: 12px;
+    font-weight: normal;
+    display: block;
+    margin: 0 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .offerName
-    {
-        font-size: 18px;
-        font-family:Oswald-Bold;
-        color: #67696d;
-        padding-top: 0;
-    }
+{
+    font-size: 18px;
+    font-family:Oswald-Bold;
+    color: #67696d;
+    padding-top: 0;
+}
 
 .offerDesc
 {
@@ -144,11 +149,12 @@ white-space: nowrap;
     color: #667584;
 }
 
-.ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon {
-position: absolute;
-top: 50%;
-margin-top: -9px;
-background-color: #7ea5ad;
+.ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon 
+{
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    background-color: #7ea5ad;
 }
 
 .ui-footer
@@ -172,44 +178,58 @@ background-color: #7ea5ad;
 /**
 * Carousel with image and text, custom skinned scrollbar
 **/
-.touchcarousel {
+.touchcarousel 
+{
     width: 940px;
     height: 130px;
     margin: 0 auto;	
 }	
-.touchcarousel .arrow-holder {
+.touchcarousel .arrow-holder 
+{
     height: 125px;
 }		
-.touchcarousel .touchcarousel-item {
+
+.touchcarousel .touchcarousel-item 
+{
     margin-right: 1px;	
     width: 125px;
     height: 125px;	
     z-index: -1;
 }
-.touchcarousel .item-block {
+
+.touchcarousel .item-block 
+{
     width: 125px;
     height: 125px;
     display: block;
 }
+
 .touchcarousel .item-block img, 
-.touchcarousel .item-block p {
+.touchcarousel .item-block p 
+{
     float: left;
     position: relative;
     display: block;
     margin: 0;			
 }
-.touchcarousel .item-block img {
+
+.touchcarousel .item-block img 
+{
     width: 125px;
     height: 125px;		
     border: 0;
     padding: 0;
     z-index: 1;
 }
-.touchcarousel .item-block {			
+
+.touchcarousel .item-block 
+{
     text-decoration: none;
     color: inherit;			
 }					
-.touchcarousel .item-block h4 {
+
+.touchcarousel .item-block h4 
+{
     font-family: Oswald-Light, sans-serif;
     font-size: 16px;
     height: 20px;
@@ -224,39 +244,48 @@ background-color: #7ea5ad;
     color: #fff;
     text-shadow: 0px 0px 0px #000;
     font-weight: normal;
-    
 }
 
-.touchcarousel .item-block:hover h4 {	
+.touchcarousel .item-block:hover h4 
+{
     color: #1873c9;		
 }
-.touchcarousel .item-block p {			
+
+.touchcarousel .item-block p 
+{
     font: normal 13px/20px Helvetica, Arial, sans-serif;
     color: #555;		
     width: 125px;
     padding: 0 0 0 6px;
 }
-#carousel-image-and-text .scrollbar-holder {
+
+#carousel-image-and-text .scrollbar-holder 
+{
     background: #CED7DB;
     bottom: 0;
     height: 1px;
     left: 0;
     right: 0;
 }
-.touchcarousel .scrollbar {
+
+.touchcarousel .scrollbar 
+{
     background-color: #45a8ce !important;
     bottom: 0;
 }
 
 /* mm-section */
 
-.mm-section {
+.mm-section 
+{
     position: relative; 
     box-shadow: 0px 3px 2px rgba(50, 50, 50, 0.85);
     background: -webkit-linear-gradient(-45deg, #7ea5ad 0%,#627c87 100%);
     border: 1px solid #666666;
 }
-.mm-section .icon {
+
+.mm-section .icon 
+{
     width: 30px;
     height: 30px;
     
@@ -266,17 +295,20 @@ background-color: #7ea5ad;
     z-index: 20;
 }
 
-#socialSection {
+#socialSection 
+{
     background-color: black;
     min-height: 200px;
     max-height: 200px;
 }
 
-.ui-content {
+.ui-content 
+{
     padding: 3px;
 }
 
-.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button {
+.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button 
+{
     font-family: Oswald-Light, Arial, Helvetica;
 }
 
@@ -285,22 +317,22 @@ background-color: #7ea5ad;
     padding: 1px;
 }
 
-#offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit {
-
-    
+#offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
+{    
     padding-left: 65px;    
 }
 
-#offersSection .ui-li-count{
+#offersSection .ui-li-count
+{
     font-family: Oswald-Light;
     font-weight: normal;
 }
 
-#offersSection .ui-li-icon {
+#offersSection .ui-li-icon 
+{
     left: 13px;
     max-width: 50px;
     max-height: 50px;
     top: 0px;
-    padding-right: 2px
-        
+    padding-right: 2px       
 }
