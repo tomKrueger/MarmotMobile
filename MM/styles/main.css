@@ -96,6 +96,25 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
     box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
 }
 
+/* Blurring background image.
+ blurredBackground consists of two divs.  The second div will sit on top of the first.
+ The container div will need the height and width set.
+*/  
+div.blurredBackgroundContainer
+{      
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    z-index: 0;    
+    -webkit-filter: blur(15px);
+}
+
+div.blurredBackgroundContent
+{
+    position: relative;
+    z-index: 10; /* Ensure content is on top of blurredBackgroundContainer. */
+}
+
 /* **** Home Page *** */    
 .nearBy
 {
@@ -335,4 +354,9 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
     max-height: 50px;
     top: 0px;
     padding-right: 2px       
+}
+
+.locationNavBarContainer .ui-navbar li .ui-btn
+{
+    text-align: left;
 }
