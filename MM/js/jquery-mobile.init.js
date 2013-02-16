@@ -90,7 +90,6 @@ app.mobileInit = function () {
         if (viewElem) {           
             var queryString = parseQueryString($(this));
             
-            console.log('pageinit');
             var vm = new app.LocationViewModel();
             vm.id(queryString.id);
             vm.name(queryString.name);

@@ -115,10 +115,21 @@ app.Services = app.Services || {};
             successCallback(offers);
         };
 
+        var getByLocationId = function (locationId, successCallback) {
+
+            var offers = [
+                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png" },
+                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png" }                
+            ];
+
+            successCallback(offers);
+        };
+        
         return {
             get: get,
             getNearByOffers: getNearByOffers,
-            getByCommunityId: getByCommunityId
+            getByCommunityId: getByCommunityId,
+            getByLocationId: getByLocationId
         };
 
     }());

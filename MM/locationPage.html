@@ -3,6 +3,28 @@
         <h1 data-bind="text: name"></h1>
     </div>
     <div data-role="content">
+        <div id="locationTop">      
+        
+            
+        </div>
+        
+        <div id="offersSection">
+            
+            <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }">
+            </ul>
+            
+            <script type="text/html" id="locationOfferItemTemplate">
+                <li>
+                    <a data-bind="click: $parent.onOfferClick">
+                        <img data-bind="attr: {src: imageUrl}" class="ui-li-icon"/>
+                        <span class="offerDesc"data-bind="text: name"></span>                            
+                        <p class="offerExp">Offer Expires In 5 Days</p>
+                        <span data-bind="text: distance" class="ui-li-count"></span>
+                    </a>
+                </li>
+            </script>
+            
+        </div>
         
     </div>
     <div data-role="footer" data-position="fixed"  data-id="oneFooter">
