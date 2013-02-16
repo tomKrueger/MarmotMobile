@@ -312,23 +312,23 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
     font-family: Oswald-Light, Arial, Helvetica;
 }
 
-#offersSection .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li
+.offersSection .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li
 {
     padding: 1px;
 }
 
-#offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
+.offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
 {    
     padding-left: 65px;    
 }
 
-#offersSection .ui-li-count
+.offersSection .ui-li-count
 {
     font-family: Oswald-Light;
     font-weight: normal;
 }
 
-#offersSection .ui-li-icon 
+.offersSection .ui-li-icon 
 {
     left: 13px;
     max-width: 50px;

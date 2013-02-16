@@ -41,7 +41,7 @@ app.LocationViewModel = function() {
                     offers.push(model);  
                 });
                 
-                $("#locationPage #offersSection ul").listview("refresh");
+                $("#locationPage .offersSection ul").listview("refresh");
             });
         
         app.logger.traceEnd("LocationViewModel-refresh()");

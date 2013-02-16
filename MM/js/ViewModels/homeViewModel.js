@@ -59,7 +59,7 @@ app.HomeViewModel = function() {
                     nearByOffers.push(model);  
                 });
                 
-                $("#homePage #offersSection ul").listview("refresh");
+                $("#homePage .offersSection ul").listview("refresh");
             });
         
         app.Services.Map.getStaticMapUrlByZipcode(

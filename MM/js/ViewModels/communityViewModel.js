@@ -60,7 +60,7 @@ app.CommunityViewModel = function() {
                     nearByOffers.push(model);  
                 });
                 
-                $("#communityPage #offersSection ul").listview("refresh");
+                $("#communityPage .offersSection ul").listview("refresh");
             });
         
         
