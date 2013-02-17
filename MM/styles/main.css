@@ -396,8 +396,9 @@ div.blurredBackgroundContent
 {
     text-align: left;
     font-family: Oswald-Light;
+    font-size: 31px;
     color: white !important;
-    background: -webkit-linear-gradient(top, rgba(211,211,211,0) 0%,rgba(255,255,255,0) 0%);
+    background: -webkit-linear-gradient(top, rgba(51,51,51,0.36) 0%,rgba(38,38,38,0.45) 100%);
 }
 
 .locationNavBarContainer .ui-mini .ui-btn-inner
