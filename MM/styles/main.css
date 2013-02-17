@@ -419,9 +419,9 @@ div.blurredBackgroundContent
 	border-radius:2px;
 	border:1px solid #b06639;
 	display:inline-block;
-	color:#fdddc6;
-	font-family:Oswald-Light;
-	font-size:10px;
+	color:#FDDDC6;
+	font-family:Chunkfive;
+	font-size:16px;
 	font-weight:normal;
 	padding:2px 17px;
 	text-decoration:none;
@@ -436,6 +436,6 @@ div.blurredBackgroundContent
 	top:1px;
 }
 .ui-body-c .ui-link {
-color: rgb(206, 218, 226);
+color: #FDDDC6;
 font-weight: normal;
 }
