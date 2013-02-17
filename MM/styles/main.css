@@ -421,9 +421,9 @@ div.blurredBackgroundContent
 	display:inline-block;
 	color:#FDDDC6;
 	font-family:Chunkfive;
-	font-size:16px;
+	font-size:12px;
 	font-weight:normal;
-	padding:0px 13px;
+	padding:0px 12px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #625248;
 }.follow:hover {
