@@ -328,6 +328,7 @@ div.blurredBackgroundContent
     z-index: 30;
     font-weight: normal;
     text-shadow: none;
+    color: white;
     
 }
 
@@ -340,6 +341,7 @@ div.blurredBackgroundContent
     z-index: 30;
     font-weight: normal;
     text-shadow: none;
+    color: white;
 }
 
 
@@ -392,6 +394,11 @@ div.blurredBackgroundContent
 {
     text-align: left;
     font-family: Oswald-Light;
+    color: white !important;
+    background: -webkit-linear-gradient(top, rgba(211,211,211,0) 0%,rgba(255,255,255,0) 0%);
 }
 
-
+.locationNavBarContainer .ui-mini .ui-btn-inner
+{
+    color: white;
+}
