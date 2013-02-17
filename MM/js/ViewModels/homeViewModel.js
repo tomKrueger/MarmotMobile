@@ -126,9 +126,25 @@ app.HomeViewModel = function() {
         //    // Do landscape specific stuff.
         //}
     };
-     var onMenuClick = function(community) {
-        console.log('red');
+    
+    var menuStatus; 
+    
+    var onMenuClick = function(community) {
+        console.log('ddd');
+        
+        if(menuStatus != true) {
+            $(".ui-page-active").animate(
+                { marginLeft: "165px",
+          }, 300, function(){menuStatus = true});
+          return false;
+        } else {
+            $(".ui-page-active").animate({
+                marginLeft: "0px",
+              }, 300, function(){menuStatus = false});
+            return false;
+        }
     };
+    
     var onCommunityClick = function(community) {
         $.mobile.changePage("communityPage.html", { data: { id: community.id(), name: community.name() } });
     };
