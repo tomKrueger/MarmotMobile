@@ -7,9 +7,19 @@
         <div id="locationTop" class="blurredBackgroundContainer" style="height: 200px;width:100%;background-image: url('https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png');">
         </div>
         
-        <div class="blurredBackgroundContent" style="height:165px; margin:5px">                
+        <div class="blurredBackgroundContent" style="height:165px; margin:5px">
+            
+            <!--
+            TODOs:
+            Need border on image.
+            Probably remove <br/>'s
+            Could change Follow to a button or a tag.  We will want to see the depression when clicked.
+            Style navbar
+            Need to determine where navbar clicks go to.
+            -->
+            
             <img data-bind="attr: {src: imageUrl}" style="width: 50px; height:50px;" /><br />
-            <span>Follow</span><br />
+            <span data-bind="click: onFollowClick">Follow</span><br />
             
             <div class="locationNavBarContainer">
                 <div data-role="navbar" class="locationNavBar" style="">
@@ -19,11 +29,9 @@
                         <li><a href="b.html"><p>156</p><span>Photos</span></a></li>
                         <li><a href="b.html"><p>12</p><span>Events</span></a></li>
                 	</ul>
-                </div><!-- /navbar -->
+                </div>
             </div>
         </div>
-        
-        
         
         <div class="offersSection">
             
