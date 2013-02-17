@@ -94,6 +94,7 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
 {
     -webkit-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
     box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
+    z-index: 29;
 }
 
 /* Blurring background image.
@@ -107,6 +108,8 @@ div.blurredBackgroundContainer
     position: absolute;
     z-index: 0;    
     -webkit-filter: blur(15px);
+    margin-left: -10px;
+    margin-top: -10px;
 }
 
 div.blurredBackgroundContent
@@ -383,7 +386,12 @@ div.blurredBackgroundContent
     padding-right: 2px       
 }
 
+/*locationPage*/
+
 .locationNavBarContainer .ui-navbar li .ui-btn
 {
     text-align: left;
+    font-family: Oswald-Light;
 }
+
+
