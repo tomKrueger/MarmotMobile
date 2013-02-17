@@ -16,6 +16,8 @@ $(document).bind('mobileinit', function () {
     app.mobileInit(); 
 })
 
+var menuStatus;
+
 app.mobileInit = function () {
     app.logger.traceStart("*************************************");
     app.logger.traceStart("app.mobileInit");
@@ -45,6 +47,23 @@ app.mobileInit = function () {
         var vm = getViewModel(this.id);
         if (vm)
             vm.dispose();
+    });
+    
+    $('.ui-page').live("swipeleft", function(){
+        if (menuStatus) {
+            alert('swipeleft');
+            $(".ui-page-active").animate({
+                marginLeft: "0px",
+              }, 300, function(){ menuStatus = false });
+        }
+    });
+    
+    $('.ui-page').live('swiperight', function (event, ui) {
+        if (!menuStatus) {
+            $(".ui-page-active").animate({
+                marginLeft: "165px",
+              }, 300, function() { menuStatus = true });
+        }
     });
     
     $('#homePage').live('pageinit', function (event, ui) {

@@ -127,6 +127,24 @@ app.HomeViewModel = function() {
         //}
     };
     
+    var menuStatus; 
+    
+    var onMenuClick = function(community) {
+        console.log('ddd');
+        
+        if(menuStatus != true) {
+            $(".ui-page-active").animate(
+                { marginLeft: "165px",
+          }, 300, function(){menuStatus = true});
+          return false;
+        } else {
+            $(".ui-page-active").animate({
+                marginLeft: "0px",
+              }, 300, function(){menuStatus = false});
+            return false;
+        }
+    };
+    
     var onCommunityClick = function(community) {
         $.mobile.changePage("communityPage.html", { data: { id: community.id(), name: community.name() } });
     };
@@ -144,6 +162,7 @@ app.HomeViewModel = function() {
         pageshow: onPageShow,
         dispose: dispose,
         onCommunityClick: onCommunityClick,
-        onOfferClick: onOfferClick
+        onOfferClick: onOfferClick,
+        onMenuClick: onMenuClick
     };    
 };
