@@ -49,9 +49,9 @@ app.LocationViewModel = function() {
         app.logger.traceEnd("LocationViewModel-refresh()");
     };
     
-    var onOfferClick = function(offer) {
-        console.log('dd');
-        $.mobile.changePage("offerPage.html", { data: { id: offer.id(), name: offer.name() } });
+    var onOfferClick = function(offer, event) {        
+        var element = event.srcElement
+        $(element).closest('li').next('div').toggle(100);
     };
     
     return {
