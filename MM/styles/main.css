@@ -108,6 +108,8 @@ div.blurredBackgroundContainer
     position: absolute;
     z-index: 0;    
     -webkit-filter: blur(15px);
+    margin-left: -10px;
+    margin-top: -10px;
 }
 
 div.blurredBackgroundContent
@@ -384,7 +386,12 @@ div.blurredBackgroundContent
     padding-right: 2px       
 }
 
+/*locationPage*/
+
 .locationNavBarContainer .ui-navbar li .ui-btn
 {
     text-align: left;
+    font-family: Oswald-Light;
 }
+
+
