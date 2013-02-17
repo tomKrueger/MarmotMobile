@@ -1,0 +1,29 @@
+/*
+    Float Container A
+    Two columns
+        1 Left Aligned
+        1 Right Aliged
+        Stretch 100%
+    Float Clearing Explanation: http://www.quirksmode.org/css/clearing.html 
+*/
+div.float-container-a
+{
+	overflow: hidden;
+	width: 100%;
+}
+
+div.float-container-a-left 
+{
+	float: left;
+}
+
+div.float-container-a-right 
+{
+    /*border: 1px solid blue;*/
+    float: right;
+}
+
+#locationPage .float-container-a-left
+{
+    
+}
