@@ -108,7 +108,7 @@ div.blurredBackgroundContainer
     position: absolute;
     z-index: 0;    
     -webkit-filter: blur(15px);
-    margin-left: -10px;
+    margin-left: -3px;
     margin-top: -10px;
 }
 
@@ -329,6 +329,7 @@ div.blurredBackgroundContent
     font-weight: normal;
     text-shadow: none;
     color: white;
+    text-decoration: none
     
 }
 
@@ -342,6 +343,7 @@ div.blurredBackgroundContent
     font-weight: normal;
     text-shadow: none;
     color: white;
+    text-decoration: none
 }
 
 
