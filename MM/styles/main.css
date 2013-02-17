@@ -387,3 +387,20 @@ div.blurredBackgroundContent
 {
     text-align: left;
 }
+
+.offerUnlockContainer
+{
+    border: solid 1px black;
+    padding: 5px;
+    
+}
+
+.offerUnlockShoutContainer
+{
+    border: solid 1px blue;
+    padding: 5px;
+}
+
+.offerUnlockLoginTypeContainer
+{
+}
