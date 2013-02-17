@@ -405,3 +405,37 @@ div.blurredBackgroundContent
 {
     color: white;
 }
+
+.follow {
+	-moz-box-shadow: 0px 3px 7px -3px #1f1d1f;
+	-webkit-box-shadow: 0px 3px 7px -3px #1f1d1f;
+	box-shadow: 0px 3px 7px -3px #1f1d1f;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f26e21), color-stop(1, #f26e21) );
+	background:-moz-linear-gradient( center top, #f26e21 5%, #f26e21 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f26e21', endColorstr='#f26e21');
+	background-color:#f26e21;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	border:1px solid #b06639;
+	display:inline-block;
+	color:#fdddc6;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:normal;
+	padding:2px 17px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #625248;
+}.follow:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f26e21), color-stop(1, #f26e21) );
+	background:-moz-linear-gradient( center top, #f26e21 5%, #f26e21 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f26e21', endColorstr='#f26e21');
+	background-color:#f26e21;
+}.follow:active {
+	position:relative;
+	top:1px;
+}
+.ui-body-c .ui-link {
+color: rgb(206, 218, 226);
+font-weight: normal;
+}
