@@ -54,6 +54,10 @@ app.LocationViewModel = function() {
         $.mobile.changePage("offerPage.html", { data: { id: offer.id(), name: offer.name() } });
     };
     
+    var onFollowClick = function() {
+        console.log("Follow Clicked");
+    };
+    
     return {
         load: load,
         dispose: dispose,
@@ -61,6 +65,7 @@ app.LocationViewModel = function() {
         name: name,
         imageUrl: imageUrl,
         offers: offers,
-        onOfferClick: onOfferClick        
+        onOfferClick: onOfferClick,
+        onFollowClick: onFollowClick
     };    
 };
