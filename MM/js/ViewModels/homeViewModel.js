@@ -126,7 +126,9 @@ app.HomeViewModel = function() {
         //    // Do landscape specific stuff.
         //}
     };
-    
+     var onMenuClick = function(community) {
+        console.log('red');
+    };
     var onCommunityClick = function(community) {
         $.mobile.changePage("communityPage.html", { data: { id: community.id(), name: community.name() } });
     };
@@ -144,6 +146,7 @@ app.HomeViewModel = function() {
         pageshow: onPageShow,
         dispose: dispose,
         onCommunityClick: onCommunityClick,
-        onOfferClick: onOfferClick
+        onOfferClick: onOfferClick,
+        onMenuClick: onMenuClick
     };    
 };
