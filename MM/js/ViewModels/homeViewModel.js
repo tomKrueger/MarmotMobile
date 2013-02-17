@@ -127,22 +127,32 @@ app.HomeViewModel = function() {
         //}
     };
     
-    var menuStatus; 
+    var isMenuClosed = true; 
     
-    var onMenuClick = function(community) {
-        console.log('ddd');
+    var onMenuClick = function() {
         
-        if(menuStatus != true) {
+        if(isMenuClosed === true) {
+            $("#menu").show();
+            
             $(".ui-page-active").animate(
-                { marginLeft: "165px",
-          }, 300, function(){menuStatus = true});
-          return false;
+                { marginLeft: "165px" }, 
+                300, 
+                function() {
+                    isMenuClosed = false 
+                });
+            
         } else {
-            $(".ui-page-active").animate({
-                marginLeft: "0px",
-              }, 300, function(){menuStatus = false});
-            return false;
+            
+            $(".ui-page-active").animate(
+                { marginLeft: "0px"}, 
+                300, 
+                function() {
+                    isMenuClosed = true;
+                    $("#menu").hide();
+                });
         }
+        
+        return false;
     };
     
     var onCommunityClick = function(community) {
