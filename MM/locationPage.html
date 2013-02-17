@@ -8,8 +8,8 @@
         </div>
         
         <div class="blurredBackgroundContent" style="height:165px; margin:5px">                
-            <img data-bind="attr: {src: imageUrl}" style="width: 50px; height:50px;" /><br />
-            <a href="#" class="follow">Follow</a><br />
+            <img data-bind="attr: {src: imageUrl}" style="width: 75px; height:75px;" /><br />
+            <a href="#" class="follow">Follow  +</a><br />
             
             <div class="locationNavBarContainer">
                 <div data-role="navbar" class="locationNavBar" style="">
@@ -27,7 +27,7 @@
         
         <div class="offersSection">
             
-            <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }">
+            <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }" class="locationOffers">
             </ul>
             
             <script type="text/html" id="locationOfferItemTemplate">

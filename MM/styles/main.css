@@ -423,7 +423,7 @@ div.blurredBackgroundContent
 	font-family:Chunkfive;
 	font-size:16px;
 	font-weight:normal;
-	padding:2px 17px;
+	padding:0px 13px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #625248;
 }.follow:hover {
@@ -439,3 +439,7 @@ div.blurredBackgroundContent
 color: #FDDDC6;
 font-weight: normal;
 }
+
+.locationOffers {
+        padding-top: 25px;
+    }
