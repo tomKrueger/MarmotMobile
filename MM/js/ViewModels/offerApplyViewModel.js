@@ -1,24 +1,23 @@
 'use strict';
 
-app.OfferViewModel = function() {
+app.OfferApplyViewModel = function() {
     var id = ko.observable(),
-        name = ko.observable();
+        name = ko.observable(),
+        offerApplyType = ko.observable('BarCode');
     
     // Behaviours.
     var load = function() {
-        $(window).bind('orientationchange', onOrientationChanged);
+        
+        
     };
     
     var dispose = function() {
-      
-        $(window).unbind('orientationchange', onOrientationChanged);
     };
     
     function onOrientationChanged() {
     };
     
     function onClick() {
-        $.mobile.changePage("offerApplyPage.html", { data: { id: id() } });        
     };
     
     return {
@@ -26,6 +25,8 @@ app.OfferViewModel = function() {
         dispose: dispose,
         id: id,
         name: name,
-        onClick: onClick        
+        offerApplyType: offerApplyType,
+        onClick: onClick
+        
     };    
 };

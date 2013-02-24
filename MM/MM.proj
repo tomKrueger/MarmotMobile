@@ -64,8 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="communityPage.html" />
+    <Content Include="offerApplyPage.html" />
     <Content Include="js\Tests\common\utils.tests.js" />
     <Content Include="js\Tests\tests.js" />
+    <Content Include="js\ViewModels\offerApplyViewModel.js" />
     <Content Include="js\ViewModels\locationViewModel.js" />
     <Content Include="locationPage.html" />
     <Content Include="js\ViewModels\communityViewModel.js" />

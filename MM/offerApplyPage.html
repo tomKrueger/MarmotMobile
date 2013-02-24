@@ -1,0 +1,28 @@
+<div data-role="page" id="offerApplyPage" data-add-back-btn="true">
+    <div data-role="header">
+        <h1>offer</h1>
+    </div>
+    <div data-role="content">
+        
+        <div id="applyBarCodeContainer" data-bind="visible: offerApplyType() === 'BarCode'">
+            <span>Scan at Checkout</span>
+            <img />
+            <button data-bind="click: onClick">Done</button>            
+        </div>
+        
+        <div id="applyCouponCodeContainer" data-bind="visible: offerApplyType() === 'CouponCode'">
+            <span>Enter Coupon Code at Checkout</span>
+            <span>E9FJ7</span>
+            <button data-bind="click: onClick">Done</button>
+        </div>
+        
+        <div id="applyDiscountContainer" data-bind="visible: offerApplyType() === 'Discount'">
+            <span>Discount to Apply at Checkout</span>
+            <span>10% off TLD</span>
+            <button data-bind="click: onClick">Done</button>
+        </div>
+        
+    </div>
+    <div data-role="footer" data-position="fixed"  data-id="oneFooter">
+    </div>
+</div>

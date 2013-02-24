@@ -127,6 +127,23 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-offerPage");
     });
     
+    $('#offerApplyPage').live('pageinit', function (event, data) {
+        app.logger.traceStart("pageInit-offerApplyPage");
+        var viewElem = document.getElementById(this.id);
+        if (viewElem) {            
+            var queryString = parseQueryString($(this));
+            
+            var vm = new app.OfferApplyViewModel();
+            vm.id(queryString.id);
+            //vm.name(queryString.name);
+            
+            ko.applyBindings(vm, viewElem);
+            vm.load();
+        }
+        app.logger.traceEnd("pageInit-offerApplyPage");
+    });
+    
+    
     $('#searchPage').live('pageinit', function (event, ui) {
         app.logger.traceStart("pageInit-searchPage");
         var viewElem = document.getElementById(this.id);
