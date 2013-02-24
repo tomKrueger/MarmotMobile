@@ -8,8 +8,8 @@
         </div>
         
         <div class="blurredBackgroundContent" style="height:165px; margin:5px">                
-            <img data-bind="attr: {src: imageUrl}" style="width: 50px; height:50px;" /><br />
-            <span>Follow</span><br />
+            <img data-bind="attr: {src: imageUrl}" style="width: 75px; height:75px; border" class="locationImage"/><br />
+            <a href="#" class="follow">Follow  +</a><br />
             
             <div class="locationNavBarContainer">
                 <div data-role="navbar" class="locationNavBar" style="">
@@ -27,7 +27,7 @@
         
         <div class="offersSection">
             
-            <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }">
+            <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }" class="locationOffers">
             </ul>
             
             <script type="text/html" id="locationOfferItemTemplate">
@@ -39,28 +39,7 @@
                         <span data-bind="text: distance" class="ui-li-count"></span>
                     </a>
                 </li>
-                    
-                <div class="offer" style="display: none;">
-                    <div class="float-container-a" style="margin-left: 10px; padding: 5px;">
-                    
-                        <div class="float-container-a-left" >
-                    
-                            <div style="border: 2px solid blue;">
-                                <p style="padding: 5px; background: -webkit-linear-gradient(90deg, #7ea5ad 0%,#ffffff 80%);">From: Tom Krueger</p>
-                                <textarea style="width: 250px; border: 0px; padding: 5px;margin:0px;" rows="8" name="textarea" id="textarea"></textarea>
-                            </div>
-                                
-                        </div>
-                            
-                        <div class="float-container-a-right" style="margin-right: 25px;">
-                            <a><img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" style="width: 50px; height: 50px;"></img></a><br/>
-                            <a><img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" style="width: 50px; height: 50px;"></img></a><br/>
-                            <a><img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" style="width: 50px; height: 50px;"></img></a>
-                        </div>
-                    </div>
-                </div>
             </script>
-            
             
         </div>
         
