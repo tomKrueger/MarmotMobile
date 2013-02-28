@@ -22,6 +22,26 @@
     src: url('fonts/Oswald-Regular.ttf');
 }
 
+/*
+menu 
+*/
+
+#menu{
+    background: #7ea5ad;
+    color: white;
+    height:100%;
+    }
+#menu li{
+    padding: 10px;
+    font-family: Oswald-Light;
+    font-size: 16px;
+    font-weight: lighter;
+}
+#menu a:link{
+    text-decoration: none;
+    color:white;
+}
+
 ul
 {
     margin: 0;
