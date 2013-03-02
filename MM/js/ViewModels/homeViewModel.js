@@ -10,7 +10,6 @@ app.HomeViewModel = function() {
                 
         app.geoManager.subscribeRefresh(refresh, onGeoError);
         app.geoManager.refresh();
-        app.geoManager.startAutoRefresh(2 * 60 * 1000); // TODO: This is not the right spot for this.
         
         $(window).bind('orientationchange', onOrientationChanged);
     };

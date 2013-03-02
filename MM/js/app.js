@@ -15,6 +15,7 @@ function onDeviceReady() {
     // We want something to show up on the screen.
     app.geoManager = new utils.GeoManager();
     app.geoManager.setCurrentPosition({ coords: { latitude: 43.059911, longitude: -88.403900 }});
+    app.geoManager.startAutoRefresh(2 * 60 * 1000);
     
     pgReady.resolve();
     
