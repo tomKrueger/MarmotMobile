@@ -273,7 +273,8 @@ function getQueryStringParms(url) {
     utils.GeoManager = function () {
         
         var _currentPosition;
-        var _currentPositionObserver = new utils.Observer;
+        var _currentPositionChangedObserver = new utils.Observer;
+        var _getPositionErrorObserver = new utils.Observer;
         var _timeout;
         
         var startAutoRefresh = function (interval) {
@@ -289,17 +290,19 @@ function getQueryStringParms(url) {
             navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationError);         
         };
 
-        var subscribe = function(fn) {
-            _currentPositionObserver.subscribe(fn);    
+        var subscribe = function(fn, errFunc) {
+            _currentPositionChangedObserver.subscribe(fn);
+            _getPositionErrorObserver.subscribe(errFunc);
         };
         
-        var unsubscribe = function(fn) {
-            _currentPositionObserver.unsubscribe(fn);
+        var unsubscribe = function(fn, errFunc) {
+            _currentPositionChangedObserver.unsubscribe(fn);
+            _getPositionErrorObserver.subscribe(errFunc);
             
             // Stop refreshing if there are not any subscribers.
             // NOTE: Commented out because it may not be the right choice to stopAutoRefresh.  Waiting
             // to comment back in until there is a need.
-            //if (_currentPositionObserver.subscriberCount === 0) {
+            //if (_currentPositionChangedObserver.subscriberCount === 0) {
             //    stopAutoRefresh();
             //}
         };
@@ -308,18 +311,24 @@ function getQueryStringParms(url) {
             return _currentPosition;
         };
         
+        var setCurrentPosition = function (position) {
+            _currentPosition = position;
+        };
+        
         function onGeolocationSuccess(position) {
             _currentPosition = position;
-            _currentPositionObserver.fire(_currentPosition);
+            _currentPositionChangedObserver.fire(_currentPosition);
             
         };
         
         function onGeolocationError(error) {
             app.logger.error(error.message);
+            _getPositionErrorObserver.fire(error);
         };
         
         return {
             getCurrentPosition: getCurrentPosition,
+            setCurrentPosition: setCurrentPosition,
             startAutoRefresh: startAutoRefresh,
             stopAutoRefresh: stopAutoRefresh,
             refresh: refresh,

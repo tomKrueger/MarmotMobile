@@ -7,7 +7,12 @@ app.HomeViewModel = function() {
     
     // Behaviours.
     var load = function() {
-        app.geoManager.subscribeRefresh(refresh);
+        
+        // Force refresh using current position.  So that if geo is off,
+        // the screen will still load.
+        refresh(app.geoManager.getCurrentPosition());
+        
+        app.geoManager.subscribeRefresh(refresh, onGeoError);
         app.geoManager.refresh();
         app.geoManager.startAutoRefresh(2 * 60 * 1000); // TODO: This is not the right spot for this.
         
@@ -73,6 +78,18 @@ app.HomeViewModel = function() {
         app.logger.traceEnd("HomeViewModel-refresh()");
     };       
     
+    var onGeoError = function(error) {
+        
+        switch(error.code) {
+            case PositionError.PERMISSION_DENIED:
+                showAlert("Please enable location services to view what's happening nearby.", "GPS");
+                break;
+            case PositionError.POSITION_UNAVAILABLE:
+            case PositionError.TIMEOUT:
+                showAlert("Your device was unable to retrieve your GPS location at this time.", "GPS");
+                break;
+        }
+    }
     var onPageBeforeShow = function () {
         app.logger.traceStart("HomeViewModel-onPageBeforeShow()");
         app.logger.traceEnd("HomeViewModel-onPageBeforeShow()");

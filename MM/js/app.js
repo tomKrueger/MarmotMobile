@@ -11,7 +11,10 @@ function onDeviceReady() {
     
     app.logger.traceStart("onDeviceReady");
     
+    // Initialize GeoManger with a default location in case geo isn't enabled on phone.
+    // We want something to show up on the screen.
     app.geoManager = new utils.GeoManager();
+    app.geoManager.setCurrentPosition({ coords: { latitude: 43.059911, longitude: -88.403900 }});
     
     pgReady.resolve();
     
