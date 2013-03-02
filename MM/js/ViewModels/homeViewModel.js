@@ -7,11 +7,7 @@ app.HomeViewModel = function() {
     
     // Behaviours.
     var load = function() {
-        
-        // Force refresh using current position.  So that if geo is off,
-        // the screen will still load.
-        refresh(app.geoManager.getCurrentPosition());
-        
+                
         app.geoManager.subscribeRefresh(refresh, onGeoError);
         app.geoManager.refresh();
         app.geoManager.startAutoRefresh(2 * 60 * 1000); // TODO: This is not the right spot for this.
@@ -79,6 +75,10 @@ app.HomeViewModel = function() {
     };       
     
     var onGeoError = function(error) {
+        
+        // Force refresh using current position.  So that if geo is off,
+        // the screen will still load.
+        refresh(app.geoManager.getCurrentPosition());
         
         switch(error.code) {
             case PositionError.PERMISSION_DENIED:
