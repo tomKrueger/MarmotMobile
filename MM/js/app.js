@@ -18,6 +18,27 @@ function onDeviceReady() {
     app.logger.traceEnd("onDeviceReady");
 }
 
+function navigateToHome() {
+    $.mobile.changePage($("#homePage"));
+}
+
+function navigateToCommunityPage(communityId, communityName) {
+    $.mobile.changePage("communityPage.html", { data: { id: communityId, name: communityName } });
+}
+
+var _onOfferDoneNav;
+
+function navigateToOfferPage(offerId, offerName, onOfferDoneNav) {
+    
+    _onOfferDoneNav = onOfferDoneNav;
+    
+    $.mobile.changePage("offerPage.html", { data: { id: offerId, name: offerName } });
+}
+
+function navigateToOnOfferDonePage() {
+    _onOfferDoneNav();
+}
+
 function getLocation() {
     myNewFunction();
 }

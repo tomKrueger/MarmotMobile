@@ -156,11 +156,12 @@ app.HomeViewModel = function() {
     };
     
     var onCommunityClick = function(community) {
-        $.mobile.changePage("communityPage.html", { data: { id: community.id(), name: community.name() } });
+        navigateToCommunityPage(community.id(), community.name());
     };
     
     var onOfferClick = function(offer) {
-        $.mobile.changePage("offerPage.html", { data: { id: offer.id(), name: offer.name() } });
+        var onOfferDoneNav = function() { navigateToHome(); };
+        navigateToOfferPage(offer.id(), offer.name(), onOfferDoneNav);
     };
     
     return {

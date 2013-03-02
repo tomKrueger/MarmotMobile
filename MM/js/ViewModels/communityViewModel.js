@@ -134,7 +134,8 @@ app.CommunityViewModel = function() {
     };
     
     var onOfferClick = function(offer) {
-        $.mobile.changePage("offerPage.html", { data: { id: offer.id(), name: offer.name() } });
+        var onOfferDoneNav = function() { navigateToCommunityPage(id(), name()); };
+        navigateToOfferPage(offer.id(), offer.name(), onOfferDoneNav);
     };
     
     return {

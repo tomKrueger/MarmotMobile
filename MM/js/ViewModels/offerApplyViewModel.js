@@ -8,7 +8,7 @@ app.OfferApplyViewModel = function() {
     
     // Behaviours.
     var load = function() {
-        debugger;
+        
         app.Services.Offer.get(
             id(),
             function(offerDto) {
@@ -30,10 +30,10 @@ app.OfferApplyViewModel = function() {
     
     function onClick() {
         
-        var bw = new BWIPJS;
-        bw.bitmap(new Bitmap);
+        //var bw = new BWIPJS;
+        //bw.bitmap(new Bitmap);
+        navigateToOnOfferDonePage();
         
-        alert('dd');
     };
     
     return {
