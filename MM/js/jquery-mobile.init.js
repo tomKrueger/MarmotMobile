@@ -20,7 +20,7 @@ app.mobileInit = function () {
     app.logger.traceStart("*************************************");
     app.logger.traceStart("app.mobileInit");
     
-    $('.ui-page').live('pagebeforeshow', function (event, ui) {
+    $(document).on("pagebeforeshow", ".ui-page", function (event, ui) {
         var self = this;
         $.when(homeLoaded).then(function () {
             var vm = getViewModel(self.id);
@@ -29,7 +29,7 @@ app.mobileInit = function () {
         });
     });
     
-    $('.ui-page').live('pageshow', function (event, ui) {
+    $(document).on("pageshow", ".ui-page", function (event, ui) {
         var self = this;
         $.when(homeLoaded).then(function () {
             var vm = getViewModel(self.id);
@@ -41,13 +41,13 @@ app.mobileInit = function () {
     // Hook up all pages to ensure that dispose gets called on 
     // them all.  Every view model should expose a dispose function
     // to clean up memory and all event subscriptions that were registered in the view model.
-    $('.ui-page').live('pageremove', function (event, ui) {
+    $(document).on("pageremove", ".ui-page", function (event, ui) {
         var vm = getViewModel(this.id);
         if (vm)
             vm.dispose();
     });
     
-    $('#homePage').live('pageinit', function (event, ui) {
+    $(document).on("pageinit", "#homePage", function (event, ui) {
         app.logger.traceStart("pageInit-homePage");
         
         // Wait until both jqueryMobile and the Page is ready to be loaded.
@@ -68,7 +68,7 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-homePage");
     });
     
-    $('#communityPage').live('pageinit', function (event, data) {
+    $(document).on("pageinit", "#communityPage", function (event, data) {
         app.logger.traceStart("pageInit-communityPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {           
@@ -84,7 +84,7 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-communityPage");
     });
     
-    $('#locationPage').live('pageinit', function (event, data) {
+    $(document).on("pageinit", "#locationPage", function (event, data) {
         app.logger.traceStart("pageInit-locationPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {           
@@ -100,7 +100,7 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-locationPage");
     });
     
-    $('#mapPage').live('pageinit', function (event, data) {
+    $(document).on("pageinit", "#mapPage", function (event, data) {
         app.logger.traceStart("pageInit-mapPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {            
@@ -111,7 +111,7 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-mapPage");
     });
     
-    $('#offerPage').live('pageinit', function (event, data) {
+    $(document).on("pageinit", "#offerPage", function (event, data) {
         app.logger.traceStart("pageInit-offerPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {            
@@ -127,7 +127,7 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-offerPage");
     });
     
-    $('#offerApplyPage').live('pageinit', function (event, data) {
+    $(document).on("pageinit", "#offerApplyPage", function (event, data) {
         app.logger.traceStart("pageInit-offerApplyPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {            
@@ -143,8 +143,7 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-offerApplyPage");
     });
     
-    
-    $('#searchPage').live('pageinit', function (event, ui) {
+    $(document).on("pageinit", "#searchPage", function (event, ui) {
         app.logger.traceStart("pageInit-searchPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {
@@ -155,7 +154,7 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-searchPage");
     });
     
-    $('#socialPage').live('pageinit', function (event, data) {
+    $(document).on("pageinit", "#socialPage", function (event, data) {        
         app.logger.traceStart("pageInit-socialPage");
         var viewElem = document.getElementById(this.id);
         if (viewElem) {            
