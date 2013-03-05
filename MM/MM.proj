@@ -35,6 +35,7 @@
     <Folder Include="jquery-mobile\themes" />
     <Folder Include="jquery-mobile\themes\images" />
     <Folder Include="js\common" />
+    <Folder Include="js\lib\knockout" />
     <Folder Include="js\Tests" />
     <Folder Include="js\Tests\common" />
     <Folder Include="styles\fonts" />
@@ -68,6 +69,7 @@
     <Content Include="jquery-mobile\jquery.mobile-1.3.0.min.css" />
     <Content Include="jquery-mobile\jquery.mobile-1.3.0.min.js" />
     <Content Include="jquery-mobile\jquery.mobile.st-1.3.0.min.css" />
+    <Content Include="js\lib\knockout\knockout-2.2.1.js" />
     <Content Include="offerApplyPage.html" />
     <Content Include="js\Tests\common\utils.tests.js" />
     <Content Include="js\Tests\tests.js" />
