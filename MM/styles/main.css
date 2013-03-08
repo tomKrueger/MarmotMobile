@@ -26,8 +26,10 @@
 menu 
 */
 
+a {text-decoration: none; }
+
 #menu{
-    background: #7ea5ad;
+    background: #5B777D;
     color: white;
     height:100%;
     }
