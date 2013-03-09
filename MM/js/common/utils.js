@@ -337,4 +337,43 @@ function getQueryStringParms(url) {
         };
 
     };
+    
+    utils.Geo = (function () {
+        
+        var _deg2RadMultiplier = Math.PI / 180;
+        
+        function calculateDistanceInKM(lat1, long1, lat2, long2) {
+            return calculateDistance(6367, lat1, long1, lat2, long2);
+        };
+
+        function calculateDistanceInMiles(lat1, long1, lat2, long2) { 
+            return calculateDistance(3956, lat1, long1, lat2, long2);
+        };
+        
+        // Calculate distance using Haversine method.
+        function calculateDistance(earthRadius, lat1, long1, lat2, long2) {
+            var dlat = degreesToRadians(lat2 - lat1);
+            var dlong = degreesToRadians(long2 - long1);
+            var a = 
+                Math.pow(Math.sin(dlat/2.0), 2) + 
+                Math.cos(degreesToRadians(lat1)) * 
+                Math.cos(degreesToRadians(lat2)) * 
+                Math.pow(Math.sin(dlong/2.0), 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            var d = earthRadius * c; 
+        
+            return d;
+        };
+        
+        function degreesToRadians(degrees) {
+          console.log(_deg2RadMultiplier);
+          return degrees * _deg2RadMultiplier;
+        };
+      
+         return {
+            calculateDistanceInKM: calculateDistanceInKM,
+            calculateDistanceInMiles: calculateDistanceInMiles
+        };
+    }());
+    
 }());    
