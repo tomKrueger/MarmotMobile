@@ -5,6 +5,25 @@ app.HomeViewModel = function() {
         nearByOffers = ko.observableArray(),
         mapUrl = ko.observable();
     
+    // Computed property used to sort communities.
+    var nearByCommunitiesSorted = ko.computed(function() {       
+        
+        app.logger.traceStart("HomeViewModel-nearByCommunitiesSorted()");
+        
+        if (nearByCommunities().length == 0) return []; 
+        
+        nearByCommunities().sort(sortFunction);
+        
+        app.logger.traceEnd("HomeViewModel-nearByCommunitiesSorted()");
+        
+        return nearByCommunities();
+        
+    }).extend({ throttle: 100 }); // Throttle so sort doesn't happen for every change to distance on each community.
+    
+    var sortFunction = function(a, b) {
+        return a.distance() < b.distance() ? -1 : 1;
+    };
+    
     // Behaviours.
     var load = function() {
                 
@@ -110,7 +129,7 @@ app.HomeViewModel = function() {
     
     function loadCarousel()
     {
-        if (nearByCommunities().length === 0) return;
+        if (nearByCommunitiesSorted().length === 0) return;
         
         $("#communitiesCarousel").touchCarousel({					
             pagingNav: false,
@@ -190,7 +209,7 @@ app.HomeViewModel = function() {
     };
     
     return {
-        communities: nearByCommunities,
+        communities: nearByCommunitiesSorted,
         offers: nearByOffers,
         mapUrl: mapUrl,
         load: load,

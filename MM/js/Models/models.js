@@ -22,12 +22,19 @@ app.Models.Community = function() {
     //    return "community.html" + createQueryString(self.id(), self.name());
     //});  
        
-    self.distance = ko.computed(function() {
+    self.distance = ko.observable();
+    
+    self.internalDistance = ko.computed(function() {
         
         if (!self.geoPosition()) { return; }
         
-        return calculateDistanceFromCurrent(self.geoPosition());       
+        var dist = calculateDistanceFromCurrent(self.geoPosition());       
+        console.log("Dist-Community (" + self.name() + "): " + dist);
+    
+        if (self.distance() != dist)
+            self.distance(dist);
         
+        return dist;
     });
     
 }; /* End Model */
