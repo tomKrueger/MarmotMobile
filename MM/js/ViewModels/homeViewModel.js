@@ -27,8 +27,9 @@ app.HomeViewModel = function() {
         app.Services.Community.getNearByCommunities(
             position,
             function(communitiesDto) {
-                nearByCommunities.removeAll();
         
+                var tmpArray = [];
+                
                 communitiesDto.forEach(function(communityDto) {
                     
                     var model = new app.Models.Community();
@@ -37,9 +38,12 @@ app.HomeViewModel = function() {
                     model.imageUrl(communityDto.imageUrl);
                     model.geoPosition(communityDto.geoPosition);
                     
-                    nearByCommunities.push(model);
+                    tmpArray.push(model);
                     
                 });
+                
+                // Remove all existing and push the new.
+                nearByCommunities.pushAll(tmpArray, true);
                 
                 loadCarousel();
             });
@@ -47,8 +51,9 @@ app.HomeViewModel = function() {
         app.Services.Offer.getNearByOffers(
             position,
             function(offersDto) {
-                nearByOffers.removeAll();
-        
+                
+                var tmpArray = [];
+                
                 offersDto.forEach(function(offerDto) {
                                     
                     var model = new app.Models.Offer();
@@ -57,8 +62,11 @@ app.HomeViewModel = function() {
                     model.imageUrl(offerDto.imageUrl);
                     model.locationGeoPosition(offerDto.geoPosition);
                     
-                    nearByOffers.push(model);  
+                    tmpArray.push(model);  
                 });
+                
+                // Remove all existing and push the new.
+                nearByOffers.pushAll(tmpArray, true);
                 
                 $("#homePage .offersSection ul").listview("refresh");
             });

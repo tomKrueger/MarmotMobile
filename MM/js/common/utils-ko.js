@@ -50,4 +50,27 @@
 			}, 0);
 		}
 	};
+    
+    //
+    // Function to push multiple items into an observableArray and only notify dependancies
+    // one time.
+    // This can significantly reduce the recalculation of all dependancies when adding multiple items.
+    //
+    // In addition, passing true for shouldRemoveAll will remove all items from the array first.  Removing 
+    // and adding will only fire a single notification.
+    //
+    ko.observableArray.fn.pushAll = function(valuesToPush, shouldRemoveAll) {
+        var underlyingArray = this();
+        this.valueWillMutate();
+        
+        if (shouldRemoveAll) {
+            underlyingArray.splice(0, underlyingArray.length);
+        }
+        
+        ko.utils.arrayPushAll(underlyingArray, valuesToPush);
+        
+        this.valueHasMutated();
+        return this;
+    };
+    
 }());
