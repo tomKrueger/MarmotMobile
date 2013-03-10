@@ -366,7 +366,6 @@ function getQueryStringParms(url) {
         };
         
         function degreesToRadians(degrees) {
-          console.log(_deg2RadMultiplier);
           return degrees * _deg2RadMultiplier;
         };
       

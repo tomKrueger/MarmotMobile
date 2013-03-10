@@ -1,5 +1,14 @@
 app.Models = app.Models || {};
 
+
+app.Models.Globals = function() {
+    'use strict';
+    var self = this;
+    
+    self.currentGeoPosition = ko.observable(); 
+    
+};
+
 app.Models.Community = function() {
 	'use strict';
     var self = this;
@@ -7,11 +16,20 @@ app.Models.Community = function() {
     self.id = ko.observable();
     self.name = ko.observable();
     self.imageUrl = ko.observable();
+    self.geoPosition = ko.observable();
     
     //self.pageUrl = ko.computed(function() {
     //    return "community.html" + createQueryString(self.id(), self.name());
     //});  
        
+    self.distance = ko.computed(function() {
+        
+        if (!self.geoPosition()) { return; }
+        
+        return calculateDistanceFromCurrent(self.geoPosition());       
+        
+    });
+    
 }; /* End Model */
 
 app.Models.Location = function() {
@@ -21,6 +39,8 @@ app.Models.Location = function() {
     self.id = ko.observable();
     self.name = ko.observable();
     self.imageUrl = ko.observable();
+    
+
        
 }; /* End Model */
 

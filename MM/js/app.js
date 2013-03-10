@@ -11,15 +11,40 @@ function onDeviceReady() {
     
     app.logger.traceStart("onDeviceReady");
     
+    app.Globals = new app.Models.Globals();
+    
     // Initialize GeoManger with a default location in case geo isn't enabled on phone.
     // We want something to show up on the screen.
     app.geoManager = new utils.GeoManager();
-    app.geoManager.setCurrentPosition({ coords: { latitude: 43.059911, longitude: -88.403900 }});
+    app.geoManager.subscribeRefresh(onGeoRefresh, onGeoError);
     app.geoManager.startAutoRefresh(2 * 60 * 1000);
     
     pgReady.resolve();
     
     app.logger.traceEnd("onDeviceReady");
+}
+
+function onGeoRefresh() {
+
+    app.Globals.currentGeoPosition(app.geoManager.getCurrentPosition());
+}
+
+function onGeoError(error) {
+    
+    //app.geoManager.setCurrentPosition({ coords: { latitude: 43.059911, longitude: -88.403900 }});   
+}
+
+function calculateDistanceFromCurrent(position) {
+    
+    var curPos = app.Globals.currentGeoPosition();  
+    
+    var dist = utils.Geo.calculateDistanceInMiles(curPos.coords.latitude, curPos.coords.longitude, position.lat, position.long);
+    
+    if (dist > 0.5)
+        return dist.toFixed(2) + ' mi';
+    else
+        return (dist / 5280.0).toFixed() + ' ft';
+    
 }
 
 function navigateToHome() {

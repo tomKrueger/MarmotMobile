@@ -30,11 +30,12 @@ app.HomeViewModel = function() {
                 nearByCommunities.removeAll();
         
                 communitiesDto.forEach(function(communityDto) {
-                   
+                    
                     var model = new app.Models.Community();
                     model.id(communityDto.id);
                     model.name(communityDto.name);
                     model.imageUrl(communityDto.imageUrl);
+                    model.geoPosition(communityDto.geoPosition);
                     
                     nearByCommunities.push(model);
                     

@@ -31,10 +31,10 @@ app.Services = app.Services || {};
             //if (_tempSwitchFlag) {
             if (position.coords.latitude < 88) {
                 communities = [
-                    { id: 1, name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
-                    { id: 2, name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" },
-                    { id: 3, name: "Something else2", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" },
-                    { id: 4, name: "Something else3", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" }
+                    { id: 1, name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.465187, long: -80.522 } },
+                    { id: 2, name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.059911, long: -88.4139 } },
+                    { id: 3, name: "Something else2", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } },
+                    { id: 4, name: "Something else3", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } }
                 ];
             } else {
             
@@ -69,8 +69,8 @@ app.Services = app.Services || {};
         var getByCommunityId = function (communityId, successCallback) {
             
             var locations = [
-                { id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
-                { id: 3, name: "Main Place", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png" },
+                { id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 44, long: 87 } },
+                { id: 3, name: "Main Place", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 86 } },
             ];
             
             successCallback(locations);
