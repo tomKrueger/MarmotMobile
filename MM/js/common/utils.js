@@ -43,6 +43,8 @@ function centerImage(jqImg) {
         position: "relative",
         left: (width - jqImg.width()) / 2
     });
+    
+    app.logger.traceEnd("centerImage()");
 }
 
 //

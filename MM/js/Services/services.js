@@ -32,9 +32,9 @@ app.Services = app.Services || {};
             if (position.coords.latitude < 88) {
                 communities = [
                     { id: 1, name: "Lake Country", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
-                    { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.059911, long: -88.4139 } },
-                    { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } },
-                    { id: 4, name: "Door County", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } }
+                    { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
+                    { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
+                    { id: 4, name: "Door County", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 45.12732, long: -87.244449 } }
                 ];
             } else {
             
@@ -68,7 +68,10 @@ app.Services = app.Services || {};
             { communityId: 2, id: 8, name: "Locker's Floral", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060577, long: -88.023231 } },
             //{ communityId: 2, id: 9, name: "", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 0, long: 0 } },
             { communityId: 3, id: 0, name: "Galena Brewing Company", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
-            { communityId: 3, id: 11, name: "DeSoto House Hotel", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.415266, long: -90.42991 } }
+            { communityId: 3, id: 11, name: "DeSoto House Hotel", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.415266, long: -90.42991 } },
+            { communityId: 4, id: 15, name: "The Cookery", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.127388, long: -87.244578 } },
+            { communityId: 4, id: 16, name: "Door County Lighthouse Inn", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.12732, long: -87.244449 } },
+            { communityId: 4, id: 17, name: "Village Cafe", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.055591, long: -87.280283 } }
         ];
         
         //
