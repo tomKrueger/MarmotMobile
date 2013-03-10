@@ -109,11 +109,11 @@ app.Services = app.Services || {};
     app.Services.Offer = (function () {
         
         var offers = [
-                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode" },
-                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount" },
-                { id: 3, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "CouponCode" },
-                { id: 4, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode" },
-                { id: 5, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode" }
+                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
+                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", geoPosition: { lat: 43.071679, long: -88.420738 } },
+                { id: 3, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "CouponCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
+                { id: 4, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", geoPosition: { lat: 43.060577, long: -88.023231 } },
+                { id: 5, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } }
             ];
         
         //
@@ -137,8 +137,8 @@ app.Services = app.Services || {};
         var getByCommunityId = function (communityId, successCallback) {
 
             var offers = [
-                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png" },
-                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png" }                
+                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
+                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", geoPosition: { lat: 43.071679, long: -88.420738 } }
             ];
 
             successCallback(offers);
@@ -147,8 +147,8 @@ app.Services = app.Services || {};
         var getByLocationId = function (locationId, successCallback) {
 
             var offers = [
-                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png" },
-                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png" }                
+                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
+                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", geoPosition: { lat: 43.071679, long: -88.420738 } }
             ];
 
             successCallback(offers);

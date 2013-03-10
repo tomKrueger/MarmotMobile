@@ -60,7 +60,14 @@ app.Models.Offer = function() {
     self.name = ko.observable();
     self.imageUrl = ko.observable();
     self.locationGeoPosition = ko.observable();
-    self.distance = ko.observable();   
+    
+    self.distance = ko.computed(function() {
+        
+        if (!self.locationGeoPosition()) { return; }
+        
+        return calculateDistanceFromCurrent(self.locationGeoPosition());       
+        
+    });
     
        
 }; /* End Model */

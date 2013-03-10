@@ -38,7 +38,7 @@ app.LocationViewModel = function() {
                     model.id(offerDto.id);
                     model.name(offerDto.name);
                     model.imageUrl(offerDto.imageUrl);
-                    model.distance(offerDto.dist);
+                    model.locationGeoPosition(offerDto.geoPosition);
                     
                     offers.push(model);  
                 });
