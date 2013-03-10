@@ -36,6 +36,7 @@ app.CommunityViewModel = function() {
                     model.id(locationDto.id);
                     model.name(locationDto.name);
                     model.imageUrl(locationDto.imageUrl);
+                    model.geoPosition(locationDto.geoPosition);
                     
                     locations.push(model);
                     

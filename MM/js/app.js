@@ -40,10 +40,12 @@ function calculateDistanceFromCurrent(position) {
     
     var dist = utils.Geo.calculateDistanceInMiles(curPos.coords.latitude, curPos.coords.longitude, position.lat, position.long);
     
-    if (dist > 0.5)
-        return dist.toFixed(2) + ' mi';
+    if (dist >= 10)
+        return dist.toFixed() + ' mi';
+    else if (dist >= 0.1)
+        return dist.toFixed(1) + ' mi';
     else
-        return (dist / 5280.0).toFixed() + ' ft';
+        return (dist * 5280.0).toFixed() + ' ft';
     
 }
 
