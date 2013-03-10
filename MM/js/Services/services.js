@@ -31,10 +31,10 @@ app.Services = app.Services || {};
             //if (_tempSwitchFlag) {
             if (position.coords.latitude < 88) {
                 communities = [
-                    { id: 1, name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.465187, long: -80.522 } },
-                    { id: 2, name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.059911, long: -88.4139 } },
-                    { id: 3, name: "Something else2", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } },
-                    { id: 4, name: "Something else3", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } }
+                    { id: 1, name: "Lake Country", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.465187, long: -80.522 } },
+                    { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.059911, long: -88.4139 } },
+                    { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } },
+                    { id: 4, name: "Door County", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 87 } }
                 ];
             } else {
             
@@ -56,11 +56,32 @@ app.Services = app.Services || {};
     
     app.Services.Location = (function () {
     
+        var locations = [
+            //{ id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 44, long: 87 } },
+            //{ id: 3, name: "Main Place", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 86 } },
+            { communityId: 1, id: 2, name: "Revere's Wells St. Tavern", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
+            { communityId: 1, id: 3, name: "Mazatlan", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.071679, long: -88.420738 } },
+            { communityId: 1, id: 4, name: "Great Harvest Bread", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060152, long: -88.404399 } },
+            { communityId: 1, id: 5, name: "Tony & Mia's", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060434, long: -88.405279 } },
+            { communityId: 2, id: 6, name: "Cafe Hollander", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.049287, long: -88.007504 } },
+            { communityId: 2, id: 7, name: "Leff's Lucky Town", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
+            { communityId: 2, id: 8, name: "Locker's Floral", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060577, long: -88.023231 } },
+            //{ communityId: 2, id: 9, name: "", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 0, long: 0 } },
+            { communityId: 3, id: 0, name: "Galena Brewing Company", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
+            { communityId: 3, id: 11, name: "DeSoto House Hotel", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.415266, long: -90.42991 } }
+        ];
+        
         //
         // Retrieves location.
         //
         var get = function (locationId) {
-            return { name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" };
+            
+            locations.forEach(function(location) {
+                if (location.id === parseInt(locationId))
+                    return location;        
+            });
+            
+            //return { name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" };
         };
         
         //
@@ -68,12 +89,14 @@ app.Services = app.Services || {};
         //
         var getByCommunityId = function (communityId, successCallback) {
             
-            var locations = [
-                { id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 44, long: 87 } },
-                { id: 3, name: "Main Place", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 86 } },
-            ];
+            var locationsToReturn = [];
             
-            successCallback(locations);
+            locations.forEach(function(location) {
+                if (location.communityId === parseInt(communityId))
+                    locationsToReturn.push(location);
+            });
+                
+            successCallback(locationsToReturn);
         };
         
         return {
