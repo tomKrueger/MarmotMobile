@@ -37,7 +37,7 @@
             </div>
             <div data-role="content">
                 
-                <span class="nearBy">Near by: Delafield</span>
+                <span class="nearBy">Near by</span>
                 
                 <div id="communitiesCarousel" class="touchcarousel black-and-white">           
                     <ul class="touchcarousel-container" data-bind="template: { name: 'communityCarouselItemTemplate', foreach: communities }">
@@ -84,7 +84,7 @@
                                 <p class="offerName">Caribou<p>
                                 <span class="offerDesc"data-bind="text: name"></span>
                                 <p class="offerExp">Offer Expires In 5 Days</p>
-                                <span data-bind="text: distance" class="ui-li-count"></span>
+                                <span data-bind="text: distanceDisplay" class="ui-li-count"></span>
                             </a>
                         </li>
                     </script>

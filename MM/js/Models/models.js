@@ -24,6 +24,8 @@ app.Models.Community = function() {
        
     self.distance = ko.observable();
     
+    // TODO: Figure out how to only report changes to dependancies without this internalDistance.
+    // One options is to prevent the dependancies from triggering this to recompute.  When setting global current position only set it if it has changed.
     self.internalDistance = ko.computed(function() {
         
         if (!self.geoPosition()) { return; }
@@ -35,6 +37,13 @@ app.Models.Community = function() {
             self.distance(dist);
         
         return dist;
+    });
+    
+    self.distanceDisplay = ko.computed(function() {
+        
+        if (!self.distance) return;
+        
+        return formatDistance(self.distance());   
     });
     
 }; /* End Model */
@@ -68,12 +77,28 @@ app.Models.Offer = function() {
     self.imageUrl = ko.observable();
     self.locationGeoPosition = ko.observable();
     
-    self.distance = ko.computed(function() {
+    self.distance = ko.observable();
+    
+    // TODO: Figure out how to only report changes to dependancies without this internalDistance.
+    // One options is to prevent the dependancies from triggering this to recompute.  When setting global current position only set it if it has changed.
+    self.internalDistance = ko.computed(function() {
         
         if (!self.locationGeoPosition()) { return; }
         
-        return calculateDistanceFromCurrent(self.locationGeoPosition());       
+        var dist = calculateDistanceFromCurrent(self.locationGeoPosition());       
+        console.log("Dist-Offer (" + self.name() + "): " + dist);
+    
+        if (self.distance() != dist)
+            self.distance(dist);
         
+        return dist;
+    });
+    
+    self.distanceDisplay = ko.computed(function() {
+        
+        if (!self.distance) return;
+        
+        return formatDistance(self.distance());   
     });
     
        
