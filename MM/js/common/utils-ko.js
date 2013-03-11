@@ -73,4 +73,13 @@
         return this;
     };
     
+    // http://knockoutjs.com/documentation/extenders.html
+    // Example: this.firstName = ko.observable("Bob").extend({logChange: "first name"});
+    ko.extenders.logChange = function(target, option) {
+        target.subscribe(function(newValue) {
+           console.log(option + ": " + newValue);
+        });
+        return target;
+    };
+    
 }());
