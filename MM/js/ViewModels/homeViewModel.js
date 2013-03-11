@@ -129,21 +129,30 @@ app.HomeViewModel = function() {
     
     function loadCarousel()
     {
-        if (nearByCommunitiesSorted().length === 0) return;
+        // We are using setTimeout so that nearByCommunitiesSorted has time to compute before attempting to load carousel.
+        // TODO: make this more robust.  Should not depend on time.
+        // Note: we likely will want to use setTimeout in anycase so that load carousel does not block the UI thread from loading.
+        // Ultimately we may want the timeout to be zero to simulate async.  Need to test it though.
+        setTimeout(function() {
         
-        $("#communitiesCarousel").touchCarousel({					
-            pagingNav: false,
-            scrollbarAutoHide: true,
-            snapToItems: false,
-            itemsPerMove: 2,				
-            scrollToLast: true,
-            loopItems: false,
-            scrollbar: false,
-            useWebkit3d: true,
-            directionNav:true,            // Direction (arrow) navigation (true or false).
-            directionNavAutoHide:false,   // Direction (arrow) navigation auto hide on hover. 
-            dragUsingMouse:true
-        });
+            if (nearByCommunitiesSorted().length === 0) return;
+            
+            $("#communitiesCarousel").touchCarousel({					
+                pagingNav: false,
+                scrollbarAutoHide: true,
+                snapToItems: false,
+                itemsPerMove: 2,				
+                scrollToLast: true,
+                loopItems: false,
+                scrollbar: false,
+                useWebkit3d: true,
+                directionNav:true,            // Direction (arrow) navigation (true or false).
+                directionNavAutoHide:false,   // Direction (arrow) navigation auto hide on hover. 
+                dragUsingMouse:true
+            });
+        }
+        , 1000);
+        
     };
     
     function fixHeights() {
