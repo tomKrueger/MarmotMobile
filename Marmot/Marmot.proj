@@ -110,7 +110,7 @@
     <Content Include="js\ViewModels\homeViewModel.js" />
     <Content Include="js\ViewModels\viewModels.js" />
     <Content Include="searchPage.html" />
-    <Content Include="styles\CustomIcons\back-icon.png" />
+    <Content Include="styles\CustomIcons\back.png" />
     <Content Include="styles\CustomIcons\map-icon.png" />
     <Content Include="styles\CustomIcons\menu.png" />
     <Content Include="styles\CustomIcons\search.png" />
