@@ -95,6 +95,10 @@ function getQueryStringParms(url) {
         var parameter = parameters[i].split("=");
         var parameterName = decodeURIComponent(parameter[0]);
         var parameterValue = typeof parameter[1] === "undefined" ? parameter[1] : decodeURIComponent(parameter[1]);
+        
+        // Hack to remove plus signs.  This may not always be correct.
+        parameterValue = parameterValue.replace('+', ' ');
+        
         var dataType = typeof data[parameterName];
         if (dataType === "undefined") {
             data[parameterName] = parameterValue;
