@@ -108,8 +108,8 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
 .ui-button-myback
 {
     width: 40px;
-
 }
+
 .ui-icon-myback
 {
     background: url('CustomIcons/back.png') 0px -8px;
@@ -119,12 +119,12 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
   
 .ui-icon-mymenu
 {
-    background-image: url('CustomIcons/menu.png') !important;
+    background: url('CustomIcons/menu.png') !important;
 }
 
 .ui-icon-mysearch
 {
-    background-image: url('CustomIcons/search.png') !important;
+    background: url('CustomIcons/search.png') !important;
 }
     
 .ui-header 
@@ -208,6 +208,32 @@ div.blurredBackgroundContent
     color: #667584;
 }
 
+.ui-header > .ui-btn-icon-notext
+{
+    /* Make button taller so that it is easier to touch. */
+    top: 1px;
+    height: 40px;
+}
+
+.ui-header > .ui-btn-icon-notext .ui-btn-inner
+{
+    /* Move button image down so it is in the middle of the taller button. */
+    margin-top: 10px;
+}
+
+.ui-header > .ui-btn-up-a
+{
+    /* Remove button background and border as set in theme roller. */
+    background:transparent;
+    border: none;
+}
+
+.ui-header > .ui-btn-hover-a
+{
+    /* Remove button background as set in theme roller. */
+    background: transparent;
+}
+
 .ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon 
 {
     position: absolute;
@@ -215,6 +241,7 @@ div.blurredBackgroundContent
     margin-top: -9px;
     background-color: #7ea5ad;
 }
+
 
 .ui-footer
 {
