@@ -270,8 +270,8 @@ div.blurredBackgroundContent
 .touchcarousel 
 {
     width: 940px;
-    height: 130px;
-    margin: 0 auto;	
+    height: 125px;
+    margin: 0 auto;
 }	
 .touchcarousel .arrow-holder 
 {
@@ -324,7 +324,7 @@ div.blurredBackgroundContent
     height: 20px;
     position: absolute;		
     padding: 1px 1px 6px 6px;
-    margin-top: 105px;
+    margin-top: 98px;
     -webkit-transition: color 0.2s ease-out; 
     -moz-transition: color 0.2s ease-out;
     transition: color 0.2s ease-out;
