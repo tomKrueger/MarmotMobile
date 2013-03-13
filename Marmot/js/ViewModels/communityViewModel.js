@@ -6,7 +6,9 @@ app.CommunityViewModel = function() {
         locations = ko.observableArray(),
         nearByOffers = ko.observableArray(),
         mapUrl = ko.observable(),
-        community = ko.observable();
+        community = ko.observable(),
+        communitiesLoaded,
+        locationsLoaded;
     
     // Behaviours.
     var load = function() {
@@ -26,6 +28,8 @@ app.CommunityViewModel = function() {
     var refresh = function(position) {
         
         app.logger.traceStart("CommunityViewModel-refresh()");
+        communitiesLoaded = $.Deferred();
+        locationsLoaded = $.Deferred();
         
         app.Services.Community.get(
             id(),
@@ -38,12 +42,14 @@ app.CommunityViewModel = function() {
                 model.geoPosition(communityDto.geoPosition);
                 
                 community(model);
+                communitiesLoaded.resolve();
             });
         
         app.Services.Location.getByCommunityId(
             id(),
             function(locationsDto) {
-                locations.removeAll();
+                
+                var tmpArray = [];
         
                 locationsDto.forEach(function(locationDto) {
                    
@@ -53,9 +59,13 @@ app.CommunityViewModel = function() {
                     model.imageUrl(locationDto.imageUrl);
                     model.geoPosition(locationDto.geoPosition);
                     
-                    locations.push(model);
+                    tmpArray.push(model);
                     
                 });
+                
+                // Remove all existing and push the new.
+                locations.pushAll(tmpArray, true);
+                locationsLoaded.resolve();    
                 
                 loadCarousel();
             });
@@ -79,8 +89,7 @@ app.CommunityViewModel = function() {
                 $("#communityPage .offersSection ul").listview("refresh");
             });
         
-        setTimeout(function() {
-            
+        $.when(communitiesLoaded, locationsLoaded).then(function () {            
             app.Services.Map.getStaticMapUrlByZipcode(
                 community().geoPosition(),
                 position,
@@ -90,8 +99,8 @@ app.CommunityViewModel = function() {
                     mapUrl(url);
                     
                     fixHeights();
-                });
-        }, 300);
+                });            
+        }); 
         
         app.logger.traceEnd("CommunityViewModel-refresh()");
     };       
@@ -137,6 +146,11 @@ app.CommunityViewModel = function() {
                 centerImage($("#communityPage .staticMap"))
             }
             , 500);
+        
+        if ($("#communityPage .staticMap").left > 20) {
+            debugger;
+        }
+        
     }
     
     function onOrientationChanged() {

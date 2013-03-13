@@ -3,7 +3,8 @@
 app.HomeViewModel = function() {
     var nearByCommunities = ko.observableArray(),
         nearByOffers = ko.observableArray(),
-        mapUrl = ko.observable();
+        mapUrl = ko.observable(),
+        communitiesLoaded;
     
     // Computed property used to sort communities.
     var nearByCommunitiesSorted = ko.computed(function() {       
@@ -18,7 +19,7 @@ app.HomeViewModel = function() {
         
         return nearByCommunities();
         
-    }).extend({ throttle: 100 }); // Throttle so sort doesn't happen for every change to distance on each community.
+    }); // Removed throttle for now because we need the value calculated so that the map can use it.  There is talk about this issue at https://github.com/SteveSanderson/knockout/pull/582.  A solution may be coming to be able to ignore the throttle on a read. .extend({ throttle: 100 }); // Throttle so sort doesn't happen for every change to distance on each community.
     
     var sortFunction = function(a, b) {
         return a.distance() < b.distance() ? -1 : 1;
@@ -42,6 +43,8 @@ app.HomeViewModel = function() {
     var refresh = function(position) {
         app.logger.traceStart("HomeViewModel-refresh()");
         
+        communitiesLoaded = $.Deferred();
+        
         app.Services.Community.getNearByCommunities(
             position,
             function(communitiesDto) {
@@ -62,6 +65,7 @@ app.HomeViewModel = function() {
                 
                 // Remove all existing and push the new.
                 nearByCommunities.pushAll(tmpArray, true);
+                communitiesLoaded.resolve();
                 
                 loadCarousel();
             });
@@ -89,16 +93,19 @@ app.HomeViewModel = function() {
                 $("#homePage .offersSection ul").listview("refresh");
             });
         
-        app.Services.Map.getStaticMapUrlByZipcode(
-            position,
-            position,
-            nearByCommunities(),
-            null,            
-            function(url) {
-                mapUrl(url);
-                
-                fixHeights();
-            });
+        $.when(communitiesLoaded).then(function () {
+            
+            app.Services.Map.getStaticMapUrlByZipcode(
+                nearByCommunitiesSorted()[0].geoPosition(),
+                position,
+                nearByCommunitiesSorted(),
+                null,            
+                function(url) {
+                    mapUrl(url);
+                    
+                    fixHeights();
+                }); 
+        });
         
         app.logger.traceEnd("HomeViewModel-refresh()");
     };       
