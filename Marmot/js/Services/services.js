@@ -186,7 +186,11 @@ app.Services = app.Services || {};
                 }
             }
             
-            var url = "http://maps.googleapis.com/maps/api/staticmap?zoom=6&size=600x200&maptype=roadmap&sensor=false" + center + markers;            
+            // Calculate Zoom.
+            var zoom = 6;
+            if (locations && locations.length > 0) { zoom = 10; }
+            
+            var url = "http://maps.googleapis.com/maps/api/staticmap?zoom={0}&size=600x200&maptype=roadmap&sensor=false".format(zoom) + center + markers;            
             
             app.logger.verbose("MapUrl: " + url);
             
