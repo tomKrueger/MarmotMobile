@@ -402,7 +402,7 @@ div.blurredBackgroundContent
 
 .offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
 {    
-    padding-left: 65px;    
+    padding-left: 95px;    
 }
 
 .offersSection .ui-li-count
@@ -413,9 +413,9 @@ div.blurredBackgroundContent
 
 .offersSection .ui-li-icon 
 {
-    left: 13px;
-    max-width: 50px;
-    max-height: 50px;
+    left: 12px;
+    max-width: 79px;
+    max-height: 65px;
     top: 0px;
     padding-right: 2px       
 }
