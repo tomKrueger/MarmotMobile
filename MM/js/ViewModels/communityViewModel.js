@@ -5,12 +5,14 @@ app.CommunityViewModel = function() {
         name = ko.observable(),
         locations = ko.observableArray(),
         nearByOffers = ko.observableArray(),
-        mapUrl = ko.observable();
+        mapUrl = ko.observable(),
+        community = ko.observable();
     
     // Behaviours.
     var load = function() {
-        refresh();
+
         app.geoManager.subscribeRefresh(refresh);
+        app.geoManager.refresh();
         
         $(window).bind('orientationchange', onOrientationChanged);
     };
@@ -24,6 +26,19 @@ app.CommunityViewModel = function() {
     var refresh = function(position) {
         
         app.logger.traceStart("CommunityViewModel-refresh()");
+        
+        app.Services.Community.get(
+            id(),
+            function(communityDto) {
+                
+                var model = new app.Models.Community();
+                model.id(communityDto.id);
+                model.name(communityDto.name);
+                model.imageUrl(communityDto.imageUrl);
+                model.geoPosition(communityDto.geoPosition);
+                
+                community(model);
+            });
         
         app.Services.Location.getByCommunityId(
             id(),
@@ -64,14 +79,19 @@ app.CommunityViewModel = function() {
                 $("#communityPage .offersSection ul").listview("refresh");
             });
         
-        
-        app.Services.Map.getStaticMapUrlByZipcode(
-            position,
-            function(url) {
-                mapUrl(url);
-                
-                fixHeights();
-            });
+        setTimeout(function() {
+            
+            app.Services.Map.getStaticMapUrlByZipcode(
+                community().geoPosition(),
+                position,
+                null,
+                locations(),            
+                function(url) {
+                    mapUrl(url);
+                    
+                    fixHeights();
+                });
+        }, 300);
         
         app.logger.traceEnd("CommunityViewModel-refresh()");
     };       

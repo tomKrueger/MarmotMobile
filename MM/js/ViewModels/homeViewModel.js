@@ -40,7 +40,6 @@ app.HomeViewModel = function() {
     };
     
     var refresh = function(position) {
-        
         app.logger.traceStart("HomeViewModel-refresh()");
         
         app.Services.Community.getNearByCommunities(
@@ -92,6 +91,9 @@ app.HomeViewModel = function() {
         
         app.Services.Map.getStaticMapUrlByZipcode(
             position,
+            position,
+            nearByCommunities(),
+            null,            
             function(url) {
                 mapUrl(url);
                 

@@ -14,37 +14,32 @@ app.Services = app.Services || {};
 
     app.Services.Community = (function () {
         
-        var _tempSwitchFlag = true;
+        var _communities = [
+            { id: 1, name: "Lake Country", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
+            { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
+            { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
+            { id: 4, name: "Door County", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 45.12732, long: -87.244449 } }
+        ];
         
         //
         // Retrieves community.
         //
-        var get = function (communityId) {
-            return { name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" };
+        var get = function (communityId, successCallback) {
+            
+            var found;
+
+            for(var i = 0; _communities.length; i++) {
+                if (_communities[i].id === parseInt(communityId)) {
+                    found = _communities[i];    
+                    break;
+                }                
+            }
+            
+            successCallback(found);
         };    
 
         var getNearByCommunities = function (position, successCallback) {
-
-            var communities;
-            
-            //_tempSwitchFlag = !swi_tempSwitchFlagtchFlag;
-            //if (_tempSwitchFlag) {
-            if (position.coords.latitude < 88) {
-                communities = [
-                    { id: 1, name: "Lake Country", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
-                    { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
-                    { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
-                    { id: 4, name: "Door County", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 45.12732, long: -87.244449 } }
-                ];
-            } else {
-            
-                communities = [
-                    { name: "Delafield", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" },
-                    { name: "Something else", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png" }
-                ];
-            }
-
-            successCallback(communities);
+            successCallback(_communities);
         };
 
         return {
@@ -64,7 +59,7 @@ app.Services = app.Services || {};
             { communityId: 1, id: 4, name: "Great Harvest Bread", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060152, long: -88.404399 } },
             { communityId: 1, id: 5, name: "Tony & Mia's", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060434, long: -88.405279 } },
             { communityId: 2, id: 6, name: "Cafe Hollander", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.049287, long: -88.007504 } },
-            { communityId: 2, id: 7, name: "Leff's Lucky Town", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
+            { communityId: 2, id: 7, name: "Leff's Lucky Town", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.048611, long: -88.002441 } },
             { communityId: 2, id: 8, name: "Locker's Floral", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060577, long: -88.023231 } },
             //{ communityId: 2, id: 9, name: "", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 0, long: 0 } },
             { communityId: 3, id: 0, name: "Galena Brewing Company", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
@@ -167,10 +162,33 @@ app.Services = app.Services || {};
     }());
     
     app.Services.Map = (function () {
-
-        var getStaticMapUrlByZipcode = function(zipCode, successCallback) {
+        
+        var getStaticMapUrlByZipcode = function(centerCoords, userLocation, communities, locations, successCallback) {
             
-            var url = "http://maps.googleapis.com/maps/api/staticmap?center=Delafield,WI&zoom=13&size=600x200&maptype=roadmap&markers=color:blue%7Clabel:1%7C43.059911,-88.403900&markers=color:green%7Clabel:3%7C43.069911,-88.407900&markers=color:red%7Ccolor:red%7Clabel:2%7C43.057911,-88.400900&sensor=false";            
+            var center;
+            if (centerCoords.coords) {
+                center = "&center={0},{1}".format(centerCoords.coords.latitude, centerCoords.coords.longitude);    
+            } else {
+                center = "&center={0},{1}".format(centerCoords.lat, centerCoords.long);    
+            }
+            
+            var markers = "&markers=color:green%7Clabel:%7C{0},{1}".format(userLocation.coords.latitude, userLocation.coords.longitude);
+            
+            if (communities) {
+                for (var i = 0; i < communities.length - 1; i++) {
+                   markers = markers + "&markers=size:mid%7Ccolor:blue%7Clabel:{0}%7C{1},{2}".format(i + 1, communities[i].geoPosition().lat, communities[i].geoPosition().long);                
+                }
+            }
+            
+            if (locations) {
+                for (i = 0; i < locations.length - 1; i++) {
+                    markers = markers + "&markers=size:tiny%7Ccolor:yellow%7Clabel:{0}%7C{1},{2}".format(i + 1, locations[i].geoPosition().lat + 0.1, locations[i].geoPosition().long);                
+                }
+            }
+            
+            var url = "http://maps.googleapis.com/maps/api/staticmap?zoom=6&size=600x200&maptype=roadmap&sensor=false" + center + markers;            
+            
+            app.logger.verbose("MapUrl: " + url);
             
             successCallback(url);
         };
