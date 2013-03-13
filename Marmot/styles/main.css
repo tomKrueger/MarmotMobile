@@ -28,12 +28,15 @@ menu
 
 a {text-decoration: none; }
 
-#menu{
+#menu
+{
     background: #5B777D;
     color: white;
     height:100%;
-    }
-#menu li{
+}
+
+#menu li
+{
     padding: 10px;
     font-family: Oswald-Light;
     font-size: 16px;
@@ -370,8 +373,6 @@ div.blurredBackgroundContent
     border: 1px solid #666666;
 }
 
-
-
 .mm-section .icon 
 {
     width: 40px;
@@ -409,8 +410,6 @@ div.blurredBackgroundContent
     color: white;
     text-decoration: none
 }
-
-
 
 #socialSection 
 {
@@ -454,7 +453,7 @@ div.blurredBackgroundContent
     padding-right: 2px       
 }
 
-/*locationPage*/
+/* Location Page */
 
 .locationNavBarContainer .ui-navbar li .ui-btn
 {
@@ -473,10 +472,10 @@ div.blurredBackgroundContent
 .locationImage
 {
     border: 5px solid rgba(37, 60, 69, 0.4);
-border-bottom-left-radius: 4px;
-border-bottom-right-radius: 4px;
-border-top-left-radius: 4px;
-border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .follow {
@@ -499,20 +498,29 @@ border-top-right-radius: 4px;
 	padding:0px 12px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #625248;
-}.follow:hover {
+}
+
+.follow:hover 
+{
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f26e21), color-stop(1, #f26e21) );
 	background:-moz-linear-gradient( center top, #f26e21 5%, #f26e21 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f26e21', endColorstr='#f26e21');
 	background-color:#f26e21;
-}.follow:active {
+}
+
+.follow:active 
+{
 	position:relative;
 	top:1px;
 }
-.ui-body-c .ui-link {
-color: #FDDDC6;
-font-weight: normal;
+
+.ui-body-c .ui-link 
+{
+    color: #FDDDC6;
+    font-weight: normal;
 }
 
-.locationOffers {
-        padding-top: 25px;
-    }
+.locationOffers 
+{
+    padding-top: 25px;
+}
