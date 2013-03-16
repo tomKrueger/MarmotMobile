@@ -15,14 +15,11 @@ app.CommunityViewModel = function() {
 
         app.geoManager.subscribeRefresh(refresh);
         app.geoManager.refresh();
-        
-        $(window).bind('orientationchange', onOrientationChanged);
     };
     
     var dispose = function() {
       
         app.geoManager.unsubscribeRefresh(refresh);
-        $(window).unbind('orientationchange', onOrientationChanged);
     };
     
     var refresh = function(position) {
@@ -182,6 +179,7 @@ app.CommunityViewModel = function() {
         load: load,
         pagebeforeshow: onPageBeforeShow,
         pageshow: onPageShow,
+        orientationChanged: onOrientationChanged,
         dispose: dispose,
         onLocationClick: onLocationClick,
         onOfferClick: onOfferClick

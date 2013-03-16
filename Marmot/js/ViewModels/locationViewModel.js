@@ -12,12 +12,9 @@ app.LocationViewModel = function() {
         imageUrl('https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png');
         refresh();
         
-        $(window).bind('orientationchange', onOrientationChanged);
     };
     
     var dispose = function() {
-      
-        $(window).unbind('orientationchange', onOrientationChanged);
     };
     
     function onOrientationChanged() {
@@ -61,6 +58,7 @@ app.LocationViewModel = function() {
         name: name,
         imageUrl: imageUrl,
         offers: offers,
+        orientationChanged: onOrientationChanged,
         onOfferClick: onOfferClick        
     };    
 };

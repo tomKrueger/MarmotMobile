@@ -38,6 +38,16 @@ app.mobileInit = function () {
         });
     });
     
+    $(window).bind('orientationchange', function() {
+        
+        $(".ui-page").each(function() {
+            var vm = getViewModel(this.id);
+            if (vm && vm.onOrientationChanged) {
+                vm.orientationChanged();
+            }
+        });
+    });
+    
     // Hook up all pages to ensure that dispose gets called on 
     // them all.  Every view model should expose a dispose function
     // to clean up memory and all event subscriptions that were registered in the view model.

@@ -6,12 +6,10 @@ app.MapViewModel = function() {
     // Behaviours.
     var load = function() {
         
-        $(window).bind('orientationchange', onOrientationChanged);
     };
     
     var dispose = function() {
       
-        $(window).unbind('orientationchange', onOrientationChanged);
     };
     
     function onOrientationChanged() {
@@ -19,6 +17,7 @@ app.MapViewModel = function() {
     
     return {
         load: load,
+        orientationChanged: onOrientationChanged,
         dispose: dispose
     };    
 };
