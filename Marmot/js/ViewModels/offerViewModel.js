@@ -2,8 +2,10 @@
 
 app.OfferViewModel = function() {
     var id = ko.observable(),
-        name = ko.observable();
-    
+        name = ko.observable(),
+        locationName = ko.observable('Water Street Brewery');
+
+            
     // Behaviours.
     var load = function() {
 
@@ -25,6 +27,7 @@ app.OfferViewModel = function() {
         dispose: dispose,
         id: id,
         name: name,
+        locationName: locationName,
         onClick: onClick        
     };    
 };

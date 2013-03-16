@@ -4,7 +4,33 @@
         <h1>offer</h1>
     </div>
     <div data-role="content">
-        <button data-bind="click: onClick">Touch to use</button>
+        <div id="offerTop">
+            <div class="ui-grid-a">
+            	<div class="ui-block-a">
+                    <h2><span data-bind="text: locationName"></span></h2>
+                    <span>6 people shouted this offer</span>
+                </div>
+            	<div class="ui-block-b">
+                    <p style="text-align: center"><a href=""><img src="" style="width: 75px; height: 75px" /></a></p>
+                    <p style="text-align: right"><span>111 Main Street<br/>Delafield, WI</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="offerMiddle" style="text-align:middle">
+            
+            <div style="margin: 0px 20px; height: 150px; border: 3px solid">
+                <h2>10% Off Entire Order</h2>
+            </div>
+        
+            <button style="position: relative; top: -20px;" daa-bind="click: onClick">Touch to use</button>
+            
+            <p style="font-size: 10px">
+                Offer valid per customer that checks in.  Not valid on party Round or Traveling Sunday Factory Orders.
+            </p>
+        </div>        
+        
+        
     </div>
     <div data-role="footer" data-position="fixed"  data-id="oneFooter">
     </div>
