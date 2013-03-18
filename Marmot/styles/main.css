@@ -592,10 +592,29 @@ div.blurredBackgroundContent
     margin: 5px;
         }
 .coupon-bg{
+    background: rgb(124, 162, 167);
+    border-radius: 5px;
+    box-shadow: rgba(9, 9, 9, 0.292969) 1px 7px 5px 0px;
+    float: center;
+    height: 217px;
+    margin: 23px 10% 0 10%;
             }
 .coupon-stitching{
+    border: 1px dashed rgb(255, 255, 255);
+    border-radius:  5px;
+    float: left;
+    height: 95%;
+    margin: 5px 5px 5px 5px;
+    width: 95%;
                 }
                 
 .coupon-front{
+        background: rgba(255, 255, 255, 0.792969);
+border-radius:5px;
+box-shadow: rgba(0, 0, 0, 0.292969) 1px 7px 5px 0px;
+float: left;
+height: 200px;
+margin: 5px;
+width: 95%;
                     }
                     
