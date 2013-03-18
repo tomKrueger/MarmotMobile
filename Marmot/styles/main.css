@@ -625,4 +625,16 @@ height: 95%;
 margin: 5px;
 width: 96%;
                     }
-                    
+
+.coupon-description{
+    color: rgb(255, 255, 255);
+    float: left;
+    font-family: Oswald-Light;
+    height: auto;
+    line-height: 1em;    
+    margin: 25px 0 0 7%;
+    min-height: 273px;    
+    min-width: 0.5em;
+    text-align: center;
+    width: 87%;
+    }                
