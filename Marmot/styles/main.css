@@ -576,19 +576,26 @@ div.blurredBackgroundContent
     line-height: 1em;
     text-align: left;
     padding-left: 4px;
+    -webkit-font-smoothing:antialiased;
 }
+
+.offers-used{
+    font-family: Oswald-Light;
+    color: rgb(76, 113, 122);
+    float: left;
+    height: auto;
+    line-height: 1em;    
+    margin: 5% 0 0 2%;
+    text-align: left;
+    }
     
     
 .offer-description{
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);    
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-image: initial;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    height: 300px;
-    width: 97%;
+    border-radius: 5px;
+    height: 250px;
+    width: 95%;
     margin: 5px;
         }
 .coupon-bg{
@@ -597,14 +604,15 @@ div.blurredBackgroundContent
     box-shadow: rgba(9, 9, 9, 0.292969) 1px 7px 5px 0px;
     float: center;
     height: 217px;
-    margin: 23px 10% 0 10%;
+    padding: 10%
+    width: 95%;
             }
 .coupon-stitching{
     border: 1px dashed rgb(255, 255, 255);
     border-radius:  5px;
     float: left;
     height: 95%;
-    margin: 5px 5px 5px 5px;
+    margin: 5px;
     width: 95%;
                 }
                 
@@ -613,8 +621,8 @@ div.blurredBackgroundContent
 border-radius:5px;
 box-shadow: rgba(0, 0, 0, 0.292969) 1px 7px 5px 0px;
 float: left;
-height: 200px;
+height: 95%;
 margin: 5px;
-width: 95%;
+width: 96%;
                     }
                     
