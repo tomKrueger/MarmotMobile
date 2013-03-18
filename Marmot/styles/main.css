@@ -524,3 +524,78 @@ div.blurredBackgroundContent
 {
     padding-top: 25px;
 }
+
+
+/* offer page */
+
+
+@media all and (max-width: 50em) {
+	.offer-breakpoint .ui-block-a
+    {
+    width: 62%;
+    float:none;
+	.offer-breakpoint .ui-block-b
+	{ 
+		width: 30%; 
+		float:none; 
+	}
+}
+
+.offer-breakpoint .ui-block-a {
+    background: rgba(255, 255, 255, 0.199219);
+    border: 1px solid rgb(255, 255, 255);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-image: initial;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    float: left;
+    height: 150px;
+    margin-left: 5px;
+    margin-top: 5px;
+        }
+        
+.offer-breakpoint .ui-block-b {
+    background: rgba(255, 255, 255, 0.199219);
+    border: 1px solid rgb(255, 255, 255);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-image: initial;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    float: right;
+    height: 150px;
+    margin-right: 5px;
+    margin-top: 5px;
+    }
+
+.offer-businessname {
+    color: rgb(255, 255, 255);
+    font-family: Oswald-Regular;
+    height: auto;
+    line-height: 1em;
+    text-align: left;
+    padding-left: 4px;
+}
+    
+    
+.offer-description{
+    background: rgba(255, 255, 255, 0.199219);
+    border: 1px solid rgb(255, 255, 255);    
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-image: initial;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 300px;
+    width: 97%;
+    margin: 5px;
+        }
+.coupon-bg{
+            }
+.coupon-stitching{
+                }
+                
+.coupon-front{
+                    }
+                    
