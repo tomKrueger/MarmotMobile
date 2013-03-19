@@ -1,36 +1,33 @@
 <div data-role="page" id="offerPage" data-add-back-btn="true">
     <div data-role="header">
         <a data-role="button" class="ui-button-myback" data-rel="back" data-icon="myback" data-iconpos="notext" data-corners="false"></a>
-        <h1>offer</h1>
+        <h1>Offer</h1>
     </div>
-    <div data-role="content">
-        <div id="offerTop">
-            <div class="ui-grid-a">
-            	<div class="ui-block-a">
-                    <h2><span data-bind="text: locationName"></span></h2>
-                    <span>6 people shouted this offer</span>
-                </div>
-            	<div class="ui-block-b">
-                    <p style="text-align: center"><a href=""><img src="" style="width: 75px; height: 75px" /></a></p>
-                    <p style="text-align: right"><span>111 Main Street<br/>Delafield, WI</span></p>
+    <div class="ui-grid-b offer-breakpoint">
+	<div class="ui-block-a"><h1 class="offer-businessname">
+        Water Street Brewery
+        </h1>
+        <p class="offers-used">
+            <span>6</span> people have used this offer
+        </p>
+        </div>
+	<div class="ui-block-b">
+        <a href="searchPage.html" class="map"></a>
+        </div>
+</div>
+    <div class="offer-description">
+        <div class="coupon-bg">
+            <div class="coupon-stitching">
+                <div class="coupon-front">
+                    <h1 class="coupon-description">
+                        10% Off Your Entire Meal
+                    </h1>
                 </div>
             </div>
         </div>
-
-        <div id="offerMiddle" style="text-align:middle">
-            
-            <div style="margin: 0px 20px; height: 150px; border: 3px solid">
-                <h2>10% Off Entire Order</h2>
-            </div>
-        
-            <button style="position: relative; top: -20px;" daa-bind="click: onClick">Touch to use</button>
-            
-            <p style="font-size: 10px">
-                Offer valid per customer that checks in.  Not valid on party Round or Traveling Sunday Factory Orders.
-            </p>
-        </div>        
-        
-        
+    </div>
+    <div class="offer-button">
+        <div data-bind="click: onClick">Touch To Use</div>
     </div>
     <div data-role="footer" data-position="fixed"  data-id="oneFooter">
     </div>
