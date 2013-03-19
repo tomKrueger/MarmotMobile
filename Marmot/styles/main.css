@@ -664,11 +664,11 @@ width: 96%;
 	text-shadow:1px 1px 0px #66422e;
     }      
 
+
 .offer-button{
 	-webkit-box-shadow:inset 0px 1px 0px 0px #eba078;
 	box-shadow:inset 0px 1px 0px 0px #eba078;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eb7636), color-stop(1, #d16d2a) );
-	background:-moz-linear-gradient( center top, #eb7636 5%, #d16d2a 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #AE753C), color-stop(1, #A26A31) );
 	background-color:#eb7636;
 	-webkit-border-radius:150px;
 	border-radius:150px;
@@ -687,9 +687,7 @@ width: 96%;
     margin-right:auto;
     
 }.offer-button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d16d2a), color-stop(1, #eb7636) );
-	background:-moz-linear-gradient( center top, #d16d2a 5%, #eb7636 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d16d2a', endColorstr='#eb7636');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A26A31), color-stop(1, #AE753C) );
 	background-color:#d16d2a;
 }.offer-button:active {
 	position:relative;
