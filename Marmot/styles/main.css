@@ -23,6 +23,15 @@
 }
 
 /*
+General Styles
+*/
+
+p{
+    font-family: Oswald-Light;
+}
+
+
+/*
 menu 
 */
 
@@ -583,12 +592,30 @@ div.blurredBackgroundContent
     
 .map
 {
-    background: url('CustomIcons/map.png') !important;
+    background: url('CustomIcons/map.svg');
      width: 40px;
-    height: 23px;
+    height: 40px;
+    transform: scale(2);
+    position: relative;
+    left: 30%;
 }
-    
-.offer-description{
+
+.ui-block-b > p {
+    color: rgb(76, 113, 122);
+    font-size: 12px;
+    position: relative;
+    left: 5%;
+    text-align: center;
+}
+
+.address{
+    font-family: Oswald-Light;
+    color: white;
+    font-size: 16px;
+    margin: 0 auto 4px 10%;
+}
+
+.offer-container{
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);    
     border-radius: 5px;
@@ -653,7 +680,7 @@ width: 96%;
     height: 140px;
     width: 140px;
     position: absolute;
-    top: 350px;
+    top: 380px;
     left:0;
     right:0;
     margin-left:auto;
