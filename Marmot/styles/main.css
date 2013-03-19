@@ -541,7 +541,7 @@ div.blurredBackgroundContent
 @media all and (max-width: 50em) {
 	.offer-breakpoint .ui-block-a
     {
-    width: 62%;
+    width: 67%;
     float:none;
 	}
     .offer-breakpoint .ui-block-b
@@ -554,7 +554,9 @@ div.blurredBackgroundContent
 .offer-breakpoint .ui-block-a {
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);
-    border-radius: 5px;
+    border-right: 1px dashed rgb(255, 255, 255);
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
     float: left;
     height: 150px;
     margin-left: 5px;
@@ -564,10 +566,12 @@ div.blurredBackgroundContent
 .offer-breakpoint .ui-block-b {
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);
-    border-radius: 5px;
+    border-left: 0px  rgb(255, 255, 255);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
     float: right;
     height: 150px;
-    margin: 5px 5px;
+    margin: 5px 5px 0px 0px;
     }
 
 .offer-businessname {
@@ -619,7 +623,7 @@ div.blurredBackgroundContent
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);    
     border-radius: 5px;
-    height: 500px;
+    height: 400px;
     width: 95%;
     margin: 5px;
         }
