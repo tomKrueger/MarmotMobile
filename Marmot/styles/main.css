@@ -589,12 +589,18 @@ div.blurredBackgroundContent
     text-align: left;
     }
     
+.map
+{
+    background: url('CustomIcons/map.png') !important;
+     width: 40px;
+    height: 23px;
+}
     
 .offer-description{
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);    
     border-radius: 5px;
-    height: 250px;
+    height: 218px;
     width: 95%;
     margin: 5px;
         }
@@ -617,7 +623,7 @@ div.blurredBackgroundContent
                 }
                 
 .coupon-front{
-        background: rgba(255, 255, 255, 0.792969);
+        background: rgba(255, 255, 255, 0.7);
 border-radius:5px;
 box-shadow: rgba(0, 0, 0, 0.292969) 1px 7px 5px 0px;
 float: left;
@@ -630,11 +636,52 @@ width: 96%;
     color: rgb(255, 255, 255);
     float: left;
     font-family: Oswald-Light;
-    height: auto;
+    height: 100px;
     line-height: 1em;    
     margin: 25px 0 0 7%;
-    min-height: 273px;    
-    min-width: 0.5em;
     text-align: center;
     width: 87%;
-    }                
+    text-decoration:none;
+	text-shadow:1px 1px 0px #66422e;
+    }      
+
+.offer-button{
+	-webkit-box-shadow:inset 0px 1px 0px 0px #eba078;
+	box-shadow:inset 0px 1px 0px 0px #eba078;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eb7636), color-stop(1, #d16d2a) );
+	background:-moz-linear-gradient( center top, #eb7636 5%, #d16d2a 100% );
+	background-color:#eb7636;
+	-webkit-border-radius:150px;
+	border-radius:150px;
+	border:1px solid #a82f03;
+	display:inline-block;
+    margin: auto;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #66422e;
+    height: 140px;
+    width: 140px;
+    position: absolute;
+    top: 350px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    
+}.offer-button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d16d2a), color-stop(1, #eb7636) );
+	background:-moz-linear-gradient( center top, #d16d2a 5%, #eb7636 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d16d2a', endColorstr='#eb7636');
+	background-color:#d16d2a;
+}.offer-button:active {
+	position:relative;
+	bottom:99px;
+}
+.offer-button > div {
+            color: white;
+            position: relative;
+            left: 33px;
+            top: 60px;
+            text-decoration:none;
+	        text-shadow:1px 1px 0px #66422e;
+            font-family: Oswald-Light;
+        }
