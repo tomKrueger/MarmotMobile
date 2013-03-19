@@ -27,20 +27,20 @@
                 <div class="coupon-front">
                     <h1 class="coupon-description">
                         <div id="applyBarCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'BarCode'">
-            <span>Scan at Checkout</span>
-            <img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/barcode1.png" />
-            <button data-bind="click: onClick">Done</button> 
+                        <span>Scan at Checkout</span>
+                        <img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/barcode1.png" />
+                        <div class="offer-done" data-bind="click: onClick">Done</div> 
                             
                         <div id="applyCouponCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'CouponCode'">
-            <span>Enter Coupon Code at Checkout</span><br /><br />
-            <span>E9FJ7</span>
-            <button data-bind="click: onClick">Done</button>
-        </div>
+                        <span>Enter Coupon Code at Checkout</span><br /><br />
+                        <span>E9FJ7</span>
+                        <div class="offer-done" data-bind="click: onClick">Done</div>
+                        </div>
         
-        <div id="applyDiscountContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'Discount'">
-            <span>Discount to Apply at Checkout</span><br /><br />
-            <span>10% off TLD</span>
-            <button data-bind="click: onClick">Done</button>
+                        <div id="applyDiscountContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'Discount'">
+                        <span>Discount to Apply at Checkout</span><br /><br />
+                        <span>10% off TLD</span>
+                        <div class="offer-done" data-bind="click: onClick">Done</div>
         </div>
         </div>
                     </h1>
