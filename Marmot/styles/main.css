@@ -600,7 +600,7 @@ div.blurredBackgroundContent
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);    
     border-radius: 5px;
-    height: 218px;
+    height: 500px;
     width: 95%;
     margin: 5px;
         }
@@ -608,18 +608,18 @@ div.blurredBackgroundContent
     background: rgb(124, 162, 167);
     border-radius: 5px;
     box-shadow: rgba(9, 9, 9, 0.292969) 1px 7px 5px 0px;
-    float: center;
-    height: 217px;
-    padding: 10%
-    width: 95%;
+    height: 230px;
+    width: 97%;
+    margin: 25px 0 0 1%;
             }
 .coupon-stitching{
     border: 1px dashed rgb(255, 255, 255);
     border-radius:  5px;
     float: left;
-    height: 95%;
-    margin: 5px;
-    width: 95%;
+    height: 210px;
+    width: 93%;
+    margin: 9px 0 0 3.2841826713800133%;;
+    display: block;
                 }
                 
 .coupon-front{
