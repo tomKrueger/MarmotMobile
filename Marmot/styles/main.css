@@ -442,6 +442,11 @@ div.blurredBackgroundContent
     padding: 1px;
 }
 
+form.ui-listview-filter.ui-bar-c{
+    position: relative;
+    top: 5px;
+}
+
 .offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
 {    
     padding-left: 95px;    
@@ -633,7 +638,7 @@ div.blurredBackgroundContent
     box-shadow: rgba(9, 9, 9, 0.292969) 1px 7px 5px 0px;
     height: 230px;
     width: 97%;
-    margin: 25px 0 0 1%;
+    margin: 5px 0 0 1%;
             }
 .coupon-stitching{
     border: 1px dashed rgb(255, 255, 255);
@@ -684,7 +689,7 @@ width: 96%;
     height: 140px;
     width: 140px;
     position: absolute;
-    top: 380px;
+    top: 400px;
     left:0;
     right:0;
     margin-left:auto;
@@ -706,6 +711,16 @@ width: 96%;
 	        text-shadow:1px 1px 0px #66422e;
             font-family: Oswald-Light;
         }
+
+
+.disclaimer{
+    position: relative;
+    top: 340px;
+    font-family: Oswald-Light;
+    color: rgb(76, 113, 122);
+    font-size: 12px;
+    text-align: center;
+}
 
 .offer-done{
 	-webkit-box-shadow:inset 0px 1px 0px 0px #eba078;

@@ -23,10 +23,11 @@
         <div id="menu" style="display:none">
             <h3>Menu</h3>
             <ul>
-                <li class="active"><a href="#home" class="contentLink">Home </a></li>
-                <li><a href="mapPage.html" class="contentLink">Map </a></li>
-                <li><a href="#home" class="contentLink">Offers </a></li>
-                <li><a href="#home" class="contentLink">Communities </a></li>
+                <li class="active"><a href="#home" class="contentLink">Saved Offers </a></li>
+                <li><a href="mapPage.html" class="contentLink">Filter </a></li>
+                <li><a href="#home" class="contentLink">Settings </a></li>
+                <li><a href="#home" class="contentLink">Refresh </a></li>
+                <li><a href="#About" class="contentLink">About</a></li>
             </ul>
         </div>
         <div data-role="page" id="homePage" data-theme="b">
@@ -64,7 +65,7 @@
                 </div>
                 <div class="offersSection">
                     
-                    <ul data-role="listview" data-bind="template: { name: 'offerItemTemplate', foreach: offers }">
+                    <ul data-role="listview" data-role="listview" data-filter="true" data-bind="template: { name: 'offerItemTemplate', foreach: offers }">
                     </ul>
                     
                     <script type="text/html" id="offerItemTemplate">
