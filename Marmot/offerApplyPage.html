@@ -3,66 +3,50 @@
         <a data-role="button" class="ui-button-myback" data-rel="back" data-icon="myback" data-iconpos="notext" data-corners="false"></a>
         <h1>Offer</h1>
     </div>
-     <div class="ui-grid-b offer-breakpoint">
-	<div class="ui-block-a"><h1 class="offer-businessname">
-        Water Street Brewery
-        </h1>
-        <p class="offers-used">
-            <span>6</span> people have used this offer
-        </p>
+    <div class="ui-grid-b offer-breakpoint">
+    	<div class="ui-block-a">
+            <h1 class="offer-businessname">Water Street Brewery</h1>
+            <p class="offers-used">
+                <span>6</span> people have used this offer
+            </p>
         </div>
-	<div class="ui-block-b">
-        <img class="map" src="styles/CustomIcons/map.png" />
-        <p class="instructions">trail map</p>
-        <h1 class="address">111 Main St.
-            <br />
-            Delafield, WI
-        </h1>
+    	<div class="ui-block-b">
+            <img class="map" src="styles/CustomIcons/map.png" />
+            <p class="instructions">trail map</p>
+            <h1 class="address">111 Main St.
+                <br />
+                Delafield, WI
+            </h1>
         </div>
-</div>
+    </div>
     <div data-role="content">
         <div class="offer-container">
-        <div class="coupon-bg">
-            <div class="coupon-stitching">
-                <div class="coupon-front">
-                    <h1 class="coupon-description">
-                        <div id="applyBarCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'BarCode'">
-                        <span>Scan at Checkout</span>
-                        <img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/barcode1.png" />
-                        <div class="offer-done" data-bind="click: onClick">-Done-</div> 
-                            
-                        <div id="applyCouponCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'CouponCode'">
-                        <span>Enter Coupon Code at Checkout</span><br /><br />
-                        <span>E9FJ7</span>
-                        <div class="offer-done" data-bind="click: onClick">-Done-</div>
-                        </div>
-        
-                        <div id="applyDiscountContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'Discount'">
-                        <span>Discount to Apply at Checkout</span><br /><br />
-                        <span>10% off TLD</span>
-                        <div class="offer-done" data-bind="click: onClick">-Done-</div>
-        </div>
-        </div>
-                    </h1>
+            <div class="coupon-bg">
+                <div class="coupon-stitching">
+                    <div class="coupon-front">
+                        <h1 class="coupon-description">
+                            <div id="applyBarCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'BarCode'">
+                                <span>Scan at Checkout</span>
+                                <img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/barcode1.png" />
+                                <div class="offer-done" data-bind="click: onClick">-Done-</div> 
+                            </div>
+                                
+                            <div id="applyCouponCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'CouponCode'">
+                                <span>Enter Coupon Code at Checkout</span><br /><br />
+                                <span>E9FJ7</span>
+                                <div class="offer-done" data-bind="click: onClick">-Done-</div>
+                            </div>
+            
+                            <div id="applyDiscountContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'Discount'">
+                                <span>Discount to Apply at Checkout</span><br /><br />
+                                <span>10% off TLD</span>
+                                <div class="offer-done" data-bind="click: onClick">-Done-</div>
+                            </div>
+                        </h1>
+                    </div>
+                        
                 </div>
             </div>
         </div>
-    </div>
-       
-        
-        <div id="applyCouponCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'CouponCode'">
-            <span>Enter Coupon Code at Checkout</span><br /><br />
-            <span>E9FJ7</span>
-            <button data-bind="click: onClick">Done</button>
-        </div>
-        
-        <div id="applyDiscountContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'Discount'">
-            <span>Discount to Apply at Checkout</span><br /><br />
-            <span>10% off TLD</span>
-            <button data-bind="click: onClick">Done</button>
-        </div>
-        
-    </div>
-    <div data-role="footer" data-position="fixed"  data-id="oneFooter">
     </div>
 </div>
