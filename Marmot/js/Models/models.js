@@ -73,9 +73,11 @@ app.Models.Offer = function() {
     var self = this;
     
     self.id = ko.observable();
+    self.locationName = ko.observable();
     self.name = ko.observable();
     self.imageUrl = ko.observable();
     self.locationGeoPosition = ko.observable();
+    self.expires = ko.observable("Offer Expires In 5 Days");
     
     self.distance = ko.observable();
     

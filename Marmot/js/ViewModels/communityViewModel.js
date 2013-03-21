@@ -73,10 +73,11 @@ app.CommunityViewModel = function() {
                 nearByOffers.removeAll();
         
                 offersDto.forEach(function(offerDto) {
-                                    
+                                        
                     var model = new app.Models.Offer();
                     model.id(offerDto.id);
                     model.name(offerDto.name);
+                    model.locationName(offerDto.locationName);
                     model.imageUrl(offerDto.imageUrl);
                     model.locationGeoPosition(offerDto.geoPosition);
                     
