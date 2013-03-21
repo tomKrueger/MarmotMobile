@@ -128,13 +128,10 @@ app.Services = app.Services || {};
         // Retrieves offer.
         //
         var get = function (offerId, successCallback) {
-            
             offers.forEach(function(offer) {
                 if (offer.id === parseInt(offerId))
                     successCallback(offer);
             });
-            
-            //return { name: "Delafield", imageUrl: "http://www.cityofdelafield.com/assets/southentrance-122h.jpg" };
         };    
 
         var getNearByOffers = function (zipCode, successCallback) {
@@ -144,22 +141,32 @@ app.Services = app.Services || {};
         
         var getByCommunityId = function (communityId, successCallback) {
 
-            var offers = [
-                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
-                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", geoPosition: { lat: 43.071679, long: -88.420738 } }
-            ];
-
-            successCallback(offers);
+            app.Services.Location.getByCommunityId(communityId, function(locationsDto) {
+            
+                var offers = [];
+            
+                locationsDto.forEach(function(locationDto) {
+                    var locationOffers = getByLocationId(locationDto.id, function(offersDto) {
+                        offers.pushAll(offersDto);    
+                    });                    
+                });
+    
+                successCallback(offers);
+                
+            });
         };
 
         var getByLocationId = function (locationId, successCallback) {
 
-            var offers = [
-                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
-                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", geoPosition: { lat: 43.071679, long: -88.420738 } }
-            ];
+            var arr = [];
+            
+            offers.forEach(function(offerDto) {
+                
+                if (offerDto.locationId === locationId)
+                    arr.push(offerDto);                
+            });
 
-            successCallback(offers);
+            successCallback(arr);
         };
         
         load();
