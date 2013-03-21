@@ -127,6 +127,10 @@ String.prototype.replaceAll = function(target, replacement) {
   return this.split(target).join(replacement);
 };
 
+Array.prototype.pushAll = function(arr) {
+    this.push.apply(this, arr);
+};
+
 //
 // Observer Pattern Object
 //
