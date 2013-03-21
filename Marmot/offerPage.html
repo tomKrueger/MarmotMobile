@@ -4,30 +4,26 @@
         <h1>Offer</h1>
     </div>
     <div class="ui-grid-b offer-breakpoint">
-	<div class="ui-block-a"><h1 class="offer-businessname">
-        Water Street Brewery
-        </h1>
-        <p class="offers-used">
-            <span>6</span> people have used this offer
-        </p>
+    	<div class="ui-block-a">
+            <h1 class="offer-businessname">
+                <span data-bind="text: locationName"></span>
+            </h1>
+            <p class="offers-used">
+                <span data-bind="text: usedCount"></span> people have used this offer
+            </p>
         </div>
-	<div class="ui-block-b">
-        <div class="map"></div>
-        <p class="instructions">touch for directions</p>
-        <h1 class="address">111 Main St.
-            <br />
-            Delafield, WI
-        </h1>
+    	<div class="ui-block-b">
+            <div class="map"></div>
+            <p class="instructions">touch for directions</p>
+            <h1 class="address"><span data-bind="html: address"></span></h1>
         </div>
-</div>
+    </div>
     <div class="offer-container">
-        <p class="disclaimer">Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders.</p>
+        <p class="disclaimer" data-bind="text: disclaimer"></p>
         <div class="coupon-bg">
             <div class="coupon-stitching">
                 <div class="coupon-front">
-                    <h1 class="coupon-description">
-                        10% Off Your Entire Meal
-                    </h1>
+                    <h1 class="coupon-description" data-bind="text: description"></h1>
                 </div>
             </div>
         </div>
