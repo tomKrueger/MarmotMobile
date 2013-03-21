@@ -672,7 +672,7 @@ form.ui-listview-filter.ui-bar-c{
     min-height: 70px;
 }
 
-.offer-button
+/*.offer-button
 {
     background-color: #eb7636;
     border-radius: 150px;
@@ -684,7 +684,7 @@ form.ui-listview-filter.ui-bar-c{
     margin-right: auto;
     left: 0;
     right: 0;    
-}
+}*/
 
 
 /*.offer-buttonold
@@ -748,17 +748,15 @@ form.ui-listview-filter.ui-bar-c{
 	border-radius:3px;
 	border:1px solid #a82f03;
 	display:inline-block;
-    margin: auto;
-	text-decoration:none;
-	text-shadow:1px 1px 0px #66422e;
     height: 50px;
     width: 140px;
     position: relative;
     top: 10px;
-    left:0;
-    right:0;
     margin-left:auto;
     margin-right:auto;
+    color: white;
+    font-family: Oswald-Light;
+    text-shadow: 1px 1px 0px #66422E;
     
 }.offer-done:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A26A31), color-stop(1, #AE753C) );
@@ -767,6 +765,11 @@ form.ui-listview-filter.ui-bar-c{
 	position:relative;
 	bottom:99px;
 }
+
+.offer-done div{
+    padding: 14px;
+}
+
 .offer-done span {
             color: white;
             position: relative;
@@ -776,3 +779,7 @@ form.ui-listview-filter.ui-bar-c{
 	        text-shadow:1px 1px 0px #66422e;
             font-family: Oswald-Light;
         }
+.done {
+    font-size: 18px;
+    padding: 7px;
+}
