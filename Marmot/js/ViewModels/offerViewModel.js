@@ -3,15 +3,24 @@
 app.OfferViewModel = function() {
     var id = ko.observable(),
         name = ko.observable(),
-        description = ko.observable("10% Off Your Entire Meal1"),
-        locationName = ko.observable("Water Street Brewery1"),
-        usedCount = ko.observable(10),
-        address = ko.observable("111 Main St.<br />Delafield, WI1"),
-        disclaimer = ko.observable("Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders1.");
+        description = ko.observable(),
+        locationName = ko.observable(),
+        usedCount = ko.observable(),
+        address = ko.observable(),
+        disclaimer = ko.observable();
             
     // Behaviours.
     var load = function() {
 
+        app.Services.Offer.get(
+            id(),
+            function(offerDto) {
+                description(offerDto.name);
+                locationName(offerDto.locationName);
+                usedCount(offerDto.usedCount);
+                address(offerDto.address);
+                disclaimer(offerDto.disclaimer);
+            });
     };
     
     var dispose = function() {

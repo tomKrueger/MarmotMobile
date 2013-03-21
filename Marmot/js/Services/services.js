@@ -28,7 +28,7 @@ app.Services = app.Services || {};
             
             var found;
 
-            for(var i = 0; _communities.length; i++) {
+            for(var i = 0; i < _communities.length; i++) {
                 if (_communities[i].id === parseInt(communityId)) {
                     found = _communities[i];    
                     break;
@@ -54,7 +54,7 @@ app.Services = app.Services || {};
         var locations = [
             //{ id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 44, long: 87 } },
             //{ id: 3, name: "Main Place", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 86 } },
-            { communityId: 1, id: 2, name: "Revere's Wells St. Tavern", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
+            { communityId: 1, id: 2, name: "Revere's Wells St. Tavern", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060544, long: -88.405606 }, address: "111 Main St.<br />Delafield, WI" },
             { communityId: 1, id: 3, name: "Mazatlan", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.071679, long: -88.420738 } },
             { communityId: 1, id: 4, name: "Great Harvest Bread", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060152, long: -88.404399 } },
             { communityId: 1, id: 5, name: "Tony & Mia's", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060434, long: -88.405279 } },
@@ -73,13 +73,12 @@ app.Services = app.Services || {};
         // Retrieves location.
         //
         var get = function (locationId) {
-            
-            locations.forEach(function(location) {
-                if (location.id === parseInt(locationId))
-                    return location;        
-            });
-            
-            //return { name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png" };
+            for(var i = 0; i < locations.length; i++) {
+                                
+                if (locations[i].id === parseInt(locationId)) {
+                    return locations[i];
+                }                
+            }
         };
         
         //
@@ -107,12 +106,23 @@ app.Services = app.Services || {};
     app.Services.Offer = (function () {
         
         var offers = [
-                { id: 1, dist: '55 ft', name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
-                { id: 2, dist: '4 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", geoPosition: { lat: 43.071679, long: -88.420738 } },
-                { id: 3, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "CouponCode", geoPosition: { lat: 43.060152, long: -88.404399 } },
-                { id: 4, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", geoPosition: { lat: 43.060577, long: -88.023231 } },
-                { id: 5, dist: '5 mi', name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", geoPosition: { lat: 43.060152, long: -88.404399 } }
+                { id: 1, locationId: 2, name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", usedCount: 1077, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
+                { id: 2, locationId: 3, name: "10% Off Your Entire Meal", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", usedCount: 9, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
+                { id: 3, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "CouponCode" , usedCount: 11099, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
+                { id: 4, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 108, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
+                { id: 5, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 10, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." }
             ];
+        
+        var load = function() {
+            offers.forEach(function(offer) {
+                var location = app.Services.Location.get(offer.locationId);                
+                if (location) {
+                    offer.locationName = location.name;
+                    offer.geoPosition = location.geoPosition;
+                    offer.address = location.address;
+                }
+            });
+        };
         
         //
         // Retrieves offer.
@@ -151,6 +161,8 @@ app.Services = app.Services || {};
 
             successCallback(offers);
         };
+        
+        load();
         
         return {
             get: get,
