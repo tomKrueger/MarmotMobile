@@ -35,8 +35,9 @@
                 <li>
                     <a data-bind="click: $parent.onOfferClick">
                         <img data-bind="attr: {src: imageUrl}" class="ui-li-icon"/>
-                        <span class="offerDesc"data-bind="text: name"></span>                            
-                        <p class="offerExp">Offer Expires In 5 Days</p>
+                        <p class="offerName" data-bind="text: locationName"><p>
+                        <span class="offerDesc"data-bind="text: name"></span>
+                        <p class="offerExp" data-bind="text: expires"></p>
                         <span data-bind="text: distanceDisplay" class="ui-li-count"></span>
                     </a>
                 </li>

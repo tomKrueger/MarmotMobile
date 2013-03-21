@@ -34,6 +34,7 @@ app.LocationViewModel = function() {
                     var model = new app.Models.Offer();
                     model.id(offerDto.id);
                     model.name(offerDto.name);
+                    model.locationName(offerDto.locationName);
                     model.imageUrl(offerDto.imageUrl);
                     model.locationGeoPosition(offerDto.geoPosition);
                     
