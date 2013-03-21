@@ -5,11 +5,11 @@
     </div>
     <div data-role="content">
 
-        <div id="locationTop" class="blurredBackgroundContainer" style="height: 200px;width:100%;background-image: url('https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png');">
+        <div id="locationTop" class="blurredBackgroundContainer" style="height: 186px;width:100%;background-image: url('https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png');">
         </div>
         
-        <div class="blurredBackgroundContent" style="height:175px; margin:5px">                
-            <img data-bind="attr: {src: imageUrl}" style="width: 75px; height:75px; border" class="locationImage"/><br />
+        <div class="blurredBackgroundContent" style="height:186px;">                
+            <img data-bind="attr: {src: imageUrl}" style="width: 75px; height:70px;" class="locationImage"/><br />
             <a href="#" class="follow">Follow  +</a><br />
             
             <div class="locationNavBarContainer">
@@ -20,7 +20,7 @@
                         <li><a href="b.html"><p>156</p><span>Photos</span></a></li>
                         <li><a href="b.html"><p>12</p><span>Events</span></a></li>
                 	</ul>
-                </div><!-- /navbar -->
+                </div>
             </div>
         </div>
         
@@ -28,7 +28,7 @@
         
         <div class="offersSection">
             
-            <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }" class="locationOffers">
+            <ul data-role="listview" data-bind="template: { name: 'locationOfferItemTemplate', foreach: offers }">
             </ul>
             
             <script type="text/html" id="locationOfferItemTemplate">

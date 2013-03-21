@@ -157,14 +157,18 @@ div.blurredBackgroundContainer
     position: absolute;
     z-index: 0;    
     -webkit-filter: blur(1px);
-    margin-left: -3px;
-    margin-top: -10px;
 }
 
 div.blurredBackgroundContent
 {
     position: relative;
     z-index: 10; /* Ensure content is on top of blurredBackgroundContainer. */
+}
+
+#locationPage div.blurredBackgroundContainer
+{
+    margin-left: -3px;
+    margin-top: -1;
 }
 
 /* **** Home Page *** */    
@@ -442,14 +446,17 @@ div.blurredBackgroundContent
     padding: 1px;
 }
 
-form.ui-listview-filter.ui-bar-c{
-    position: relative;
-    top: 5px;
+.offersSection .ui-listview
+{
+    margin-top: 0px;
+    margin-left: -3px;
+    margin-right: -3px;
+    margin-bottom: 0px;
 }
 
 .offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
 {    
-    padding-left: 95px;    
+    padding-left: 85px;    
 }
 
 .offersSection .ui-li-count
@@ -460,7 +467,7 @@ form.ui-listview-filter.ui-bar-c{
 
 .offersSection .ui-li-icon 
 {
-    left: 12px;
+    left: 0px;
     max-width: 79px;
     max-height: 65px;
     top: 0px;
@@ -533,12 +540,6 @@ form.ui-listview-filter.ui-bar-c{
     color: #FDDDC6;
     font-weight: normal;
 }
-
-.locationOffers 
-{
-    padding-top: 25px;
-}
-
 
 /* offer page */
 
