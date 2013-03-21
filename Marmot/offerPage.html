@@ -19,19 +19,23 @@
             <h1 class="address"><span data-bind="html: address"></span></h1>
         </div>
     </div>
-    <div class="offer-container">
-        <p class="disclaimer" data-bind="text: disclaimer"></p>
+    <div class="coupon-container">
         <div class="coupon-bg">
             <div class="coupon-stitching">
                 <div class="coupon-front">
-                    <h1 class="coupon-description" data-bind="text: description"></h1>
+                    <span class="coupon-description" data-bind="text: description"></span>
+                    <div class="offer-button-container">
+                        <div class="offer-button">
+                            <div data-bind="click: onClick">Touch To Use</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="offer-button">
-        <div data-bind="click: onClick">Touch To Use</div>
-    </div>
+    
+    <!--<p class="disclaimer" data-bind="text: disclaimer"></p>-->
+    
     <div data-role="footer" data-position="fixed"  data-id="oneFooter">
     </div>
 </div>

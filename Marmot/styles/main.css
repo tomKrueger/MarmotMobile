@@ -624,57 +624,71 @@ form.ui-listview-filter.ui-bar-c{
     margin: 0 auto 4px 10%;
 }
 
-.offer-container{
+.coupon-container
+{
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);    
     border-radius: 5px;
-    height: 400px;
-    width: 95%;
-    margin: 5px;
-        }
-.coupon-bg{
+    margin: 5px;    
+}
+.coupon-bg
+{
+    position: relative;
     background: rgb(124, 162, 167);
     border-radius: 5px;
+    border: 1px solid transparent; /* Only here to stop collapsing border */
     box-shadow: rgba(9, 9, 9, 0.292969) 1px 7px 5px 0px;
-    height: 230px;
-    width: 97%;
-    margin: 5px 0 0 1%;
-            }
-.coupon-stitching{
+    margin: 5px;
+}
+
+.coupon-stitching
+{
     border: 1px dashed rgb(255, 255, 255);
     border-radius:  5px;
-    float: left;
-    height: 210px;
-    width: 93%;
-    margin: 9px 0 0 3.2841826713800133%;;
-    display: block;
-                }
+    margin: 9px;
+}
                 
-.coupon-front{
-        background: rgba(255, 255, 255, 0.7);
-border-radius:5px;
-box-shadow: rgba(0, 0, 0, 0.292969) 1px 7px 5px 0px;
-float: left;
-height: 95%;
-margin: 5px 0 0 2%;
-width: 96%;
-                    }
+.coupon-front
+{
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.292969) 1px 7px 5px 0px;
+    margin: 5px;
+    text-align: center;    
+}
 
-.coupon-description{
-    color: rgb(255, 255, 255);
-    float: left;
+.coupon-description
+{
+    font-size: 2em;
+    font-weight: bold;
+    margin: 5px;
+    color: white;
     font-family: Oswald-Light;
-    height: 100px;
-    line-height: 1em;    
-    margin: 25px 0 0 7%;
-    text-align: center;
-    width: 87%;
-    text-decoration:none;
 	text-shadow:1px 1px 0px #66422e;
-    }      
+}      
+
+.offer-button-container
+{
+    min-height: 70px;
+}
+
+.offer-button
+{
+    background-color: #eb7636;
+    border-radius: 150px;
+    border: 1px solid #a82f03;
+    width: 140px;
+    height: 140px; 
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;    
+}
 
 
-.offer-button{
+/*.offer-buttonold
+{
 	-webkit-box-shadow:inset 0px 1px 0px 0px #eba078;
 	box-shadow:inset 0px 1px 0px 0px #eba078;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #AE753C), color-stop(1, #A26A31) );
@@ -686,41 +700,44 @@ width: 96%;
     margin: auto;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #66422e;
+    
     height: 140px;
     width: 140px;
-    position: absolute;
-    top: 400px;
+    position: absolute;    
     left:0;
     right:0;
     margin-left:auto;
     margin-right:auto;
     
-}.offer-button:hover {
+}*/
+
+/*
+.offer-button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A26A31), color-stop(1, #AE753C) );
 	background-color:#d16d2a;
 }.offer-button:active {
 	position:relative;
 	bottom:99px;
+} */
+
+.offer-button > div 
+{
+    color: white;
+    top: 60px;
+    position: relative;
+    text-shadow:1px 1px 0px #66422e;
+    font-family: Oswald-Light;
 }
-.offer-button > div {
-            color: white;
-            position: relative;
-            left: 33px;
-            top: 60px;
-            text-decoration:none;
-	        text-shadow:1px 1px 0px #66422e;
-            font-family: Oswald-Light;
-        }
 
 
-.disclaimer{
+/*.disclaimer{
     position: relative;
     top: 340px;
     font-family: Oswald-Light;
     color: rgb(76, 113, 122);
     font-size: 12px;
     text-align: center;
-}
+}*/
 
 .offer-done{
 	-webkit-box-shadow:inset 0px 1px 0px 0px #eba078;
