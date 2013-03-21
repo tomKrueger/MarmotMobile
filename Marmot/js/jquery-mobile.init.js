@@ -153,6 +153,17 @@ app.mobileInit = function () {
         app.logger.traceEnd("pageInit-offerApplyPage");
     });
     
+    $(document).on("pageinit", "#offerThankYouPage", function (event, data) {
+        app.logger.traceStart("pageInit-offerThankYouPage");
+        var viewElem = document.getElementById(this.id);
+        if (viewElem) {            
+            var vm = new app.OfferThankYouViewModel();  
+            ko.applyBindings(vm, viewElem);
+            vm.load();
+        }
+        app.logger.traceEnd("pageInit-offerThankYouPage");
+    });
+    
     $(document).on("pageinit", "#searchPage", function (event, ui) {
         app.logger.traceStart("pageInit-searchPage");
         var viewElem = document.getElementById(this.id);

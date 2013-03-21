@@ -70,6 +70,7 @@
     <Content Include="jquery-mobile\jquery.mobile-1.3.0.min.js" />
     <Content Include="jquery-mobile\jquery.mobile.st-1.3.0.min.css" />
     <Content Include="js\lib\knockout\knockout-2.2.1.js" />
+    <Content Include="js\ViewModels\offerThankYouViewModel.js" />
     <Content Include="offerApplyPage.html" />
     <Content Include="js\Tests\common\utils.tests.js" />
     <Content Include="js\Tests\tests.js" />
@@ -138,7 +139,7 @@
     <Content Include="styles\touchcarousel\sprite.png" />
     <Content Include="styles\touchcarousel\touchcarousel.css" />
     <Content Include="tests.html" />
-    <Content Include="thankyou.html" />
+    <Content Include="offerThankYouPage.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

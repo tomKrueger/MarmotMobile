@@ -32,8 +32,7 @@ app.OfferApplyViewModel = function() {
         
         //var bw = new BWIPJS;
         //bw.bitmap(new Bitmap);
-        navigateToOnOfferDonePage();
-        
+        navigateToOfferThankYouPage();        
     };
     
     return {

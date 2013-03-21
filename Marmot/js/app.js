@@ -72,6 +72,10 @@ function navigateToOfferPage(offerId, offerName, onOfferDoneNav) {
     $.mobile.changePage("offerPage.html", { data: { id: offerId, name: offerName } });
 }
 
+function navigateToOfferThankYouPage() {    
+    $.mobile.changePage("offerThankYouPage.html");
+}
+
 function navigateToOnOfferDonePage() {
     _onOfferDoneNav();
 }
