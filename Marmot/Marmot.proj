@@ -138,6 +138,7 @@
     <Content Include="styles\touchcarousel\sprite.png" />
     <Content Include="styles\touchcarousel\touchcarousel.css" />
     <Content Include="tests.html" />
+    <Content Include="thankyou.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>
