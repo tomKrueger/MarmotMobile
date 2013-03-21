@@ -46,10 +46,10 @@ app.LocationViewModel = function() {
         
         app.logger.traceEnd("LocationViewModel-refresh()");
     };
-    
-    var onOfferClick = function(offer, event) {        
-        var element = event.srcElement
-        $(element).closest('li').next('div').toggle(100);
+        
+    var onOfferClick = function(offer) {
+        var onOfferDoneNav = function() { navigateToHome(); };
+        navigateToOfferPage(offer.id(), offer.name(), onOfferDoneNav);
     };
     
     return {
