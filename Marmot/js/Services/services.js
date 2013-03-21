@@ -106,10 +106,10 @@ app.Services = app.Services || {};
     app.Services.Offer = (function () {
         
         var offers = [
-                { id: 1, locationId: 2, name: "Buy 1 Get 1 Free @ Stone Creek", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", usedCount: 1077, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
+                { id: 1, locationId: 2, name: "Buy 1 Get 1 Free", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", usedCount: 1077, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
                 { id: 2, locationId: 3, name: "10% Off Your Entire Meal", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", usedCount: 9, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
                 { id: 3, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "CouponCode" , usedCount: 11099, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
-                { id: 4, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 108, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
+                { id: 4, locationId: 7, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 108, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
                 { id: 5, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 10, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." }
             ];
         
