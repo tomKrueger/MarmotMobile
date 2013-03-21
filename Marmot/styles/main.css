@@ -753,8 +753,8 @@ form.ui-listview-filter.ui-bar-c{
 	text-shadow:1px 1px 0px #66422e;
     height: 50px;
     width: 140px;
-    position: absolute;
-    top: 500px;
+    position: relative;
+    top: 10px;
     left:0;
     right:0;
     margin-left:auto;
