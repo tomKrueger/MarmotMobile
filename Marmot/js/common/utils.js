@@ -97,7 +97,7 @@ function getQueryStringParms(url) {
         var parameterValue = typeof parameter[1] === "undefined" ? parameter[1] : decodeURIComponent(parameter[1]);
         
         // Hack to remove plus signs.  This may not always be correct.
-        parameterValue = parameterValue.replace('+', ' ');
+        parameterValue = parameterValue.replaceAll('+', ' ');
         
         var dataType = typeof data[parameterName];
         if (dataType === "undefined") {
@@ -120,6 +120,11 @@ String.prototype.format = String.prototype.f = function() {
         s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
     }
     return s;
+};
+
+// http://gotochriswest.com/blog/2011/07/25/javascript-string-prototype-replaceall/
+String.prototype.replaceAll = function(target, replacement) {
+  return this.split(target).join(replacement);
 };
 
 //
