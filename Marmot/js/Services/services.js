@@ -162,7 +162,7 @@ app.Services = app.Services || {};
             
             offers.forEach(function(offerDto) {
                 
-                if (offerDto.locationId === locationId)
+                if (offerDto.locationId === parseInt(locationId))
                     arr.push(offerDto);                
             });
 
