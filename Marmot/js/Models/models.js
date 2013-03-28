@@ -77,6 +77,8 @@ app.Models.Offer = function() {
     self.name = ko.observable();
     self.imageUrl = ko.observable();
     self.locationGeoPosition = ko.observable();
+    self.barcodeUrl = ko.observable("https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/barcode1.png");
+    self.couponCode = ko.observable("E9FJ712221"),
     self.expires = ko.observable("Offer Expires In 5 Days");
     
     self.distance = ko.observable();
