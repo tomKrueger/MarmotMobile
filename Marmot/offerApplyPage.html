@@ -28,13 +28,13 @@
                         <h1 class="coupon-description">
                             <div id="applyBarCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'BarCode'">
                                 <span>Scan at Checkout</span>
-                                <img src="https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/barcode1.png" />
+                                <img data-bind="attr: {src: offer.barcodeUrl}" />
                                 <!--<div class="offer-done done" data-bind="click: onClick">-Done-</div> -->
                             </div>
                                 
                             <div id="applyCouponCodeContainer" style="text-align:center;" data-bind="visible: offerApplyType() === 'CouponCode'">
                                 <span>Enter Coupon Code at Checkout</span><br /><br />
-                                <span>E9FJ7</span>
+                                <span data-bind="text: offer.couponCode"></span>
                                 <!--<div class="offer-done done" data-bind="click: onClick">-Done-</div>-->
                             </div>
             
