@@ -630,7 +630,7 @@ div.blurredBackgroundContent
     background: rgba(255, 255, 255, 0.199219);
     border: 1px solid rgb(255, 255, 255);    
     border-radius: 5px;
-    margin: 5px;    
+    margin: 5px;
 }
 .coupon-bg
 {
@@ -640,6 +640,7 @@ div.blurredBackgroundContent
     border: 1px solid transparent; /* Only here to stop collapsing border */
     box-shadow: rgba(9, 9, 9, 0.292969) 1px 7px 5px 0px;
     margin: 5px;
+    margin-bottom: 70px; /* used to take up space under coupon container for offer button */
 }
 
 .coupon-stitching
@@ -730,15 +731,12 @@ div.blurredBackgroundContent
     font-family: Oswald-Light;
 }
 
-
-/*.disclaimer{
-    position: relative;
-    top: 340px;
+.disclaimer {
     font-family: Oswald-Light;
     color: rgb(76, 113, 122);
     font-size: 12px;
     text-align: center;
-}*/
+}
 
 .offer-done{
 	-webkit-box-shadow:inset 0px 1px 0px 0px #eba078;
