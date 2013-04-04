@@ -39,10 +39,18 @@ function centerImage(jqImg) {
         width = elm.width();
     }    
     
-    jqImg.css({
-        position: "relative",
-        left: (width - jqImg.width()) / 2
-    });
+    app.logger.verbose("width: " + width);
+    app.logger.verbose("imageWidth: " + jqImg.width());
+    app.logger.verbose("left: " + ((width - jqImg.width()) / 2));
+    
+    // Only center the image if valid values have been found for width and image width.
+    if (width > 0 && jqImg.width() > 0)
+    {
+        jqImg.css({
+            position: "relative",
+            left: (width - jqImg.width()) / 2
+        });
+    }
     
     app.logger.traceEnd("centerImage()");
 }
