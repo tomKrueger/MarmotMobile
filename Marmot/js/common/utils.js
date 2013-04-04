@@ -39,10 +39,18 @@ function centerImage(jqImg) {
         width = elm.width();
     }    
     
-    jqImg.css({
-        position: "relative",
-        left: (width - jqImg.width()) / 2
-    });
+    app.logger.verbose("width: " + width);
+    app.logger.verbose("imageWidth: " + jqImg.width());
+    app.logger.verbose("left: " + ((width - jqImg.width()) / 2));
+    
+    // Only center the image if valid values have been found for width and image width.
+    if (width > 0 && jqImg.width() > 0)
+    {
+        jqImg.css({
+            position: "relative",
+            left: (width - jqImg.width()) / 2
+        });
+    }
     
     app.logger.traceEnd("centerImage()");
 }
@@ -398,6 +406,38 @@ Array.prototype.pushAll = function(arr) {
             calculateDistanceInKM: calculateDistanceInKM,
             calculateDistanceInMiles: calculateDistanceInMiles
         };
-    }());
+    }());    
+}());    
+
+(function () {
+    'use strict';
+    
+    utils.GoogleMap = function() {
+ 
+        var _mapElementId;
+        
+        var initialize = function(mapElementId, lat,lng) {
+            _mapElementId = mapElementId;
+            debugger;
+            var map = showMap(lat,lng);
+        };
+     
+        var showMap = function(lat,lng) {
+            var mapOptions = {
+                zoom: 4,
+                center: new google.maps.LatLng(lat, lng),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+     
+            var map = new google.maps.Map(document.getElementById(_mapElementId), mapOptions);
+     
+            return map;
+        };
+        
+        return {
+            initialize: initialize,
+            showMap: showMap
+        };
+    };
     
 }());    
