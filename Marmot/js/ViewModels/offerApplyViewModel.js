@@ -41,6 +41,7 @@ app.OfferApplyViewModel = function() {
         id: id,
         name: name,
         offerApplyType: offerApplyType,
+        offer: offer,
         onClick: onClick
         
     };    
