@@ -44,7 +44,8 @@ app.Services = app.Services || {};
 
         return {
             get: get,
-            getNearByCommunities: getNearByCommunities
+            getNearByCommunities: getNearByCommunities,
+            internalCommunities: function() { return _communities; }
         };
 
     }());
@@ -62,7 +63,7 @@ app.Services = app.Services || {};
             { communityId: 2, id: 7, name: "Leff's Lucky Town", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.048611, long: -88.002441 } },
             { communityId: 2, id: 8, name: "Locker's Floral", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060577, long: -88.023231 } },
             //{ communityId: 2, id: 9, name: "", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 0, long: 0 } },
-            { communityId: 3, id: 0, name: "Galena Brewing Company", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
+            { communityId: 3, id: 0, name: "Galena Brewing Company", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.421705, long: -90.43796 } },
             { communityId: 3, id: 11, name: "DeSoto House Hotel", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.415266, long: -90.42991 } },
             { communityId: 4, id: 15, name: "The Cookery", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.127388, long: -87.244578 } },
             { communityId: 4, id: 16, name: "Door County Lighthouse Inn", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.12732, long: -87.244449 } },
@@ -98,7 +99,8 @@ app.Services = app.Services || {};
         
         return {
             get: get,
-            getByCommunityId: getByCommunityId
+            getByCommunityId: getByCommunityId,
+            internalLocations: function() { return locations; }
         };
         
     }());
@@ -216,8 +218,41 @@ app.Services = app.Services || {};
             successCallback(url);
         };
         
+        var getMarkers = function(swLat, swLng, neLat, neLng, successCallback) {
+            
+            var markers = [];
+            
+            var communities = app.Services.Community.internalCommunities();
+            var locations = app.Services.Location.internalLocations();
+            
+            if (communities) {
+                for (var i = 0; i < communities.length - 1; i++) {
+                    var marker = new Object();
+                    marker.lat = communities[i].geoPosition.lat
+                    marker.lng = communities[i].geoPosition.long
+                    marker.type = 1
+                    markers.push(marker);
+                }
+            }
+            
+            if (locations) {
+                for (i = 0; i < locations.length - 1; i++) {
+                    
+                    var locMarker = new Object();
+                    locMarker.lat = locations[i].geoPosition.lat
+                    locMarker.lng = locations[i].geoPosition.long
+                    locMarker.type = 2
+                    markers.push(locMarker);
+                }
+            }
+            
+            // Simulate load taking time.
+            setTimeout(function() { successCallback(markers) }, 1000);
+        }
+        
         return {
-          getStaticMapUrlByZipcode: getStaticMapUrlByZipcode  
+          getStaticMapUrlByZipcode: getStaticMapUrlByZipcode,
+          getMarkers: getMarkers
         };
         
     }());

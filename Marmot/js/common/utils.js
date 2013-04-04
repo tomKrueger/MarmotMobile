@@ -412,19 +412,53 @@ Array.prototype.pushAll = function(arr) {
 (function () {
     'use strict';
     
+    // https://developers.google.com/maps/documentation/javascript/reference#Map
+    // https://developers.google.com/maps/articles/toomanymarkers
+    // https://developers.google.com/maps/documentation/javascript/reference#Map
+    // http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker
     utils.GoogleMap = function() {
  
         var _mapElementId;
+        var _map;
+        var _getMarkersFunc;
+        var _lastMarkers = [];
+        var _currentPositionMarkerImage;
+        var _communityMarkerImage;
+        var _locationMarkerImage;
         
-        var initialize = function(mapElementId, lat,lng) {
+        var initialize = function(mapElementId, lat, lng, getMarkersFunc) {
             _mapElementId = mapElementId;
-            debugger;
-            var map = showMap(lat,lng);
+            _getMarkersFunc = getMarkersFunc;
+            
+            _currentPositionMarkerImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+                new google.maps.Size(24, 34),
+                new google.maps.Point(0,0),
+                new google.maps.Point(10, 34));
+            
+            _communityMarkerImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + "4A708B",
+                new google.maps.Size(21, 34),
+                new google.maps.Point(0,0),
+                new google.maps.Point(10, 34));
+            
+            _locationMarkerImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + "FFFDD0",
+                new google.maps.Size(21, 34),
+                new google.maps.Point(0,0),
+                new google.maps.Point(10, 34));
+            
+            //var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+            //    new google.maps.Size(40, 37),
+            //    new google.maps.Point(0, 0),
+            //    new google.maps.Point(12, 35));
+            
+            
+            _map = showMap(lat,lng);
+            
+            google.maps.event.addListener(_map, 'idle', showMarkers);
         };
      
         var showMap = function(lat,lng) {
             var mapOptions = {
-                zoom: 4,
+                zoom: 8,
                 center: new google.maps.LatLng(lat, lng),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
@@ -434,9 +468,79 @@ Array.prototype.pushAll = function(arr) {
             return map;
         };
         
+        var showMarkers = function() {
+            var bounds = _map.getBounds();
+            var ne = bounds.getNorthEast();
+            var sw = bounds.getSouthWest();
+            
+            var markers = _getMarkersFunc(sw.lat(), sw.lng(), ne.lat(), ne.lng(), function(markers) {
+                
+                // Remove the existing markers from the map so that performance does not degrade.
+                deleteMarkers(_lastMarkers);
+                _lastMarkers = [];                
+                
+                addMarkersToMap(_map, markers);                
+            });
+            
+        };
+        
+        var deleteMarkers = function(markers) {
+            
+            if (markers) {            
+                for(var i = 0; i < markers.length; i++) {
+                    var marker = markers[i];
+                    marker.setMap(null);
+                    console.log("deleted marker.");
+                }
+            }            
+        };
+        
+        var addMarkersToMap = function(map, markers) {
+                        
+            if(markers) {
+                for(var i = 0; i < markers.length; i++) {
+                    var marker = markers[i];
+                    var iconUrl = null;
+                    var iconImage;
+                    
+                    switch(marker.type)
+                    {
+                        case 1:
+                            iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';    
+                            iconImage = _communityMarkerImage;
+                            break;
+                        case 2:
+                            iconImage = _locationMarkerImage;
+                            iconUrl = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';    
+                            //var pinColor = "FFFFFF";
+                            //iconUrl = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|' + pinColor
+                            break; 
+                        case 3:
+                            iconImage = _currentPositionMarkerImage;
+                            break; 
+                    }
+                    
+                    addMarkerToMap(map, marker.lat, marker.lng, iconImage);
+                }
+            }
+            
+        };
+        
+        var addMarkerToMap = function(map, lat, lng, iconUrl) {
+            var latLng = new google.maps.LatLng(lat, lng);
+ 
+            debugger;
+            var marker = new google.maps.Marker({
+                position: latLng,
+                icon: iconUrl,
+                map: map
+            });
+            
+            _lastMarkers.push(marker);
+        };
+        
         return {
-            initialize: initialize,
-            showMap: showMap
+            initialize: initialize
         };
     };
     
