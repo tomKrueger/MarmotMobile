@@ -16,8 +16,8 @@ app.Services = app.Services || {};
         
         var _communities = [
             { id: 1, name: "Lake Country", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/LakeCountry.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
-            { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
-            { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
+            { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/Wauwatosa.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
+            { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/Galena.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
             { id: 4, name: "Door County", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/DoorCounty.png", geoPosition: { lat: 45.12732, long: -87.244449 } }
         ];
         
