@@ -39,7 +39,7 @@ a {text-decoration: none; }
 
 #menu
 {
-    background: #5B777D;
+    background: #1c585a;
     color: white;
     height:100%;
 }
@@ -73,7 +73,7 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
 
 .ui-page
 {
-   background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#b6bec6), color-stop(53%,#889eb0), color-stop(100%,#96998a));
+   background-color: #1C585A;
 }
 
 .ui-header .ui-title 
@@ -87,6 +87,18 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
     font-weight:normal;
     background: #ffffff;
 }
+
+.ui-body-c, ui-overlay-c {
+    background-image: none !important;
+    text-shadow: 0 1px 0 #70868A;
+    }
+
+.ui-body-b, ui-overlay-b{
+    background-image: none !important;
+    background-color: #7EA5AD;
+    }
+
+
 
 .ui-btn-inner 
 {
@@ -559,8 +571,8 @@ div.blurredBackgroundContent
 
 .offer-breakpoint .ui-block-a {
     background: rgba(255, 255, 255, 0.199219);
-    border: 1px solid rgb(255, 255, 255);
-    border-right: 1px dashed rgb(255, 255, 255);
+    border: 1px solid #528B92;
+    border-right: 1px solid #6D6D6D;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     float: left;
@@ -571,7 +583,7 @@ div.blurredBackgroundContent
         
 .offer-breakpoint .ui-block-b {
     background: rgba(255, 255, 255, 0.199219);
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #528B92;
     border-left: 0px  rgb(255, 255, 255);
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
@@ -581,7 +593,7 @@ div.blurredBackgroundContent
     }
 
 .offer-businessname {
-    color: rgb(255, 255, 255);
+    color: #8DDBDF;
     font-family: Oswald-Regular;
     height: auto;
     line-height: 1em;
@@ -592,7 +604,7 @@ div.blurredBackgroundContent
 
 .offers-used{
     font-family: Oswald-Light;
-    color: rgb(76, 113, 122);
+    color: #26363A;
     float: left;
     height: auto;
     line-height: 1em;    
@@ -608,10 +620,11 @@ div.blurredBackgroundContent
     transform: scale(2);
     position: relative;
     left: 30%;
+margin-top: 4px;
 }
 
 .ui-block-b > p {
-    color: rgb(76, 113, 122);
+    color: #26363A;
     font-size: 12px;
     position: relative;
     left: 5%;
@@ -620,7 +633,7 @@ div.blurredBackgroundContent
 
 .address{
     font-family: Oswald-Light;
-    color: white;
+    color: #8DDBDF;
     font-size: 16px;
     margin: 0 auto 4px 10%;
 }
@@ -628,7 +641,7 @@ div.blurredBackgroundContent
 .coupon-container
 {
     background: rgba(255, 255, 255, 0.199219);
-    border: 1px solid rgb(255, 255, 255);    
+    border: 1px solid #528B92;    
     border-radius: 5px;
     margin: 5px;
 }
@@ -638,23 +651,16 @@ div.blurredBackgroundContent
     background: rgb(124, 162, 167);
     border-radius: 5px;
     border: 1px solid transparent; /* Only here to stop collapsing border */
-    box-shadow: rgba(9, 9, 9, 0.292969) 1px 7px 5px 0px;
     margin: 5px;
     margin-bottom: 70px; /* used to take up space under coupon container for offer button */
 }
 
-.coupon-stitching
-{
-    border: 1px dashed rgb(255, 255, 255);
-    border-radius:  5px;
-    margin: 9px;
-}
+
                 
 .coupon-front
 {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.292969) 1px 7px 5px 0px;
     margin: 5px;
     text-align: center;    
 }
@@ -671,21 +677,21 @@ div.blurredBackgroundContent
 
 .offer-button-container
 {
-    min-height: 70px;
+    min-height: 120px;
 }
 
 .offer-button
 {
     background-color: #eb7636;
-    border-radius: 150px;
     border: 1px solid #a82f03;
-    width: 140px;
-    height: 140px; 
+    width: 180px;
+    height: 45px; 
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
-    right: 0;    
+    right: 0; 
+    margin-top: 60px;
 }
 
 
@@ -725,7 +731,7 @@ div.blurredBackgroundContent
 .offer-button > div 
 {
     color: white;
-    top: 60px;
+    top: 10px;
     position: relative;
     text-shadow:1px 1px 0px #66422e;
     font-family: Oswald-Light;
