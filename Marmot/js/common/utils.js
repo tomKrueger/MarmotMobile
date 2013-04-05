@@ -330,7 +330,7 @@ Array.prototype.pushAll = function(arr) {
         
         var unsubscribe = function(fn, errFunc) {
             _currentPositionChangedObserver.unsubscribe(fn);
-            _getPositionErrorObserver.subscribe(errFunc);
+            _getPositionErrorObserver.unsubscribe(errFunc);
             
             // Stop refreshing if there are not any subscribers.
             // NOTE: Commented out because it may not be the right choice to stopAutoRefresh.  Waiting
