@@ -228,6 +228,7 @@ app.Services = app.Services || {};
             if (communities) {
                 for (var i = 0; i < communities.length - 1; i++) {
                     var marker = new Object();
+                    marker.code = "C" + communities[i].id;
                     marker.lat = communities[i].geoPosition.lat
                     marker.lng = communities[i].geoPosition.long
                     marker.type = 1
@@ -239,6 +240,7 @@ app.Services = app.Services || {};
                 for (i = 0; i < locations.length - 1; i++) {
                     
                     var locMarker = new Object();
+                    locMarker.code = "L" + locations[i].id;
                     locMarker.lat = locations[i].geoPosition.lat
                     locMarker.lng = locations[i].geoPosition.long
                     locMarker.type = 2
@@ -248,11 +250,19 @@ app.Services = app.Services || {};
             
             // Simulate load taking time.
             setTimeout(function() { successCallback(markers) }, 1000);
-        }
+        };
+        
+        var getMarkerDetails = function(code, successCallback) {
+        
+            console.log("dddddd" + code);
+            
+            setTimeout(function() { successCallback("") }, 1000);
+        };
         
         return {
           getStaticMapUrlByZipcode: getStaticMapUrlByZipcode,
-          getMarkers: getMarkers
+          getMarkers: getMarkers,
+            getMarkerDetails: getMarkerDetails
         };
         
     }());

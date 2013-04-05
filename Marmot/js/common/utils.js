@@ -526,19 +526,20 @@ Array.prototype.pushAll = function(arr) {
                             break; 
                     }
                     
-                    addMarkerToMap(map, marker.lat, marker.lng, iconImage);
+                    addMarkerToMap(map, marker.code, marker.lat, marker.lng, iconImage);
                 }
             }
             
         };
         
-        var addMarkerToMap = function(map, lat, lng, iconUrl) {
+        var addMarkerToMap = function(map, code, lat, lng, iconUrl) {
             var latLng = new google.maps.LatLng(lat, lng);
  
             var marker = new google.maps.Marker({
                 position: latLng,
                 icon: iconUrl,
-                map: map
+                map: map,
+                code: code
             });
             
             google.maps.event.addListener(marker, 'click', showInfoWindow);
@@ -550,7 +551,7 @@ Array.prototype.pushAll = function(arr) {
             
             var marker = this;
             
-            _getInfoWindowFunc(function(htmlContent) {
+            _getInfoWindowFunc(marker.code, function(htmlContent) {
                 _infowindow.setContent(htmlContent);
                 _infowindow.open(_map, marker);
                 

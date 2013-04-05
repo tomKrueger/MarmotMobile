@@ -45,34 +45,41 @@ app.MapViewModel = function() {
         });
     }
     
-    function lookupInfoWindow(successCallback) {
-        var content = ''
-            + '<div style="">'
-            //+ '    <div style="width: 15px; height: 15px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000;">'
-            //+ '        <img style="position: absolute; left: -27px; top: -66px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-user-drag: none; width: 102px; height: 100.5px;" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false">'
-            //+ '    </div>'
-            //+ '    <img style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; position: absolute; right: 4px; top: 4px; z-index: 10001; cursor: pointer; width: 31px; height: 31px;" src="http://maps.gstatic.com/mapfiles/transparent.png" draggable="false">'
-            //+ '    <div style="cursor: default; position: absolute; left: 18px; top: 18px; z-index: 2; width: 263px; height: 54px;">'
-            + '    <div class="gm-iw" jstcache="0">'
-            + '        <div><span class="gm-title">Glacial Blue Hills Recreation Area</span></div>'
-            + '        <div class="gm-rev">'
-        	+ '			<span style="display: none;">'
-        	+ '			    <div class="gm-stars" style="background-position: 0 0; width: 65px;">'
-        	+ '			        <div class="gm-stars" style=""></div>'
-        	+ '				</div>'
-        	+ '			</span>'
-        	+ '			<span jsdisplay="(i.result.rating&amp;&amp;i.result.url)" jstcache="3" style="display: none;">&nbsp;-&nbsp;</span>'
-        	+ '			<span jstcache="0"><a target="_blank" href="https://plus.google.com/100440572524389226413/about">more info »</a></span>'
-        	+ '		</div>'
-            + '        <div class="gm-basicinfo" jstcache="0">'
-            + '            <div style="">West Bend, WI, United States</div>'
-            + '            <div style="display: none;"></div>'
-            + '        </div>'
-            + '    </div>'
-            //+ '</div>'
-            + '</div>'
+    function lookupInfoWindow(code, successCallback) {
         
-        successCallback(content);
+        successCallback("Loading");
+        
+        app.Services.Map.getMarkerDetails(code, function(s) {
+        
+            var content = ''
+                + '<div style="">'
+                //+ '    <div style="width: 15px; height: 15px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000;">'
+                //+ '        <img style="position: absolute; left: -27px; top: -66px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-user-drag: none; width: 102px; height: 100.5px;" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" draggable="false">'
+                //+ '    </div>'
+                //+ '    <img style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; position: absolute; right: 4px; top: 4px; z-index: 10001; cursor: pointer; width: 31px; height: 31px;" src="http://maps.gstatic.com/mapfiles/transparent.png" draggable="false">'
+                //+ '    <div style="cursor: default; position: absolute; left: 18px; top: 18px; z-index: 2; width: 263px; height: 54px;">'
+                + '    <div class="gm-iw" jstcache="0">'
+                + '        <div><span class="gm-title">Glacial Blue Hills Recreation Area</span></div>'
+                + '        <div class="gm-rev">'
+            	+ '			<span style="display: none;">'
+            	+ '			    <div class="gm-stars" style="background-position: 0 0; width: 65px;">'
+            	+ '			        <div class="gm-stars" style=""></div>'
+            	+ '				</div>'
+            	+ '			</span>'
+            	+ '			<span jsdisplay="(i.result.rating&amp;&amp;i.result.url)" jstcache="3" style="display: none;">&nbsp;-&nbsp;</span>'
+            	+ '			<span jstcache="0"><a target="_blank" href="https://plus.google.com/100440572524389226413/about">more info »</a></span>'
+            	+ '		</div>'
+                + '        <div class="gm-basicinfo" jstcache="0">'
+                + '            <div style="">West Bend, WI, United States</div>'
+                + '            <div style="display: none;"></div>'
+                + '        </div>'
+                + '    </div>'
+                //+ '</div>'
+                + '</div>'
+            
+            successCallback(content);
+        
+        });
     }
     
     return {
