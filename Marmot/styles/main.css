@@ -59,6 +59,18 @@ a:hover {color:#ffffff;}
     color:white;
 }
 
+
+.ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a {
+font-family: Oswald-Light,Helvetica,Arial,sans-serif;
+text-decoration: none;
+}
+
+.ui-panel-inner {
+text-align: center;
+font-family: Chunkfive;
+}
+
+
 ul
 {
     margin: 0;
@@ -662,7 +674,7 @@ margin-top: 4px;
                 
 .coupon-front
 {
-    background: rgba(255, 255, 255, 0.7);
+    background: #67696D;
     border-radius: 5px;
     margin: 5px;
     text-align: center;    
