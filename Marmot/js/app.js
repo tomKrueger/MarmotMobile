@@ -34,6 +34,22 @@ function onGeoError(error) {
     //app.geoManager.setCurrentPosition({ coords: { latitude: 43.059911, longitude: -88.403900 }});   
 }
 
+function refreshPages() {
+    
+    // Force geo manager to refresh so current position is updated
+    // before refreshing pages.
+    app.geoManager.refresh();
+    
+    // Leaving here in case needed in future but calling geoManager refresh already forces a refresh to the
+    // subscribed pages such as Home & Community.
+    //$(".ui-page").each(function() {
+    //    var vm = getViewModel(this.id);
+    //    if (vm && vm.refresh) {
+    //        vm.refresh();
+    //    }
+    //});
+}
+
 function calculateDistanceFromCurrent(position) {
     
     var curPos = app.Globals.currentGeoPosition();  
@@ -41,9 +57,6 @@ function calculateDistanceFromCurrent(position) {
     var dist = utils.Geo.calculateDistanceInMiles(curPos.coords.latitude, curPos.coords.longitude, position.lat, position.long);
     
     return dist;
-    
-    
-    
 }
 
 function formatDistance(dist) {
