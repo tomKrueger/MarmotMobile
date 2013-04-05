@@ -58,7 +58,7 @@
             <div data-role="panel" id="menuPanel" data-position="right" data-display="push" data-theme="d">
                 <h2 style="margin-top: 0px;">Menu</h2>                
                 <ul data-role="listview" data-theme="a" class="">                    
-                    <li data-icon="refresh"><a href="#" data-bind="click: function() { refreshPages(); }">Refresh</a></li>
+                    <li data-icon="refresh"><a href="#" data-bind="click: function() { refreshPages(); $('#menuPanel').panel('close'); }">Refresh</a></li>
                     <li data-role="list-divider"></li>
                     <li data-icon="gear"><a href="#" >Account Settings</a></li>
                     <li data-icon="info"><a href="#">Feedback</a></li>
