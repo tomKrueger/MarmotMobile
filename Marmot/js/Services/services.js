@@ -26,6 +26,12 @@ app.Services = app.Services || {};
         //
         var get = function (communityId, successCallback) {
             
+            var found = internalGet(communityId);
+            
+            successCallback(found);
+        };    
+
+        var internalGet = function(communityId) {
             var found;
 
             for(var i = 0; i < _communities.length; i++) {
@@ -35,9 +41,9 @@ app.Services = app.Services || {};
                 }                
             }
             
-            successCallback(found);
-        };    
-
+            return found;            
+        };
+        
         var getNearByCommunities = function (position, successCallback) {
             successCallback(_communities);
         };
@@ -45,6 +51,7 @@ app.Services = app.Services || {};
         return {
             get: get,
             getNearByCommunities: getNearByCommunities,
+            internalGet: internalGet,
             internalCommunities: function() { return _communities; }
         };
 
@@ -74,12 +81,16 @@ app.Services = app.Services || {};
         // Retrieves location.
         //
         var get = function (locationId) {
+            return internalGet(locationId);
+        };
+        
+        var internalGet = function(locationId) {
             for(var i = 0; i < locations.length; i++) {
                                 
                 if (locations[i].id === parseInt(locationId)) {
                     return locations[i];
                 }                
-            }
+            }            
         };
         
         //
@@ -99,6 +110,7 @@ app.Services = app.Services || {};
         
         return {
             get: get,
+            internalGet: internalGet,
             getByCommunityId: getByCommunityId,
             internalLocations: function() { return locations; }
         };
@@ -254,15 +266,32 @@ app.Services = app.Services || {};
         
         var getMarkerDetails = function(code, successCallback) {
         
-            console.log("dddddd" + code);
             
-            setTimeout(function() { successCallback("") }, 1000);
+            if(code && code.length > 1) {
+            
+                var details = new Object();
+                
+                switch(code[0]) {
+                    case "C":
+                        var community = app.Services.Community.internalGet(code.substring(1));
+                        details.title = community.name;
+                        details.address = community.address;
+                        break;
+                    case "L":
+                        var location = app.Services.Location.internalGet(code.substring(1));
+                        details.title = location.name;
+                        details.address = location.address;
+                        break;
+                }
+            }
+            
+            setTimeout(function() { successCallback(details) }, 1000);
         };
         
         return {
           getStaticMapUrlByZipcode: getStaticMapUrlByZipcode,
           getMarkers: getMarkers,
-            getMarkerDetails: getMarkerDetails
+          getMarkerDetails: getMarkerDetails
         };
         
     }());
