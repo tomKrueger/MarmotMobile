@@ -75,6 +75,22 @@ app.mobileInit = function () {
             }
         });
         
+        // Wire up swipe events for home page.
+        // Not sure if this needs to be inside of pageInit, but better safe than sorry.
+        // Refer to http://www.uglymongrel.com/jqm/popup-arrow/docs/demos/demos/panels/panel-swipe-open.html#&ui-state=dialog
+        $(document).on( "swipeleft swiperight", "#homePage", function( e ) {
+            // We check if there is no open panel on the page because otherwise
+            // a swipe to close the left panel would also open the right panel (and v.v.).
+            // We do this by checking the data that the framework stores on the page element (panel: open).
+            if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+                if ( e.type === "swipeleft"  ) {
+                    $( "#menuPanel" ).panel( "open" );
+                //} else if ( e.type === "swiperight" ) {
+                    //$( "#left-panel" ).panel( "open" );
+                }
+            }
+        });
+        
         app.logger.traceEnd("pageInit-homePage");
     });
     
