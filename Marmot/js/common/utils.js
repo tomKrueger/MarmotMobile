@@ -427,6 +427,7 @@ Array.prototype.pushAll = function(arr) {
         var _communityMarkerImage;
         var _locationMarkerImage;
         var _infowindow = new google.maps.InfoWindow();
+        var _lastMarkerWithInfoWindow;
         
         var initialize = function(mapElementId, lat, lng, getMarkersFunc, getInfoWindowFunc) {
             _mapElementId = mapElementId;
@@ -492,8 +493,10 @@ Array.prototype.pushAll = function(arr) {
             if (markers) {            
                 for(var i = 0; i < markers.length; i++) {
                     var marker = markers[i];
-                    marker.setMap(null);
-                    console.log("deleted marker.");
+                    if (marker && marker !== _lastMarkerWithInfoWindow) {
+                        marker.setMap(null);
+                        console.log("deleted marker.");
+                    }
                 }
             }            
         };
@@ -549,7 +552,10 @@ Array.prototype.pushAll = function(arr) {
             
             _getInfoWindowFunc(function(htmlContent) {
                 _infowindow.setContent(htmlContent);
-                _infowindow.open(_map, marker);    
+                _infowindow.open(_map, marker);
+                
+                // Keep reference so this marker won't be deleted so that the info window won't go away.
+                _lastMarkerWithInfoWindow = marker;
             });            
         };
         
