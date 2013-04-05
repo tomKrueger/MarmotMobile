@@ -30,8 +30,7 @@ app.Models.Community = function() {
         
         if (!self.geoPosition()) { return; }
         
-        var dist = calculateDistanceFromCurrent(self.geoPosition());       
-        console.log("Dist-Community (" + self.name() + "): " + dist);
+        var dist = calculateDistanceFromCurrent(self.geoPosition());
     
         if (self.distance() != dist)
             self.distance(dist);
@@ -89,8 +88,7 @@ app.Models.Offer = function() {
         
         if (!self.locationGeoPosition()) { return; }
         
-        var dist = calculateDistanceFromCurrent(self.locationGeoPosition());       
-        console.log("Dist-Offer (" + self.name() + "): " + dist);
+        var dist = calculateDistanceFromCurrent(self.locationGeoPosition());
     
         if (self.distance() != dist)
             self.distance(dist);
