@@ -5,6 +5,26 @@
         <h1>Map</h1>
     </div>
     <div data-role="content">
+        <div id="infoWindowContainer" style="display:none">
+            <div>
+            <div class="gm-iw" jstcache="0">
+                <div><span class="gm-title" data-bind="text: infoWindowTitle"></span></div>
+                <div class="gm-rev">
+    				<span style="display: none;">
+    					<div class="gm-stars" style="background-position: 0 0; width: 65px;">
+    						<div class="gm-stars" style=""></div>
+    					</div>
+    				</span>
+    				<span style="display: none;">&nbsp;-&nbsp;</span>
+    				<span style="display: none;"><a target="_blank" href="https://plus.google.com/100440572524389226413/about">more info »</a></span>
+    			</div>
+                <div class="gm-basicinfo" jstcache="0">
+                    <div style="" data-bind="html: infoWindowAddress"></div>
+                    <div style="display: none;"></div>
+                </div>
+            </div>
+            </div>
+        </div>
         <div id="mapCanvas" style="width: 100%;">
         </div>
     </div>
