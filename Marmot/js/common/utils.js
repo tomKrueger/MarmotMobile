@@ -421,14 +421,17 @@ Array.prototype.pushAll = function(arr) {
         var _mapElementId;
         var _map;
         var _getMarkersFunc;
+        var _getInfoWindowFunc;
         var _lastMarkers = [];
         var _currentPositionMarkerImage;
         var _communityMarkerImage;
         var _locationMarkerImage;
+        var _infowindow = new google.maps.InfoWindow();
         
-        var initialize = function(mapElementId, lat, lng, getMarkersFunc) {
+        var initialize = function(mapElementId, lat, lng, getMarkersFunc, getInfoWindowFunc) {
             _mapElementId = mapElementId;
             _getMarkersFunc = getMarkersFunc;
+            _getInfoWindowFunc = getInfoWindowFunc;
             
             _currentPositionMarkerImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/green-dot.png",
                 new google.maps.Size(24, 34),
@@ -473,7 +476,7 @@ Array.prototype.pushAll = function(arr) {
             var ne = bounds.getNorthEast();
             var sw = bounds.getSouthWest();
             
-            var markers = _getMarkersFunc(sw.lat(), sw.lng(), ne.lat(), ne.lng(), function(markers) {
+            _getMarkersFunc(sw.lat(), sw.lng(), ne.lat(), ne.lng(), function(markers) {
                 
                 // Remove the existing markers from the map so that performance does not degrade.
                 deleteMarkers(_lastMarkers);
@@ -529,14 +532,25 @@ Array.prototype.pushAll = function(arr) {
         var addMarkerToMap = function(map, lat, lng, iconUrl) {
             var latLng = new google.maps.LatLng(lat, lng);
  
-            debugger;
             var marker = new google.maps.Marker({
                 position: latLng,
                 icon: iconUrl,
                 map: map
             });
             
+            google.maps.event.addListener(marker, 'click', showInfoWindow);
+            
             _lastMarkers.push(marker);
+        };
+        
+        var showInfoWindow = function() {
+            
+            var marker = this;
+            
+            _getInfoWindowFunc(function(htmlContent) {
+                _infowindow.setContent(htmlContent);
+                _infowindow.open(_map, marker);    
+            });            
         };
         
         return {
