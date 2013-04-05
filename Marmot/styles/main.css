@@ -61,7 +61,7 @@ a:hover {color:#ffffff;}
 
 
 .ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a {
-font-family: Oswald-Light,Helvetica,Arial,sans-serif;
+font-family: Oswalod-Light,Helvetica,Arial,sans-serif;
 text-decoration: none;
 }
 
@@ -619,7 +619,7 @@ div.blurredBackgroundContent
 
 .offers-used{
     font-family: Oswald-Light;
-    color: #26363A;
+    color: #67696D;
     float: left;
     height: auto;
     line-height: 1em;    
@@ -639,7 +639,7 @@ margin-top: 4px;
 }
 
 .ui-block-b > p {
-    color: #26363A;
+    color: #67696D;
     font-size: 12px;
     position: relative;
     left: 5%;
