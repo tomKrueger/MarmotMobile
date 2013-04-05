@@ -574,8 +574,8 @@ div.blurredBackgroundContent
 
 .offer-breakpoint .ui-block-a {
     background: rgba(255, 255, 255, 0.199219);
-    border: 1px solid #528B92;
-    border-right: 1px solid #6D6D6D;
+    border: 1px solid #6EC0CA;
+    border-right: 1px solid #78A1A5;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     float: left;
@@ -586,8 +586,8 @@ div.blurredBackgroundContent
         
 .offer-breakpoint .ui-block-b {
     background: rgba(255, 255, 255, 0.199219);
-    border: 1px solid #528B92;
-    border-left: 0px  rgb(255, 255, 255);
+    border: 1px solid #6EC0CA;
+    border-left: 1px  solid #92C7CC;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     float: right;
@@ -596,7 +596,7 @@ div.blurredBackgroundContent
     }
 
 .offer-businessname {
-    color: #8DDBDF;
+    color: #fff;
     font-family: Oswald-Regular;
     height: auto;
     line-height: 1em;
@@ -636,7 +636,7 @@ margin-top: 4px;
 
 .address{
     font-family: Oswald-Light;
-    color: #8DDBDF;
+    color: #fff;
     font-size: 16px;
     margin: 0 auto 4px 10%;
 }
