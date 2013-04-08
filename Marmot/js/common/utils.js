@@ -421,14 +421,18 @@ Array.prototype.pushAll = function(arr) {
         var _mapElementId;
         var _map;
         var _getMarkersFunc;
+        var _getInfoWindowFunc;
         var _lastMarkers = [];
         var _currentPositionMarkerImage;
         var _communityMarkerImage;
         var _locationMarkerImage;
+        var _infowindow = new google.maps.InfoWindow();
+        var _lastMarkerWithInfoWindow;
         
-        var initialize = function(mapElementId, lat, lng, getMarkersFunc) {
+        var initialize = function(mapElementId, lat, lng, getMarkersFunc, getInfoWindowFunc) {
             _mapElementId = mapElementId;
             _getMarkersFunc = getMarkersFunc;
+            _getInfoWindowFunc = getInfoWindowFunc;
             
             _currentPositionMarkerImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/green-dot.png",
                 new google.maps.Size(24, 34),
@@ -473,7 +477,7 @@ Array.prototype.pushAll = function(arr) {
             var ne = bounds.getNorthEast();
             var sw = bounds.getSouthWest();
             
-            var markers = _getMarkersFunc(sw.lat(), sw.lng(), ne.lat(), ne.lng(), function(markers) {
+            _getMarkersFunc(sw.lat(), sw.lng(), ne.lat(), ne.lng(), function(markers) {
                 
                 // Remove the existing markers from the map so that performance does not degrade.
                 deleteMarkers(_lastMarkers);
@@ -489,8 +493,10 @@ Array.prototype.pushAll = function(arr) {
             if (markers) {            
                 for(var i = 0; i < markers.length; i++) {
                     var marker = markers[i];
-                    marker.setMap(null);
-                    console.log("deleted marker.");
+                    if (marker && marker !== _lastMarkerWithInfoWindow) {
+                        marker.setMap(null);
+                        console.log("deleted marker.");
+                    }
                 }
             }            
         };
@@ -520,23 +526,38 @@ Array.prototype.pushAll = function(arr) {
                             break; 
                     }
                     
-                    addMarkerToMap(map, marker.lat, marker.lng, iconImage);
+                    addMarkerToMap(map, marker.code, marker.lat, marker.lng, iconImage);
                 }
             }
             
         };
         
-        var addMarkerToMap = function(map, lat, lng, iconUrl) {
+        var addMarkerToMap = function(map, code, lat, lng, iconUrl) {
             var latLng = new google.maps.LatLng(lat, lng);
  
-            debugger;
             var marker = new google.maps.Marker({
                 position: latLng,
                 icon: iconUrl,
-                map: map
+                map: map,
+                code: code
             });
             
+            google.maps.event.addListener(marker, 'click', showInfoWindow);
+            
             _lastMarkers.push(marker);
+        };
+        
+        var showInfoWindow = function() {
+            
+            var marker = this;
+            
+            _getInfoWindowFunc(marker.code, function(htmlContent) {
+                _infowindow.setContent(htmlContent);
+                _infowindow.open(_map, marker);
+                
+                // Keep reference so this marker won't be deleted so that the info window won't go away.
+                _lastMarkerWithInfoWindow = marker;
+            });            
         };
         
         return {
