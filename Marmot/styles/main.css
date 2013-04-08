@@ -1,7 +1,7 @@
 @font-face 
 {
-	font-family: Chunkfive;
-	src: url('fonts/Chunkfive.otf');
+	font-family: Londrina;
+	src: url('fonts/LondrinaSolid-Regular.ttf');
 }
 
 @font-face 
@@ -67,7 +67,7 @@ text-decoration: none;
 
 .ui-panel-inner {
 text-align: center;
-font-family: Chunkfive;
+font-family: Londrina;
 }
 
 
@@ -101,6 +101,7 @@ img.center { display: block; margin-left: auto; margin-right: auto; }
     outline: 0!important;
     font-weight:normal;
     background: #ffffff;
+    font-family: Londrina;
 }
 
 .ui-body-c, ui-overlay-c {
@@ -202,6 +203,8 @@ div.blurredBackgroundContent
 .nearBy
 {
     font-family: Oswald-Bold;
+    color:#fff;
+    text-shadow: 0 1px 0 #3b6e7f;
 }
     
 #homeMiddle.ui-grid-a .ui-block-a,
@@ -233,7 +236,7 @@ div.blurredBackgroundContent
 {
     font-size: 18px;
     font-family:Oswald-Bold;
-    color: #67696d;
+    color: #506C70;
     padding-top: 0;
 }
 
@@ -241,14 +244,14 @@ div.blurredBackgroundContent
 {
     font-size: 15px;
     font-family: Oswald-Regular;
-    color: #c9c9ca;
+    color: #94c2c6;
 }
 
 .offerExp
 {
     font-size: 10px;
     font-family: Oswald-Light;
-    color: #667584;
+    color: #506C70;
 }
 
 .ui-header > .ui-btn-icon-notext
@@ -370,7 +373,7 @@ div.blurredBackgroundContent
     transition: color 0.2s ease-out;
     z-index: 2;
     background-color: #333;
-    color: #6ACCD5;
+    color: #94c2c6;
     text-shadow: 0px 0px 0px #000;
     font-weight: normal;
 }
@@ -540,7 +543,7 @@ div.blurredBackgroundContent
 	border:1px solid #b06639;
 	display:inline-block;
 	color:#FDDDC6;
-	font-family:Chunkfive;
+	font-family:Londrina;
 	font-size:12px;
 	font-weight:normal;
 	padding:0px 12px;
@@ -619,7 +622,7 @@ div.blurredBackgroundContent
 
 .offers-used{
     font-family: Oswald-Light;
-    color: #67696D;
+    color: #506C70;
     float: left;
     height: auto;
     line-height: 1em;    
@@ -639,7 +642,7 @@ margin-top: 4px;
 }
 
 .ui-block-b > p {
-    color: #67696D;
+    color: #506C70;
     font-size: 12px;
     position: relative;
     left: 5%;
@@ -663,7 +666,7 @@ margin-top: 4px;
 .coupon-bg
 {
     position: relative;
-    background: rgb(124, 162, 167);
+    background: #698D8D;
     border-radius: 5px;
     border: 1px solid transparent; /* Only here to stop collapsing border */
     margin: 5px;
@@ -674,7 +677,7 @@ margin-top: 4px;
                 
 .coupon-front
 {
-    background: #67696D;
+    background: #506C70;
     border-radius: 5px;
     margin: 5px;
     text-align: center;    

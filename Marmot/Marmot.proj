@@ -117,7 +117,7 @@
     <Content Include="styles\CustomIcons\map.png" />
     <Content Include="styles\CustomIcons\menu.png" />
     <Content Include="styles\CustomIcons\search.png" />
-    <Content Include="styles\fonts\Chunkfive.otf" />
+    <Content Include="styles\fonts\LondrinaSolid-Regular.ttf" />
     <Content Include="styles\fonts\Oswald-Bold.ttf" />
     <Content Include="styles\fonts\Oswald-Light.otf" />
     <Content Include="styles\CustomIcons\social-icon.png" />
