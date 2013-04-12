@@ -274,11 +274,15 @@ app.Services = app.Services || {};
                 switch(code[0]) {
                     case "C":
                         var community = app.Services.Community.internalGet(code.substring(1));
+                        details.id = community.id;
+                        details.entityCode = "C";
                         details.title = community.name;
                         details.address = community.address;
                         break;
                     case "L":
                         var location = app.Services.Location.internalGet(code.substring(1));
+                        details.id = location.id;
+                        details.entityCode = "L";
                         details.title = location.name;
                         details.address = location.address;
                         break;

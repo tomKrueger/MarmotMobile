@@ -3,8 +3,21 @@
 app.MapViewModel = function() {
     var temp = ko.observable();
     
+    var infoWindowId = ko.observable();
+    var infoWindowEntityCode = ko.observable();
     var infoWindowTitle = ko.observable();
     var infoWindowAddress = ko.observable();
+    var infoWindowNavFunc = ko.computed(function() {
+        
+        switch(infoWindowEntityCode())
+        {
+            case "C":
+                return "navigateToCommunityPage({0}, '');".format(infoWindowId());
+            case "L":
+                return "navigateToLocationPage({0}, '');".format(infoWindowId());
+        }
+        
+    });
     
     // Behaviours.
     var load = function() {
@@ -46,7 +59,7 @@ app.MapViewModel = function() {
             
             successCallback(markers);
         });
-    }
+    };
     
     function lookupInfoWindow(code, successCallback) {
         
@@ -54,6 +67,8 @@ app.MapViewModel = function() {
         
         app.Services.Map.getMarkerDetails(code, function(details) {
         
+            infoWindowId(details.id);
+            infoWindowEntityCode(details.entityCode);
             infoWindowTitle(details.title);
             infoWindowAddress(details.address);
             
@@ -88,11 +103,18 @@ app.MapViewModel = function() {
             successCallback(content);
         
         });
-    }
+    };
+    
+    var onInfoWindowMoreClick = function() {
+        debugger;
+        navigateToCommunityPage(infoWindowId(), "");
+    };
     
     return {
         infoWindowTitle: infoWindowTitle,
         infoWindowAddress: infoWindowAddress,
+        infoWindowNavFunc: infoWindowNavFunc,
+        onInfoWindowMoreClick: onInfoWindowMoreClick,
         load: load,
         orientationChanged: onOrientationChanged,
         dispose: dispose,
