@@ -34,6 +34,7 @@ app.CommunityViewModel = function() {
                 
                 var model = new app.Models.Community();
                 model.id(communityDto.id);
+                name(communityDto.name);
                 model.name(communityDto.name);
                 model.imageUrl(communityDto.imageUrl);
                 model.geoPosition(communityDto.geoPosition);
@@ -163,7 +164,7 @@ app.CommunityViewModel = function() {
     };
     
     var onLocationClick = function(location) {
-        $.mobile.changePage("locationPage.html", { data: { id: location.id(), name: location.name() } });
+        navigateToLocationPage(location.id(), location.name());
     };
     
     var onOfferClick = function(offer) {

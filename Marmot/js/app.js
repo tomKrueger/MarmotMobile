@@ -76,6 +76,10 @@ function navigateToCommunityPage(communityId, communityName) {
     $.mobile.changePage("communityPage.html", { data: { id: communityId, name: communityName } });
 }
 
+function navigateToLocationPage(locationId, locationName) {
+    $.mobile.changePage("locationPage.html", { data: { id: locationId, name: locationName } });
+}
+
 var _onOfferDoneNav;
 
 function navigateToOfferPage(offerId, offerName, onOfferDoneNav) {
