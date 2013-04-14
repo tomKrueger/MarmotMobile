@@ -27,11 +27,13 @@ app.HomeViewModel = function() {
     
     // Behaviours.
     var load = function() {
-                
+        
         app.geoManager.subscribeRefresh(refresh, onGeoError);
         app.geoManager.refresh();
         
         $(window).bind('orientationchange', onOrientationChanged);
+        
+        mixpanel.track("HomeLoad");
     };
     
     var dispose = function() {
