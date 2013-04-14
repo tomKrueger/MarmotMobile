@@ -15,6 +15,8 @@ app.CommunityViewModel = function() {
 
         app.geoManager.subscribeRefresh(refresh);
         app.geoManager.refresh();
+        
+        shrinkTitleToFit($("#communityPage .ui-title"));
     };
     
     var dispose = function() {
