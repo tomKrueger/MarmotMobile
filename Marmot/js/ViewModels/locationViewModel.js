@@ -11,7 +11,7 @@ app.LocationViewModel = function() {
         
         imageUrl('https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_3-07.png');
         refresh();
-        
+        shrinkTitleToFit($("#locationPage .ui-title"));
     };
     
     var dispose = function() {
