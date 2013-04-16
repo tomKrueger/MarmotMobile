@@ -71,15 +71,15 @@ function formatDistance(dist) {
 function shrinkTitleToFit(jTitleElem) {
     
     var size = parseInt(jTitleElem.css("font-size"), 10);
-    var desired_width = 230;
+    var desired_width = 220;
     var resizer = $('<div />', {id: 'hidden-resizer'}).hide().appendTo(document.body);
     resizer.css("font-size", size)
     
     resizer.text(jTitleElem.text());
     
     while(resizer.width() > desired_width) {
-      size = parseInt(resizer.css("font-size"), 10);
-      resizer.css("font-size", size - 1);
+      size = parseInt(resizer.css("font-size"), 10) - 1;
+      resizer.css("font-size", size);
     }
     
     jTitleElem.css("font-size", size);    
