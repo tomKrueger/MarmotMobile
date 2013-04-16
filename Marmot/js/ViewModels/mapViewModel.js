@@ -12,9 +12,9 @@ app.MapViewModel = function() {
         switch(infoWindowEntityCode())
         {
             case "C":
-                return "navigateToCommunityPage({0}, '');".format(infoWindowId());
+                return "navigateToCommunityPage({0}, '{1}');".format(infoWindowId(), infoWindowTitle());
             case "L":
-                return "navigateToLocationPage({0}, '');".format(infoWindowId());
+                return "navigateToLocationPage({0}, '{1}');".format(infoWindowId(), infoWindowTitle());
         }
         
     });
