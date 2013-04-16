@@ -50,7 +50,8 @@ app.MapViewModel = function() {
         app.Services.Map.getMarkers(swLat, swLng, neLat, neLng, function(markers) {
         
             var curPos = app.Globals.currentGeoPosition();
-            var currentLocMarker = new Object();        
+            var currentLocMarker = new Object();
+            currentLocMarker.code = "U"
             currentLocMarker.lat = curPos.coords.latitude;
             currentLocMarker.lng = curPos.coords.longitude;
             currentLocMarker.type = 3;
@@ -64,6 +65,19 @@ app.MapViewModel = function() {
     function lookupInfoWindow(code, successCallback) {
         
         successCallback("Loading");
+        
+        if (code === "U") {
+            infoWindowId(null);
+            infoWindowEntityCode(code);
+            infoWindowTitle("This is You!");
+            infoWindowAddress(null);
+            
+            var content = $('#infoWindowContainer').html();
+            
+            successCallback(content);
+            
+            return;
+        }
         
         app.Services.Map.getMarkerDetails(code, function(details) {
         
@@ -111,6 +125,7 @@ app.MapViewModel = function() {
     };
     
     return {
+        infoWindowId: infoWindowId,
         infoWindowTitle: infoWindowTitle,
         infoWindowAddress: infoWindowAddress,
         infoWindowNavFunc: infoWindowNavFunc,

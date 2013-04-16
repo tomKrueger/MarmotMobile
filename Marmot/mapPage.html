@@ -16,7 +16,7 @@
     					</div>
     				</span>
     				<span style="display: none;">&nbsp;-&nbsp;</span>
-    				<span><a href="javascript:void(0)" data-bind="attr: { onclick: infoWindowNavFunc }">more info »</a></span>
+    				<span data-bind="visible: infoWindowId() > 0"><a href="javascript:void(0)" data-bind="attr: { onclick: infoWindowNavFunc }">more info »</a></span>
     			</div>
                 <div class="gm-basicinfo" jstcache="0">
                     <div style="" data-bind="html: infoWindowAddress"></div>
