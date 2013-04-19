@@ -216,6 +216,7 @@ Array.prototype.pushAll = function(arr) {
         }
         
         var _logLevel = LogLevelType.Off; // Don't log anything by default.
+        var _perfDictionary = {};
 
         var init = (function() {
             // Clear out console functions if the browser doesn't support it to avoid error dialogs from popping up.
@@ -270,6 +271,32 @@ Array.prototype.pushAll = function(arr) {
             }
         };
         
+        var tracePerfStart = function(key, message) {
+            
+            if (_perfDictionary[key])
+                _perfDictionary[key] = null;
+            
+            tracePerf(key, message);
+        }
+        
+        var tracePerf = function(key, message) {
+          
+            var date = new Date();
+            
+            var startDate = _perfDictionary[key];
+            if (startDate) {
+                
+                var elapsed = date - startDate;
+                console.log(key + " " + message + " " + elapsed);
+            }
+            else {
+                _perfDictionary[key] = date;
+                
+                console.log(key + " " + message + " Start");
+            }
+        };
+        
+        
         return {
             logLevelType: LogLevelType,
             setLogLevel: setLogLevel,
@@ -279,7 +306,9 @@ Array.prototype.pushAll = function(arr) {
             info: info,
             verbose: verbose,
             traceStart: traceStart,
-            traceEnd: traceEnd
+            traceEnd: traceEnd,
+            tracePerfStart: tracePerfStart,
+            tracePerf: tracePerf
             
         };
 
