@@ -9,16 +9,45 @@ var jqmReady = $.Deferred(),
 // http://jquerymobile.com/demos/1.2.0/docs/api/globalconfig.html
 $(document).bind('mobileinit', function () {
     jqmReady.resolve();
-    $.mobile.defaultPageTransition = "slide";
+    
+    $.mobile.defaultPageTransition = $.mobile.defaultDialogTransition = "none";
+    //$.mobile.defaultPageTransition = "slide";
     
     app.logger.setLogLevel(app.logger.logLevelType.Trace);
+    //app.logger.setLogLevel(app.logger.logLevelType.Critical);
     
-    app.mobileInit(); 
+    app.mobileInit();
 })
 
 app.mobileInit = function () {
     app.logger.traceStart("*************************************");
     app.logger.traceStart("app.mobileInit");
+    
+    /*
+        Trace Performance for Page Transitions.
+    
+        Page Transition Events
+        page B---pagebeforecreate
+        page B---pagecreate
+        page B---pageinit
+        page A---pagebeforehide
+        page B---pagebeforeshow
+        page A---pageremove
+        page A---pagehide
+        page B---pageshow
+    */
+    $(document).on("pagebeforecreate pagecreate pageinit pagebeforehide pagebeforeshow pageremove pagehide pageshow", ".ui-page", function (event, ui) {
+        
+        var key = "PageTransition";
+        var msg = "Page: '" + this.id + "' Event: '" + event.type + "'";
+        var msg = this.id + "." + event.type;
+        
+        app.logger.tracePerf(key, msg);
+        
+        if (event.type == "pageshow") {
+            app.logger.tracePerfClear(key);
+        }
+    });
     
     $(document).on("pagebeforeshow", ".ui-page", function (event, ui) {
         var self = this;
