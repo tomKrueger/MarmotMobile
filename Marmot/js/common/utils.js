@@ -271,29 +271,50 @@ Array.prototype.pushAll = function(arr) {
             }
         };
         
-        var tracePerfStart = function(key, message) {
-            
+        var tracePerfClear = function(key) {
             if (_perfDictionary[key])
                 _perfDictionary[key] = null;
+        }
+        
+        var tracePerfStart = function(key, message) {
+            
+            tracePerfClear(key);
             
             tracePerf(key, message);
         }
         
         var tracePerf = function(key, message) {
           
-            var date = new Date();
+            var curDate = new Date();
             
-            var startDate = _perfDictionary[key];
-            if (startDate) {
+            var dates = _perfDictionary[key];
+            var msg;
+            
+            if (dates) {
                 
-                var elapsed = date - startDate;
-                console.log(key + " " + message + " " + elapsed);
-            }
-            else {
-                _perfDictionary[key] = date;
+                var startDate = dates[0];
+                var lastDate = dates[1];
                 
-                console.log(key + " " + message + " Start");
+                var elapsedSinceStart = curDate - startDate;
+                var elapsedSinceLast = curDate - lastDate;
+                
+                // Set last date for next time.
+                dates[1] = curDate;
+                
+                //msg = key + " - " + message + " Elapsed Total: '" + elapsedSinceStart + "'ms Elapsed Since Last: '" + elapsedSinceLast + "ms'";
+                msg = key + " - " + message + " - Elapsed Total/Since Last: '" + elapsedSinceStart + "ms/" + elapsedSinceLast + "ms'";
+                
+            } else {
+                dates = [];
+                dates.push(curDate); // Start Date.
+                dates.push(curDate); // Last Date.
+                
+                _perfDictionary[key] = dates;
+                
+                msg = key + " - " + message + " Start";
             }
+            
+            log(0, msg, function(message) { console.log(message); });
         };
         
         
@@ -305,6 +326,7 @@ Array.prototype.pushAll = function(arr) {
             warning: warning,
             info: info,
             verbose: verbose,
+            tracePerfClear: tracePerfClear,
             traceStart: traceStart,
             traceEnd: traceEnd,
             tracePerfStart: tracePerfStart,
