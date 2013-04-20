@@ -11,7 +11,7 @@ $(document).bind('mobileinit', function () {
     jqmReady.resolve();
     
     $.mobile.defaultPageTransition = $.mobile.defaultDialogTransition = "none";
-    //$.mobile.defaultPageTransition = "slide";
+    $.mobile.defaultPageTransition = "fade";
     
     app.logger.setLogLevel(app.logger.logLevelType.Trace);
     //app.logger.setLogLevel(app.logger.logLevelType.Critical);

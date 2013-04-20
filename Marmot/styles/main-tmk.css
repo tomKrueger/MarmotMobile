@@ -27,3 +27,8 @@ div.float-container-a-right
 {
     
 }
+
+.in, .out {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 150ms !important;
+}
