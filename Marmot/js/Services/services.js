@@ -12,7 +12,9 @@ app.Services = app.Services || {};
 (function () {
     'use strict';
 
-    app.Services.Community = (function () {
+    app.Services.TestServicesProxy = function() {
+            
+    var Community = (function () {
         
         var _communities = [
             { id: 1, name: "Lake Country", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/LakeCountry.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
@@ -57,7 +59,7 @@ app.Services = app.Services || {};
 
     }());
     
-    app.Services.Location = (function () {
+    var Location = (function () {
     
         var locations = [
             //{ id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 44, long: 87 } },
@@ -117,7 +119,7 @@ app.Services = app.Services || {};
         
     }());
     
-    app.Services.Offer = (function () {
+    var Offer = (function () {
         
         var offers = [
                 { id: 1, locationId: 2, name: "Buy 1 Get 1 Free", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", usedCount: 1077, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
@@ -127,9 +129,9 @@ app.Services = app.Services || {};
                 { id: 5, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 10, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." }
             ];
         
-        var load = function() {
+        var load = function(locationService) {
             offers.forEach(function(offer) {
-                var location = app.Services.Location.get(offer.locationId);                
+                var location = locationService.get(offer.locationId);                
                 if (location) {
                     offer.locationName = location.name;
                     offer.geoPosition = location.geoPosition;
@@ -183,9 +185,8 @@ app.Services = app.Services || {};
             successCallback(arr);
         };
         
-        load();
-        
         return {
+            internalLoad: load,
             get: get,
             getNearByOffers: getNearByOffers,
             getByCommunityId: getByCommunityId,
@@ -194,7 +195,7 @@ app.Services = app.Services || {};
 
     }());
     
-    app.Services.Map = (function () {
+    var Map = (function () {
         
         var getStaticMapUrlByZipcode = function(centerCoords, userLocation, communities, locations, successCallback) {
             
@@ -299,4 +300,15 @@ app.Services = app.Services || {};
         };
         
     }());
+        
+        Offer.internalLoad(Location);
+        
+        return {
+          Community: Community,
+          Location: Location,
+          Offer: Offer,
+          Map: Map
+        };
+    };
+    
 }());
