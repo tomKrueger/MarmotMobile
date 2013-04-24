@@ -37,6 +37,7 @@
     <Folder Include="jquery-mobile\themes\images" />
     <Folder Include="js\common" />
     <Folder Include="js\lib\knockout" />
+    <Folder Include="js\lib\serviceStack" />
     <Folder Include="js\Tests" />
     <Folder Include="js\Tests\common" />
     <Folder Include="docs" />
@@ -72,6 +73,7 @@
     <Content Include="jquery-mobile\jquery.mobile-1.3.0.min.css" />
     <Content Include="jquery-mobile\jquery.mobile-1.3.0.min.js" />
     <Content Include="jquery-mobile\jquery.mobile.st-1.3.0.min.css" />
+    <Content Include="js\lib\serviceStack\JsonServiceClient.js" />
     <Content Include="js\lib\knockout\knockout-2.2.1.js" />
     <Content Include="js\ViewModels\offerThankYouViewModel.js" />
     <Content Include="offerApplyPage.html" />
