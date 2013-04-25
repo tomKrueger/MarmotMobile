@@ -436,14 +436,17 @@ app.Services = app.Services || {};
             //
             var getByCommunityId = function (communityId, successCallback) {
                 
-                var locationsToReturn = [];
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("locations?communityId=" + communityId, null,
+                    function(e) {
+                        var found = e.result;
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Location.getByCommunityId({0})".format(communityId));
+                    }
+                );
                 
-                locations.forEach(function(location) {
-                    if (location.communityId === parseInt(communityId))
-                        locationsToReturn.push(location);
-                });
-                    
-                successCallback(locationsToReturn);
             };
             
             return {
