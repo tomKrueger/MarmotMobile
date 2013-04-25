@@ -364,7 +364,26 @@ app.Services = app.Services || {};
             };
             
             var getNearByCommunities = function (position, successCallback) {
-                successCallback(_communities);
+                
+                var lat = 0;
+                var long = 0;
+                
+                // If position isn't passed, let the server decide what is near by, by passing zeros.
+                if (position && position.coords) {
+                    lat = position.coords.latitude;
+                    long = position.coords.longitude;
+                }
+                
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("communities?lat={0}&long={1}".format(lat, long), null,
+                    function(e) {
+                        var found = e.result;
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Community.getNearByCommunities()");
+                    }
+                );
             };
     
             return {
