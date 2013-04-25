@@ -460,33 +460,25 @@ app.Services = app.Services || {};
         
         var Offer = (function () {
             
-            var offers = [
-                    { id: 1, locationId: 2, name: "Buy 1 Get 1 Free", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_3-08.png", type: "BarCode", usedCount: 1077, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
-                    { id: 2, locationId: 3, name: "10% Off Your Entire Meal", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "Discount", usedCount: 9, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
-                    { id: 3, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "CouponCode" , usedCount: 11099, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
-                    { id: 4, locationId: 7, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 108, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." },
-                    { id: 5, locationId: 2, name: "Some other offer", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/offer_1-08.png", type: "BarCode", usedCount: 10, disclaimer: "Offer valid per customer that checks in. Not valid on Party Round or Traveling Sunday Factory Orders." }
-                ];
-            
             var load = function(locationService) {
-                offers.forEach(function(offer) {
-                    var location = locationService.get(offer.locationId);                
-                    if (location) {
-                        offer.locationName = location.name;
-                        offer.geoPosition = location.geoPosition;
-                        offer.address = location.address;
-                    }
-                });
             };
             
             //
             // Retrieves offer.
             //
             var get = function (offerId, successCallback) {
-                offers.forEach(function(offer) {
-                    if (offer.id === parseInt(offerId))
-                        successCallback(offer);
-                });
+                
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("offers/" + offerId, null,
+                    function(e) {
+                        var found = e.result[0];
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Offer.get({0})".format(offerId));
+                    }
+                );
+                
             };    
     
             var getNearByOffers = function (position, successCallback) {
@@ -544,7 +536,6 @@ app.Services = app.Services || {};
             };
             
             return {
-                internalLoad: load,
                 get: get,
                 getNearByOffers: getNearByOffers,
                 getByCommunityId: getByCommunityId,
@@ -657,8 +648,6 @@ app.Services = app.Services || {};
             };
             
         }());
-        
-        Offer.internalLoad(Location);
         
         return {
             Community: Community,
