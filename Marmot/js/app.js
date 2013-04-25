@@ -12,7 +12,8 @@ function onDeviceReady() {
     app.logger.traceStart("onDeviceReady");
     
     app.Globals = new app.Models.Globals();
-    app.Services = new app.Services.TestServicesProxy();
+    //app.Services = new app.Services.TestServicesProxy();
+    app.Services = new app.Services.LiveServicesProxy();
     
     // Initialize GeoManger with a default location in case geo isn't enabled on phone.
     // We want something to show up on the screen.
