@@ -489,9 +489,28 @@ app.Services = app.Services || {};
                 });
             };    
     
-            var getNearByOffers = function (zipCode, successCallback) {
+            var getNearByOffers = function (position, successCallback) {
     
-                successCallback(offers);
+                var lat = 0;
+                var long = 0;
+                
+                // If position isn't passed, let the server decide what is near by, by passing zeros.
+                if (position && position.coords) {
+                    lat = position.coords.latitude;
+                    long = position.coords.longitude;
+                }
+                
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("offers?lat={0}&long={1}".format(lat, long), null,
+                    function(e) {
+                        var found = e.result;
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Offer.getNearByOffers()");
+                    }
+                );
+                
             };
             
             var getByCommunityId = function (communityId, successCallback) {
