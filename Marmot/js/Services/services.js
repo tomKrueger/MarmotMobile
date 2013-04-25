@@ -325,13 +325,6 @@ app.Services = app.Services || {};
             
         var Community = (function () {
             
-            var _communities = [
-                { id: 1, name: "Lake Country", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/LakeCountry.png", geoPosition: { lat: 43.060544, long: -88.405606 } },
-                { id: 2, name: "Wauwatosa", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/Wauwatosa.png", geoPosition: { lat: 43.048111, long: -88.002376 } },
-                { id: 3, name: "Galena", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/Galena.png", geoPosition: { lat: 42.421705, long: -90.43896 } },
-                { id: 4, name: "Door County", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/DoorCounty.png", geoPosition: { lat: 45.12732, long: -87.244449 } }
-            ];
-            
             //
             // Retrieves community.
             //
@@ -349,19 +342,6 @@ app.Services = app.Services || {};
                 );
                 
             };    
-    
-            var internalGet = function(communityId) {
-                var found;
-    
-                for(var i = 0; i < _communities.length; i++) {
-                    if (_communities[i].id === parseInt(communityId)) {
-                        found = _communities[i];    
-                        break;
-                    }                
-                }
-                
-                return found;            
-            };
             
             var getNearByCommunities = function (position, successCallback) {
                 
@@ -388,47 +368,18 @@ app.Services = app.Services || {};
     
             return {
                 get: get,
-                getNearByCommunities: getNearByCommunities,
-                internalGet: internalGet,
-                internalCommunities: function() { return _communities; }
+                getNearByCommunities: getNearByCommunities
             };
     
         }());
         
         var Location = (function () {
-        
-            var locations = [
-                //{ id: 1, name: "Coffee Hut", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 44, long: 87 } },
-                //{ id: 3, name: "Main Place", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_1-07.png", geoPosition: { lat: 44, long: 86 } },
-                { communityId: 1, id: 2, name: "Revere's Wells St. Tavern", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/Reveres.png", geoPosition: { lat: 43.060544, long: -88.405606 }, address: "111 Main St.<br />Delafield, WI" },
-                { communityId: 1, id: 3, name: "Mazatlan", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.071679, long: -88.420738 } },
-                { communityId: 1, id: 4, name: "Great Harvest Bread", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060152, long: -88.404399 } },
-                { communityId: 1, id: 5, name: "Tony & Mia's", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/TonyMias.png", geoPosition: { lat: 43.060434, long: -88.405279 } },
-                { communityId: 2, id: 6, name: "Cafe Hollander", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.049287, long: -88.007504 } },
-                { communityId: 2, id: 7, name: "Leff's Lucky Town", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.048611, long: -88.002441 } },
-                { communityId: 2, id: 8, name: "Locker's Floral", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 43.060577, long: -88.023231 } },
-                //{ communityId: 2, id: 9, name: "", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 0, long: 0 } },
-                { communityId: 3, id: 0, name: "Galena Brewing Company", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.421705, long: -90.43796 } },
-                { communityId: 3, id: 11, name: "DeSoto House Hotel", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 42.415266, long: -90.42991 } },
-                { communityId: 4, id: 15, name: "The Cookery", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.127388, long: -87.244578 } },
-                { communityId: 4, id: 16, name: "Door County Lighthouse Inn", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.12732, long: -87.244449 } },
-                { communityId: 4, id: 17, name: "Village Cafe", imageUrl: "https://dl.dropbox.com/u/3153188/MM/Graphics/AppContentImages/home_nearby_2-07.png", geoPosition: { lat: 45.055591, long: -87.280283 } }
-            ];
             
             //
             // Retrieves location.
             //
             var get = function (locationId) {
                 return internalGet(locationId);
-            };
-            
-            var internalGet = function(locationId) {
-                for(var i = 0; i < locations.length; i++) {
-                                    
-                    if (locations[i].id === parseInt(locationId)) {
-                        return locations[i];
-                    }                
-                }            
             };
             
             //
@@ -451,17 +402,12 @@ app.Services = app.Services || {};
             
             return {
                 get: get,
-                internalGet: internalGet,
-                getByCommunityId: getByCommunityId,
-                internalLocations: function() { return locations; }
+                getByCommunityId: getByCommunityId
             };
             
         }());
         
         var Offer = (function () {
-            
-            var load = function(locationService) {
-            };
             
             //
             // Retrieves offer.
@@ -580,7 +526,7 @@ app.Services = app.Services || {};
             };
             
             var getMarkers = function(swLat, swLng, neLat, neLng, successCallback) {
-                
+                debugger;
                 var markers = [];
                 
                 var communities = app.Services.Community.internalCommunities();
@@ -615,7 +561,7 @@ app.Services = app.Services || {};
             
             var getMarkerDetails = function(code, successCallback) {
             
-                
+                debugger;
                 if(code && code.length > 1) {
                 
                     var details = new Object();
