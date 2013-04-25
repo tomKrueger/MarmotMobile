@@ -496,19 +496,17 @@ app.Services = app.Services || {};
             
             var getByCommunityId = function (communityId, successCallback) {
     
-                app.Services.Location.getByCommunityId(communityId, function(locationsDto) {
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("offers?communityId=" + communityId, null,
+                    function(e) {
+                        var found = e.result;
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Offer.getByCommunityId({0})".format(communityId));
+                    }
+                );
                 
-                    var offers = [];
-                
-                    locationsDto.forEach(function(locationDto) {
-                        var locationOffers = getByLocationId(locationDto.id, function(offersDto) {
-                            offers.pushAll(offersDto);    
-                        });                    
-                    });
-        
-                    successCallback(offers);
-                    
-                });
             };
     
             var getByLocationId = function (locationId, successCallback) {
