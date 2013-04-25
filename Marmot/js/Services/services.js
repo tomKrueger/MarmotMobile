@@ -318,6 +318,10 @@ app.Services = app.Services || {};
     'use strict';
     
     app.Services.LiveServicesProxy = function() {
+        
+        //var _baseUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/api";
+        //var _baseUrl = "http://localhost:2741/api";
+        var _baseUrl = "http://marmotmobileapi.azurewebsites.net/api";       
             
         var Community = (function () {
             
@@ -333,9 +337,17 @@ app.Services = app.Services || {};
             //
             var get = function (communityId, successCallback) {
                 
-                var found = internalGet(communityId);
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("communities/" + communityId, null,
+                    function(e) {
+                        var found = e.result[0];
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Community.get({0})".format(communityId));
+                    }
+                );
                 
-                successCallback(found);
             };    
     
             var internalGet = function(communityId) {
@@ -503,7 +515,6 @@ app.Services = app.Services || {};
         var Map = (function () {
             
             var getStaticMapUrlByZipcode = function(centerCoords, userLocation, communities, locations, successCallback) {
-                
                 var center;
                 if (centerCoords.coords) {
                     center = "&center={0},{1}".format(centerCoords.coords.latitude, centerCoords.coords.longitude);    
