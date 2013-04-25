@@ -530,15 +530,17 @@ app.Services = app.Services || {};
     
             var getByLocationId = function (locationId, successCallback) {
     
-                var arr = [];
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("offers?locationId=" + locationId, null,
+                    function(e) {
+                        var found = e.result;
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Offer.getByLocationId({0})".format(locationId));
+                    }
+                );
                 
-                offers.forEach(function(offerDto) {
-                    
-                    if (offerDto.locationId === parseInt(locationId))
-                        arr.push(offerDto);                
-                });
-    
-                successCallback(arr);
             };
             
             return {
