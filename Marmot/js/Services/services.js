@@ -526,37 +526,18 @@ app.Services = app.Services || {};
             };
             
             var getMarkers = function(swLat, swLng, neLat, neLng, successCallback) {
-                debugger;
-                var markers = [];
                 
-                var communities = app.Services.Community.internalCommunities();
-                var locations = app.Services.Location.internalLocations();
-                
-                if (communities) {
-                    for (var i = 0; i < communities.length - 1; i++) {
-                        var marker = new Object();
-                        marker.code = "C" + communities[i].id;
-                        marker.lat = communities[i].geoPosition.lat
-                        marker.lng = communities[i].geoPosition.long
-                        marker.type = 1
-                        markers.push(marker);
+                var client = new JsonServiceClient(_baseUrl);
+                client.getFromService("mapmarkers?swLat={0}&swLong={1}&neLat={2}&neLong={3}".format(swLat, swLng, neLat, neLng), null,
+                    function(e) {
+                        var found = e.result;
+                        successCallback(found);
+                    },
+                    function(e) {
+                        app.logger.error("Services.Map.getMarkers(swLat={0}&swLong={1}&neLat={2}&neLong={3})".format(swLat, swLng, neLat, neLng));
                     }
-                }
+                );
                 
-                if (locations) {
-                    for (i = 0; i < locations.length - 1; i++) {
-                        
-                        var locMarker = new Object();
-                        locMarker.code = "L" + locations[i].id;
-                        locMarker.lat = locations[i].geoPosition.lat
-                        locMarker.lng = locations[i].geoPosition.long
-                        locMarker.type = 2
-                        markers.push(locMarker);
-                    }
-                }
-                
-                // Simulate load taking time.
-                setTimeout(function() { successCallback(markers) }, 1000);
             };
             
             var getMarkerDetails = function(code, successCallback) {

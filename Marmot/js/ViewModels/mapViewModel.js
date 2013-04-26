@@ -52,8 +52,10 @@ app.MapViewModel = function() {
             var curPos = app.Globals.currentGeoPosition();
             var currentLocMarker = new Object();
             currentLocMarker.code = "U"
-            currentLocMarker.lat = curPos.coords.latitude;
-            currentLocMarker.lng = curPos.coords.longitude;
+            
+            currentLocMarker.geoPosition = new Object();
+            currentLocMarker.geoPosition.lat = curPos.coords.latitude;
+            currentLocMarker.geoPosition.long = curPos.coords.longitude;
             currentLocMarker.type = 3;
             
             markers.push(currentLocMarker);

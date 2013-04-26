@@ -577,7 +577,12 @@ Array.prototype.pushAll = function(arr) {
                             break; 
                     }
                     
-                    addMarkerToMap(map, marker.code, marker.lat, marker.lng, iconImage);
+                    if (marker.geoPosition) {
+                        addMarkerToMap(map, marker.code, marker.geoPosition.lat, marker.geoPosition.long, iconImage);
+                    } else {
+                        app.logger.warning("Missing geoPosition for marker code {0}".format(marker.code));
+                    }
+                    
                 }
             }
             
