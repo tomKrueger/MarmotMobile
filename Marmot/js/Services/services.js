@@ -542,30 +542,20 @@ app.Services = app.Services || {};
             
             var getMarkerDetails = function(code, successCallback) {
             
-                debugger;
                 if(code && code.length > 1) {
-                
-                    var details = new Object();
                     
-                    switch(code[0]) {
-                        case "C":
-                            var community = app.Services.Community.internalGet(code.substring(1));
-                            details.id = community.id;
-                            details.entityCode = "C";
-                            details.title = community.name;
-                            details.address = community.address;
-                            break;
-                        case "L":
-                            var location = app.Services.Location.internalGet(code.substring(1));
-                            details.id = location.id;
-                            details.entityCode = "L";
-                            details.title = location.name;
-                            details.address = location.address;
-                            break;
-                    }
-                }
-                
-                setTimeout(function() { successCallback(details) }, 1000);
+                    var client = new JsonServiceClient(_baseUrl);
+                    client.getFromService("mapmarkerdetails?code=" + code, null,
+                        function(e) {
+                            var found = e.result;
+                            successCallback(found);
+                        },
+                        function(e) {
+                            app.logger.error("Services.Map.getMarkerDetails(code={0})".format(code));
+                        }
+                    );
+                    
+                }                
             };
             
             return {
