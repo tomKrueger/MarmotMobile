@@ -260,81 +260,84 @@ ul
  
 /*  Offers List Section  */
 
-.ui-li-desc
+.offersSection .ui-listview
+{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: -40px;
+    margin-bottom: 0px;
+}
+
+.offersSection .ui-btn-inner
+{
+    border-top-width: 0px;
+    background-color: white;
+}
+
+/* Controls offer list item. */
+.offersSection .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li
+{
+    padding: 6px 0px;
+    
+}
+
+.offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
+{    
+    /* Push text over to the right of the offer picture. */
+    padding-left: 90px;   
+}
+
+.offersSection .ui-li-desc
 {
     font-size: 12px;
     font-weight: normal;
     display: block;
-    margin: 0 0 0;
+    margin: 0px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.offerName
-{
-    font-size: 18px;
-    font-family:Oswald-Bold;
-    color: #506C70;
-    padding-top: 0;
-}
-
-.offerDesc
-{
-    font-size: 15px;
-    font-family: Oswald-Regular;
-    color: #94c2c6;
-}
-
-.offerExp
-{
-    font-size: 10px;
-    font-family: Oswald-Light;
-    color: #506C70;
-}
-
-.offersSection .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li
-{
-    padding: 1px;
-}
-
-.offersSection .ui-listview
-{
-    margin-top: 0px;
-    margin-left: -3px;
-    margin-right: -3px;
-    margin-bottom: 0px;
-}
-
-.offersSection .ui-li-has-icon .ui-btn-inner a.ui-link-inherit 
-{    
-    padding-left: 85px;    
-}
-
-.offersSection .ui-li-count
-{
-    font-family: Oswald-Light;
-    font-weight: normal;
-}
-
 .offersSection .ui-li-icon 
 {
+    top: 0px;
     left: 0px;
     max-width: 79px;
     max-height: 65px;
-    top: 0px;
-    padding-right: 2px       
+    border: solid 5px #50666d;
 }
 
-.ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon 
+.offersSection .offerPlace
+{
+    font-size: 18px;
+    font-family:Oswald-Bold;
+    color: #dd6f3e;
+    padding-top: 0;
+}
+
+.offersSection .offerDesc
+{
+    font-size: 15px;
+    font-family: Oswald-Regular;
+    color: #33637b;
+}
+
+.offersSection .offerExp,
+.offersSection .ui-li-count
+{
+    font-size: 10px;
+    font-family: Oswald-Light;
+    color: #7ea5ad;
+}
+
+/*.ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon 
 {
     position: absolute;
     top: 50%;
     margin-top: -9px;
-    /*background-color: #7ea5ad;*/
+    background-color: #7ea5ad;
     background-color: red;
-    
-}
+}*/
    
 /*
 menu 
