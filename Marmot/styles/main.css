@@ -57,7 +57,7 @@ ul
     
     margin: 0px 50px 0px 50px;
    
-    font-size: 30px;
+    font-size: 23px;
     font-family: Londrina;
 }
 
@@ -127,7 +127,108 @@ ul
     font-family: Oswald-Light;
 }
 
+/**
+* Carousel with image and text, custom skinned scrollbar
+**/
+.touchcarousel 
+{
+    width: 940px;
+    height: 125px;
+    margin: 0 auto;
+}	
 
+.touchcarousel .touchcarousel-item 
+{
+    margin-right: 1px;	
+    width: 125px;
+    /*height: 125px;	*/
+    /*z-index: -1;*/
+}
+
+.touchcarousel .item-block 
+{
+    /*width: 100%;
+    height: 100%;
+    display: block;*/
+    /*text-decoration: none;*/
+}
+
+.touchcarousel .item-block img
+{
+    float: left;
+    /*position: relative;*/
+    /*display: block;*/
+    /*margin: 0;*/
+    width: 100%;
+    height: 100%;
+    /*border: 0;*/
+    /*padding: 0;*/
+    /*z-index: 1;*/
+}
+
+.touchcarousel .item-block h4 
+{
+    background-color: #4c6163;
+    color: #ffffff;
+    font-family: Oswald-Light;
+    font-size: 16px;
+    
+    height: 20px;
+    margin-top: 98px;
+    position: absolute;
+    padding: 1px 1px 6px 6px;    
+    /*z-index: 2;    */
+}
+
+/*.touchcarousel .item-block:hover h4 
+{
+    color: #7ea5ad;		
+}*/
+
+/*.touchcarousel .item-block p 
+{
+    font: normal 13px/20px Helvetica, Arial, sans-serif;
+    color: #555;
+    color: red;
+    width: 125px;
+    padding: 0 0 0 6px;
+}*/
+
+/*.scrollbar-holder 
+{
+    background: #CED7DB;
+    background: red;
+    bottom: 0;
+    height: 1px;
+    left: 0;
+    right: 0;
+}*/
+
+/*.touchcarousel .scrollbar 
+{
+    background-color: #45a8ce !important;
+    background: red;
+    bottom: 0;
+}*/
+
+.touchcarousel.black-and-white .arrow-holder
+{
+    /* Make Container 0px so that it does not block touching the underlying image */
+    width: 0px;
+}
+
+.touchcarousel .arrow-holder.right
+{
+    /* Move the right arrow onto the screen. */
+    right: 620px;
+}
+
+.touchcarousel.black-and-white .arrow-holder.disabled .arrow-icon.left,
+.touchcarousel.black-and-white .arrow-holder.disabled .arrow-icon.right
+{
+    /* Disabled Carousel Icon. */
+}
+    
 /*
 menu 
 */
@@ -272,104 +373,7 @@ div.blurredBackgroundContent
     text-align:center;
 }
 
-/**
-* Carousel with image and text, custom skinned scrollbar
-**/
-.touchcarousel 
-{
-    width: 940px;
-    height: 125px;
-    margin: 0 auto;
-}	
-.touchcarousel .arrow-holder 
-{
-    height: 125px;
-}		
 
-.touchcarousel .touchcarousel-item 
-{
-    margin-right: 1px;	
-    width: 125px;
-    height: 125px;	
-    z-index: -1;
-}
-
-.touchcarousel .item-block 
-{
-    width: 125px;
-    height: 125px;
-    display: block;
-}
-
-.touchcarousel .item-block img, 
-.touchcarousel .item-block p 
-{
-    float: left;
-    position: relative;
-    display: block;
-    margin: 0;			
-}
-
-.touchcarousel .item-block img 
-{
-    width: 125px;
-    height: 125px;		
-    border: 0;
-    padding: 0;
-    z-index: 1;
-}
-
-.touchcarousel .item-block 
-{
-    text-decoration: none;
-    color: inherit;			
-}					
-
-.touchcarousel .item-block h4 
-{
-    font-family: Oswald-Light, sans-serif;
-    font-size: 16px;
-    height: 20px;
-    position: absolute;		
-    padding: 1px 1px 6px 6px;
-    margin-top: 98px;
-    -webkit-transition: color 0.2s ease-out; 
-    -moz-transition: color 0.2s ease-out;
-    transition: color 0.2s ease-out;
-    z-index: 2;
-    background-color: #333;
-    color: #94c2c6;
-    text-shadow: 0px 0px 0px #000;
-    font-weight: normal;
-}
-
-.touchcarousel .item-block:hover h4 
-{
-    color: #7ea5ad;		
-}
-
-.touchcarousel .item-block p 
-{
-    font: normal 13px/20px Helvetica, Arial, sans-serif;
-    color: #555;		
-    width: 125px;
-    padding: 0 0 0 6px;
-}
-
-#carousel-image-and-text .scrollbar-holder 
-{
-    background: #CED7DB;
-    bottom: 0;
-    height: 1px;
-    left: 0;
-    right: 0;
-}
-
-.touchcarousel .scrollbar 
-{
-    background-color: #45a8ce !important;
-    bottom: 0;
-}
 
 /* mm-section */
 
