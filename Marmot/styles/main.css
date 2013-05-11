@@ -119,6 +119,9 @@ ul
     background-color: #7ea5ad;
     text-align: center;
     width: 75%;
+    background-image:url('images/sectionLabelEnd.png');
+    background-repeat:no-repeat;
+    background-position:right; 
 }
 
 .mm-sectionLabel span
