@@ -223,10 +223,34 @@ ul
     right: 620px;
 }
 
+.touchcarousel.black-and-white .arrow-icon.left
+{
+    /* Move left arrow all the way to the left. */
+    left: 0px;
+}
+
+.touchcarousel.black-and-white .arrow-icon.right
+{
+    /* Move right arrow all the way to the right. */
+    right: 0px;
+}
+
+/* Enabled Carousel Icon. */
+.touchcarousel.black-and-white .arrow-holder .arrow-icon.left,
+.touchcarousel.black-and-white .arrow-holder .arrow-icon.right
+{   
+    background-color: black;
+    
+    /* Remove border radius put in by theme. */
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+/* Disabled Carousel Icon. */
 .touchcarousel.black-and-white .arrow-holder.disabled .arrow-icon.left,
 .touchcarousel.black-and-white .arrow-holder.disabled .arrow-icon.right
 {
-    /* Disabled Carousel Icon. */
 }
     
 /*
