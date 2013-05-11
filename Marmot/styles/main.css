@@ -26,7 +26,104 @@
 General Styles
 */
 
-p{
+/*a { text-decoration: none; }
+
+a:visited {color:#00FF00;} 
+a:hover {color:#ffffff;}*/
+
+body
+{
+    /*margin-left: 2px;
+    margin-right: 2px;*/
+}
+
+ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.ui-header 
+{
+    border-bottom: solid 2px #7ea5ad;
+}
+
+.ui-header .ui-title 
+{
+    /* Center Vertcally using height and line-height with same value; As the title is resized it stays in the middle. */
+    height: 42px;
+    line-height: 42px;
+    
+    margin: 0px 50px 0px 50px;
+   
+    font-size: 30px;
+    font-family: Londrina;
+}
+
+.ui-header .ui-btn-icon-notext
+{
+    /* Make button taller so that it is easier to touch. */
+    top: 1px;
+    height: 40px;
+}
+
+.ui-header .ui-btn-icon-notext .ui-btn-inner
+{
+    /* Move button image down so it is in the middle of the taller button. */
+    margin-top: 10px;
+}
+
+.ui-header .ui-btn-up-a
+{
+    /* Remove button background and border as set in theme roller. */
+    background:transparent;
+    border: none;
+}
+
+.ui-header .ui-btn-hover-a
+{
+    /* Remove button background as set in theme roller, but keep the border. */
+    background: transparent;
+}
+
+.ui-header .ui-button-myback
+{
+    width: 40px;
+}
+
+.ui-header .ui-icon-myback
+{
+    background: url('CustomIcons/back.png') 0px -8px;
+    width: 40px;
+    height: 23px;
+}
+  
+.ui-header .ui-icon-mymenu
+{
+    background: url('CustomIcons/menu.png') !important;
+}
+
+.ui-header .ui-icon-mysearch
+{
+    background: url('CustomIcons/search.png') !important;
+}
+
+.ui-content 
+{
+    padding: 0px;
+}
+
+.mm-sectionLabel
+{
+    background-color: #7ea5ad;
+    text-align: center;
+    width: 75%;
+}
+
+.mm-sectionLabel span
+{
+    color: #ffffff;    
     font-family: Oswald-Light;
 }
 
@@ -34,11 +131,6 @@ p{
 /*
 menu 
 */
-
-a {text-decoration: none; }
-
-a:visited {color:#00FF00;} 
-a:hover {color:#ffffff;}
 
 #menu
 {
@@ -60,122 +152,19 @@ a:hover {color:#ffffff;}
 }
 
 
-.ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a {
+/*.ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a {
 font-family: Oswalod-Light,Helvetica,Arial,sans-serif;
 text-decoration: none;
-}
+}*/
 
-.ui-panel-inner {
+/*.ui-panel-inner {
 text-align: center;
 font-family: Londrina;
-}
-
-
-ul
-{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-body
-{
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-img.center { display: block; margin-left: auto; margin-right: auto; }
-
-.ui-page
-{
-   background-color: #7ea5ad;
-}
-
-.ui-header .ui-title 
-{
-    /* Center Vertcally using height and line-height with same value; As the title is resized it stays in the middle. */
-    height: 42px;
-    line-height: 42px;    
-    
-    text-align: center;
-    font-size: 30px;
-    margin: 0px 50px 0px 50px;
-    white-space: nowrap;
-    outline: 0!important;
-    font-weight:normal;
-    background: #ffffff;
-    font-family: Londrina;
-}
-
-.ui-body-c, ui-overlay-c {
-    background-image: none !important;
-    text-shadow: 0 1px 0 #70868A;
-    }
-
-.ui-body-b, ui-overlay-b{
-    background-image: none !important;
-    background-color: #7EA5AD;
-    }
+}*/
 
 
 
-.ui-btn-inner 
-{
-    color: #222;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-}
-       
-.ui-btn-inner .ui-icon 
-{
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-
-.ui-icon-myback,
-.ui-icon-mymenu,
-.ui-icon-mysearch
-{
-    /*
-    Commenting out because does not appear to have an affect.
-    background-repeat: no-repeat;
-    margin: 0px;
-    padding-bottom: 61px;
-    padding-right: 60px;
-    float: left;*/
-}
-
-.ui-button-myback
-{
-    width: 40px;
-}
-
-.ui-icon-myback
-{
-    background: url('CustomIcons/back.png') 0px -8px;
-    width: 40px;
-    height: 23px;
-}
-  
-.ui-icon-mymenu
-{
-    background: url('CustomIcons/menu.png') !important;
-}
-
-.ui-icon-mysearch
-{
-    background: url('CustomIcons/search.png') !important;
-}
-    
-.ui-header 
-{
-    -webkit-box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
-    box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
-    z-index: 29;
-}
+img.center { display: block; margin-left: auto; margin-right: auto; }   
 
 /* Blurring background image.
  blurredBackground consists of two divs.  The second div will sit on top of the first.
@@ -203,12 +192,7 @@ div.blurredBackgroundContent
 }
 
 /* **** Home Page *** */    
-.nearBy
-{
-    font-family: Oswald-Bold;
-    color:#fff;
-    text-shadow: 0 1px 0 #3b6e7f;
-}
+
     
 #homeMiddle.ui-grid-a .ui-block-a,
 #communityMiddleSection.ui-grid-a .ui-block-a
@@ -257,48 +241,26 @@ div.blurredBackgroundContent
     color: #506C70;
 }
 
-.ui-header > .ui-btn-icon-notext
-{
-    /* Make button taller so that it is easier to touch. */
-    top: 1px;
-    height: 40px;
-}
 
-.ui-header > .ui-btn-icon-notext .ui-btn-inner
-{
-    /* Move button image down so it is in the middle of the taller button. */
-    margin-top: 10px;
-}
-
-.ui-header > .ui-btn-up-a
-{
-    /* Remove button background and border as set in theme roller. */
-    background:transparent;
-    border: none;
-}
-
-.ui-header > .ui-btn-hover-a
-{
-    /* Remove button background as set in theme roller. */
-    background: transparent;
-}
 
 .ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon 
 {
     position: absolute;
     top: 50%;
     margin-top: -9px;
-    background-color: #7ea5ad;
+    /*background-color: #7ea5ad;*/
+    background-color: red;
+    
 }
 
 
-.ui-footer
+/*.ui-footer
 {
     text-align: center; 
     font-weight: normal;
     height: 30px;
     font-size: 20px;
-}
+}*/
 
 .err
 {
@@ -464,16 +426,13 @@ div.blurredBackgroundContent
     max-height: 200px;
 }
 
-.ui-content 
-{
-    padding: 3px;
-}
+/**/
 
-.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button 
+/*.ui-body-b, .ui-body-b input, .ui-body-b select, .ui-body-b textarea, .ui-body-b button 
 {
     font-family: Oswald-Light, Arial, Helvetica;
 }
-
+*/
 .offersSection .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li
 {
     padding: 1px;
@@ -568,11 +527,11 @@ div.blurredBackgroundContent
 	top:1px;
 }
 
-.ui-body-c .ui-link 
+/*.ui-body-c .ui-link 
 {
     color: #FDDDC6;
     font-weight: normal;
-}
+}*/
 
 /* offer page */
 
