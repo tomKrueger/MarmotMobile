@@ -58,7 +58,7 @@ ul
     
     margin: 0px 50px 0px 50px;
    
-    font-size: 23px;
+    font-size: 36px;
     font-family: Londrina;
 }
 
@@ -128,7 +128,8 @@ ul
 
 .mm-sectionLabel span
 {
-    color: #ffffff;    
+    color: #ffffff; 
+    font-size: 15px;
     font-family: Oswald-Light;
 }
 
@@ -171,12 +172,12 @@ ul
     /*z-index: 1;*/
 }
 
-.touchcarousel .item-block h4 
+.touchcarousel .item-block h4
 {
     background-color: #4c6163;
     color: #ffffff;
     font-family: Oswald-Light;
-    font-size: 16px;
+    font-size: 13px;
     
     height: 20px;
     margin-top: 98px;
@@ -185,18 +186,21 @@ ul
     /*z-index: 2;    */
 }
 
+.touchcarousel .item-block h4:after {
+    background-image:url('images/carouselLabelEnd.png');
+    background-repeat:no-repeat;
+    background-position:left;
+    
+    content:" ";
+    position:absolute;
+    width:13px;
+    height:41px;
+    margin:0 0 0 0px;
+}
+
 /*.touchcarousel .item-block:hover h4 
 {
     color: #7ea5ad;		
-}*/
-
-/*.touchcarousel .item-block p 
-{
-    font: normal 13px/20px Helvetica, Arial, sans-serif;
-    color: #555;
-    color: red;
-    width: 125px;
-    padding: 0 0 0 6px;
 }*/
 
 /*.scrollbar-holder 
@@ -309,7 +313,7 @@ ul
 
 .offersSection .offerPlace
 {
-    font-size: 18px;
+    font-size: 15px;
     font-family:Oswald-Bold;
     color: #dd6f3e;
     padding-top: 0;
@@ -317,7 +321,7 @@ ul
 
 .offersSection .offerDesc
 {
-    font-size: 15px;
+    font-size: 12px;
     font-family: Oswald-Regular;
     color: #33637b;
 }
@@ -325,7 +329,7 @@ ul
 .offersSection .offerExp,
 .offersSection .ui-li-count
 {
-    font-size: 10px;
+    font-size: 13px;
     font-family: Oswald-Light;
     color: #7ea5ad;
 }
