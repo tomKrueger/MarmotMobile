@@ -6,6 +6,9 @@
         <!--<a href="" data-transition="slide" data-icon="grid" data-iconpos="notext"></a> -->
     </div>
     <div data-role="content">
+        <div class="mm-sectionLabel">
+            <span><span data-bind="text: name"></span> Places</span>
+        </div>
         <div id="locationsCarousel" class="touchcarousel black-and-white">           
             <ul class="touchcarousel-container" data-bind="template: { name: 'locationCarouselItemTemplate', foreach: locations }">
             </ul>
@@ -29,7 +32,9 @@
         </div>
         
         <div class="offersSection">
-            
+            <div class="mm-sectionLabel">
+                <span><span data-bind="text: name"></span> Offers</span>
+            </div>
             <ul data-role="listview" data-bind="template: { name: 'offerItemTemplate', foreach: offers }">
             </ul>
             
