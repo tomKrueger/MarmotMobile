@@ -175,14 +175,15 @@ ul
 .touchcarousel .item-block h4
 {
     background-color: #4c6163;
+    background-color: red;
     color: #ffffff;
     font-family: Oswald-Light;
     font-size: 13px;
     
     height: 20px;
-    margin-top: 98px;
+    margin-top: 104px;
     position: absolute;
-    padding: 1px 1px 6px 6px;    
+    padding: 0px 0px 0px 6px;    
     /*z-index: 2;    */
 }
 
@@ -194,7 +195,7 @@ ul
     content:" ";
     position:absolute;
     width:13px;
-    height:41px;
+    height:20px;
     margin:0 0 0 0px;
 }
 
