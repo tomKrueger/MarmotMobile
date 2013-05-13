@@ -313,7 +313,7 @@ ul
 
 .offersSection .offerPlace
 {
-    font-size: 15px;
+    font-size: 16px;
     font-family:Oswald-Bold;
     color: #dd6f3e;
     padding-top: 0;
@@ -321,7 +321,7 @@ ul
 
 .offersSection .offerDesc
 {
-    font-size: 12px;
+    font-size: 15px; /* Changing this may affect scrolling performance.  Test on device */
     font-family: Oswald-Regular;
     color: #33637b;
 }
